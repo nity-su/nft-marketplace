@@ -97,6 +97,12 @@ const MetaMusicIntro = styled.div`
   background-color: orange;
 `;
 
+const CommingSoonContainerBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
+
 const CommingSoonContainer = styled.div`
   width: 1000px;
   height: 381px;
@@ -152,14 +158,16 @@ function Introduce() {
       <MetaMusicIntroBox>
         <MetaMusicIntro></MetaMusicIntro>
       </MetaMusicIntroBox>
-      <CommingSoonContainer>
-        <CommingSoonTitle>COMMING SOON</CommingSoonTitle>
-        <CommingSoonImgBox>
-          <CommingSoonImg1></CommingSoonImg1>
-          <CommingSoonImg2></CommingSoonImg2>
-          <CommingSoonImg3></CommingSoonImg3>
-        </CommingSoonImgBox>
-      </CommingSoonContainer>
+      <CommingSoonContainerBox>
+        <CommingSoonContainer>
+          <CommingSoonTitle>COMMING SOON</CommingSoonTitle>
+          <CommingSoonImgBox>
+            <CommingSoonImg1></CommingSoonImg1>
+            <CommingSoonImg2></CommingSoonImg2>
+            <CommingSoonImg3></CommingSoonImg3>
+          </CommingSoonImgBox>
+        </CommingSoonContainer>
+      </CommingSoonContainerBox>
     </BackGroundBox>
   );
 }
