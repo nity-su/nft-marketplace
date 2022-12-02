@@ -5,6 +5,8 @@ import QuestionAnswer from "@components/organisms/home/QuestionAnswer";
 import TopAlbum from "@components/organisms/home/TopAlbum";
 import React from "react";
 import styled from "styled-components";
+import About from "@components/organisms/home/About";
+import Qanda from "@components/organisms/home/Qanda";
 
 const Container = styled.div``;
 
@@ -15,6 +17,8 @@ export default function Home() {
       <CommingSoon />
       <TopAlbum />
       <QuestionAnswer />
+      <Qanda />
+      <About />
       <Footer />
     </Container>
   );
