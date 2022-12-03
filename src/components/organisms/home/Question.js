@@ -3,27 +3,30 @@ import styled from "styled-components";
 const Container = styled.div`
   width: 100%;
   height: 70vh;
-  background-color: whitesmoke;
+  background-color: yellowgreen;
 `;
 
 const MainBox = styled.div`
-  display: flex;
+  display: grid;
+  display: column;
   justify-content: center;
   align-items: center;
 `;
 
 const QaBox = styled.div`
-  width: 300px;
-  height: 300px;
-  margin: 200px;
-  background-color: black;
+  width: 1000px;
+  height: 100px;
+  margin: 20px;
+  background-color: whitesmoke;
+  border-radius: 30px;
 `;
 
-export default function Qanda() {
+export default function Question() {
   return (
     <>
       <Container>
         <MainBox>
+          <QaBox></QaBox>
           <QaBox></QaBox>
           <QaBox></QaBox>
           <QaBox></QaBox>
