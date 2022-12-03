@@ -6,41 +6,50 @@ import businessThree from "src/assets/images/C.png";
 const Container = styled.div`
   width: 100%;
   height: 85vh;
-  background-color: goldenrod;
+  
+  background-color: whitesmoke;
 `;
 
 const MembersBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
 `;
 
 const Member = styled.div`
-  width: 300px;
-  height: 300px;
-  margin: 200px;
-  background-color: whitesmoke;
+  width: 200px;
+  height: 200px;
+  margin: 100px;
+  background-color: pink;
+  border-radius: 50%;
+    
 `;
 
-const MemberWrapper = styled.div``;
-
 const MemberA = styled.div`
-  width: 570px;
-  height: 350px;
+  width: 380px;
+  height: 380px;
 
+  background-size: contain; // 채우기
+  background-repeat: no-repeat; // 반복되는 사진 중지
   background-image: url(${businessOne});
 `;
 
 const MemberB = styled.div`
-  width: 570px;
-  height: 350px;
+  width: 380px;
+  height: 380px;
+
+  background-size: contain; // 채우기
+  background-repeat: no-repeat; // 반복되는 사진 중지
   background-image: url(${businessTwo});
 `;
 
 const MemberC = styled.div`
-  width: 570px;
-  height: 350px;
+  width: 380px;
+  height: 380px;
 
+  background-size: contain; // 채우기
+  background-repeat: no-repeat; // 반복되는 사진 중지
   background-image: url(${businessThree});
 `;
 

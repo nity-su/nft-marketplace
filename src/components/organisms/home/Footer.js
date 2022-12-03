@@ -6,6 +6,7 @@ const Container = styled.div`
   display:flex;
   align-items:center;
   background-color: #a786df;
+  
 `;
 
 const Atext = styled.div`
@@ -14,7 +15,7 @@ const Atext = styled.div`
     font-family: "Inter";
     font-style: normal;
     font-weight: 700;
-    font-size: 80px;
+    font-size: 40px;
     line-height: 44px;
 
     text-align: start;
