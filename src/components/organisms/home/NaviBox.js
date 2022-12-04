@@ -10,7 +10,7 @@ const Navibox = styled.div`
   top: 0;
   background-color: white;
   width: 100%;
-  height: 70px;
+  height: 75px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -18,7 +18,7 @@ const Navibox = styled.div`
 
 const LogoBox = styled.div`
   width: 200px;
-  height: 100px;
+  height: 70px;
   background-image: url(${LogoImg});
   background-repeat: no-repeat;
   background-size: contain;
