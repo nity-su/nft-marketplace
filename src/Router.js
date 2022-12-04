@@ -3,6 +3,8 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Tradeplace from "./pages/Tradeplace";
+import AllCollection from "./pages/AllCollection";
+import OneCollection from "./pages/OneCollection";
 
 export default function Router() {
   return (
@@ -11,6 +13,14 @@ export default function Router() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />}></Route>
           <Route path="/tradeplace" element={<Tradeplace></Tradeplace>}></Route>
+          <Route
+            path="/allcollection"
+            element={<AllCollection></AllCollection>}
+          ></Route>
+          <Route
+            path="/onecollection"
+            element={<OneCollection></OneCollection>}
+          ></Route>
         </Route>
       </Routes>
     </BrowserRouter>

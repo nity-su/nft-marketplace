@@ -6,7 +6,7 @@ import businessThree from "src/assets/images/C.png";
 const Container = styled.div`
   width: 100%;
   height: 85vh;
-  
+
   background-color: whitesmoke;
 `;
 
@@ -14,7 +14,6 @@ const MembersBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  
 `;
 
 const Member = styled.div`
@@ -23,7 +22,6 @@ const Member = styled.div`
   margin: 100px;
   background-color: pink;
   border-radius: 50%;
-    
 `;
 
 const MemberA = styled.div`
@@ -58,6 +56,14 @@ const Temp = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  div {
+    font-size: 30px;
+    font-weight: 800;
+    @media screen and (min-width: 720px) {
+      font-size: 30px;
+    }
+  }
 `;
 
 export default function About() {
@@ -67,15 +73,24 @@ export default function About() {
         <MembersBox>
           <Temp>
             <Member></Member>
-            <MemberA />
+            <div>Gold CEO</div><br/><br/><br/>
+            <div>멋쟁이 사자처럼</div><br/>
+            <div>블체스 1기</div><br/><br/><br/>
+            <div>기획</div>
           </Temp>
           <Temp>
             <Member></Member>
-            <MemberB />
+            <div>Ray CTO</div><br/><br/><br/>
+            <div>멋쟁이 사자처럼</div><br/>
+            <div>블체스 1기</div><br/><br/><br/>
+            <div>수석 개발자</div>
           </Temp>
           <Temp>
             <Member></Member>
-            <MemberC />
+            <div>Key CIO</div><br/><br/><br/>
+            <div>멋쟁이 사자처럼</div><br/>
+            <div>블체스 1기</div><br/><br/><br/>
+            <div>마케팅,홍보</div>
           </Temp>
         </MembersBox>
       </Container>
