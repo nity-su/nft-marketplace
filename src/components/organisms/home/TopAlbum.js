@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import ItemCard from "@components/molecules/ItemCard";
+import ItemCards from "@components/molecules/ItemCards";
 
 const Container = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ export default function TopAlbum() {
     <>
       <Container>
         <ItemCardsBox>
-          <ItemCard />
+          <ItemCards />
         </ItemCardsBox>
       </Container>
     </>
