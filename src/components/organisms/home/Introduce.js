@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import TestImg from "../../assets/images/testimg.jpg";
-import NaviBox from "./NaviBox";
 
 const BackGroundBox = styled.div`
   width: 100%;
@@ -78,7 +77,6 @@ const CommingSoonImg3 = styled.div`
 function Introduce() {
   return (
     <BackGroundBox>
-      <NaviBox></NaviBox>
       <MetaMusicIntroBox>
         <MetaMusicIntro></MetaMusicIntro>
       </MetaMusicIntroBox>

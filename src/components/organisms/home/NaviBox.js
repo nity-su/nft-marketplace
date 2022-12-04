@@ -18,7 +18,7 @@ const Navibox = styled.div`
 
 const LogoBox = styled.div`
   width: 200px;
-  height: 100px;
+  height: 70px;
   background-image: url(${LogoImg});
   background-repeat: no-repeat;
   background-size: contain;
