@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import TestImg from "../../assets/images/testimg.jpg";
 import NaviBox from "./NaviBox";
-//import CommingSoonCarousel from "./Introduce_page/Carousel";
 
 const BackGroundBox = styled.div`
   width: 100%;
