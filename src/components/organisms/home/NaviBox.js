@@ -10,7 +10,7 @@ const Navibox = styled.div`
   top: 0;
   background-color: white;
   width: 100%;
-  height: 70px;
+  height: 75px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
