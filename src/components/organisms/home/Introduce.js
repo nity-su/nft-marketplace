@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import TestImg from "../../assets/images/testimg.jpg";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Carousel from "./Introduce_page/Carousel";
 
 const BackGroundBox = styled.div`
   width: 100%;
@@ -49,29 +52,6 @@ const CommingSoonImgBox = styled.div`
   margin-top: 20px;
   width: 950px;
   height: 350px;
-  display: flex;
-  justify-content: space-around;
-`;
-
-const CommingSoonImg1 = styled.div`
-  width: 300px;
-  height: 300px;
-  border-radius: 20px;
-  background-color: red;
-`;
-
-const CommingSoonImg2 = styled.div`
-  width: 300px;
-  height: 300px;
-  border-radius: 20px;
-  background-color: green;
-`;
-
-const CommingSoonImg3 = styled.div`
-  width: 300px;
-  height: 300px;
-  border-radius: 20px;
-  background-color: blue;
 `;
 
 function Introduce() {
@@ -84,9 +64,7 @@ function Introduce() {
         <CommingSoonContainer>
           <CommingSoonTitle>COMMING SOON</CommingSoonTitle>
           <CommingSoonImgBox>
-            <CommingSoonImg1></CommingSoonImg1>
-            <CommingSoonImg2></CommingSoonImg2>
-            <CommingSoonImg3></CommingSoonImg3>
+            <Carousel></Carousel>
           </CommingSoonImgBox>
         </CommingSoonContainer>
       </CommingSoonContainerBox>
