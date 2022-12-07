@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
-import Tradeplace from "./pages/Tradeplace";
+import Tradeplace from "./components/organisms/tradeplace/Tradeplace";
 import AllCollection from "./pages/AllCollection";
 import OneCollection from "./pages/OneCollection";
 
