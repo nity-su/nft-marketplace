@@ -4,7 +4,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Tradeplace from "./components/organisms/tradeplace/Tradeplace";
 import AllCollection from "./pages/AllCollection";
-import OneCollection from "./pages/OneCollection";
+import NFTList from "./pages/NFTList";
 
 export default function Router() {
   return (
@@ -17,10 +17,7 @@ export default function Router() {
             path="/allcollection"
             element={<AllCollection></AllCollection>}
           ></Route>
-          <Route
-            path="/onecollection"
-            element={<OneCollection></OneCollection>}
-          ></Route>
+          <Route path="/nftlist" element={<NFTList></NFTList>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
