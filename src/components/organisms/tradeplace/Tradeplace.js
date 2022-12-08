@@ -37,7 +37,7 @@ const LeftBox = styled.div`
 const NftImg = styled.div`
   margin-top: 50px;
   margin-left: 35px;
-  width: 399px;
+  width: 400px;
   height: 381px;
   border-radius: 20px;
   background-image: url(${TestImg2});
