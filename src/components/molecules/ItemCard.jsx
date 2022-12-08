@@ -43,11 +43,11 @@ const NftPrice = styled.span`
 
 const Volume = styled.span``;
 
-export default function ItemCard({ rank }) {
+export default function ItemCard({ rank, url }) {
   return (
     <Container>
       <Rank>{rank}</Rank>
-      <Pic></Pic>
+      <Pic src={url}></Pic>
       <TitleText>뉴진스 앨범</TitleText>
       <NftPrice>100 Eth</NftPrice>
       <Volume>1,000 Ether</Volume>

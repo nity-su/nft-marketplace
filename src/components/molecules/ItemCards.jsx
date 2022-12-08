@@ -15,7 +15,7 @@ const ItemCardsWrapper = styled.div`
   row-gap: 12px;
 `;
 
-export default function ItemCards() {
+export default function ItemCards({ url }) {
   const first_array = [];
   const second_array = [];
 
@@ -31,12 +31,12 @@ export default function ItemCards() {
     <Container>
       <ItemCardsWrapper>
         {first_array.map((x, index) => {
-          return <ItemCard key={index} rank={x} />;
+          return <ItemCard key={index} rank={x} url={url} />;
         })}
       </ItemCardsWrapper>
       <ItemCardsWrapper>
         {second_array.map((x, index) => {
-          return <ItemCard key={index} rank={x} />;
+          return <ItemCard key={index} rank={x} url={url} />;
         })}
       </ItemCardsWrapper>
     </Container>
