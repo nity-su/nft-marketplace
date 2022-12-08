@@ -2,9 +2,9 @@ import React from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
-import Tradeplace from "./components/organisms/tradeplace/Tradeplace";
+import Tradeplace from "./pages/Tradeplace";
 import AllCollection from "./pages/AllCollection";
-import NFTList from "./pages/NFTList";
+import OneCollection from "./pages/OneCollection";
 
 export default function Router() {
   return (
@@ -17,7 +17,10 @@ export default function Router() {
             path="/allcollection"
             element={<AllCollection></AllCollection>}
           ></Route>
-          <Route path="/nftlist" element={<NFTList></NFTList>}></Route>
+          <Route
+            path="/onecollection"
+            element={<OneCollection></OneCollection>}
+          ></Route>
         </Route>
       </Routes>
     </BrowserRouter>

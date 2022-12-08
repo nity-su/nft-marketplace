@@ -1,63 +1,44 @@
-import React, { Component } from "react";
-import Slider from "react-slick";
+import React from "react";
+import Carousel from "better-react-carousel";
 import styled from "styled-components";
 
-const CommingSoonImg1 = styled.div`
-  width: 300px;
-  height: 300px;
-  border-radius: 20px;
-  background-color: red;
+const CommingSoonContainer = styled.div`
+  width: 280px;
+  height: 215px;
+  position: absolute;
+  top: 405px;
+  left: 1165px;
 `;
 
-const CommingSoonImg2 = styled.div`
-  width: 300px;
-  height: 300px;
-  border-radius: 20px;
-  background-color: green;
-`;
+const CommingSoonCarousel = () => {
+  return (
+    <CommingSoonContainer>
+      <Carousel cols={1} rows={1} gap={10} loop>
+        <Carousel.Item>
+          <img
+            src="https://iili.io/HK6lh67.png"
+            style={{ width: "280px", height: "215px" }}
+            alt="pic"
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img src="https://picsum.photos/280/215?random=2" alt="pic" />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img src="https://picsum.photos/280/215?random=3" alt="pic" />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img src="https://picsum.photos/280/215?random=1" alt="pic" />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img src="https://picsum.photos/280/215?random=2" alt="pic" />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img src="https://picsum.photos/280/215?random=3" alt="pic" />
+        </Carousel.Item>
+      </Carousel>
+    </CommingSoonContainer>
+  );
+};
 
-const CommingSoonImg3 = styled.div`
-  width: 300px;
-  height: 300px;
-  border-radius: 20px;
-  background-color: blue;
-`;
-
-export default class AutoPlay extends Component {
-  render() {
-    const settings = {
-      dots: true,
-      infinite: true,
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      autoplay: true,
-      speed: 2000,
-      autoplaySpeed: 2000,
-      cssEase: "linear",
-    };
-    return (
-      <div>
-        <Slider {...settings}>
-          <div>
-            <CommingSoonImg1></CommingSoonImg1>
-          </div>
-          <div>
-            <CommingSoonImg2></CommingSoonImg2>
-          </div>
-          <div>
-            <CommingSoonImg3></CommingSoonImg3>
-          </div>
-          <div>
-            <CommingSoonImg1></CommingSoonImg1>
-          </div>
-          <div>
-            <CommingSoonImg2></CommingSoonImg2>
-          </div>
-          <div>
-            <CommingSoonImg3></CommingSoonImg3>
-          </div>
-        </Slider>
-      </div>
-    );
-  }
-}
+export default CommingSoonCarousel;
