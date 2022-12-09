@@ -4,6 +4,7 @@ import LogoImg from "../../assets/images/metamusic_test_logo.png";
 import UserProfile from "../../assets/images/user_profile.png";
 import SearchLens from "../../assets/images/searchlens.png";
 import Wallet from "../../assets/images/wallet.png";
+import { Link } from "react-router-dom";
 
 const Navibox = styled.div`
   position: sticky;
@@ -141,7 +142,10 @@ function NaviBox() {
           <LensBox></LensBox> <LensTextBox>Search</LensTextBox>
         </SearchBox>
       </SearchBoxContainer>
-      <MarketAllBox>Market All</MarketAllBox>
+      <Link to="/" style={<MarketAllBox />}>
+        Market All
+      </Link>
+      {/* <MarketAllBox>Market All</MarketAllBox> */}
       <QnABox>Q&A</QnABox>
       <ProfileBox>
         <ProfileImgBox></ProfileImgBox>
