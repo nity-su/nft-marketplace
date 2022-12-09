@@ -5,9 +5,5 @@ import styled from "styled-components";
 const Container = styled.div``;
 
 export default function Layout() {
-  return (
-    <Container>
-      <Nav />
-    </Container>
-  );
+  return <Container></Container>;
 }

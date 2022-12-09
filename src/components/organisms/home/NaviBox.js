@@ -4,7 +4,7 @@ import LogoImg from "../../assets/images/metamusic_test_logo.png";
 import UserProfile from "../../assets/images/user_profile.png";
 import SearchLens from "../../assets/images/searchlens.png";
 import Wallet from "../../assets/images/wallet.png";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const Navibox = styled.div`
   position: sticky;
@@ -65,7 +65,7 @@ const LensTextBox = styled.div`
   font-size: 20px;
 `;
 
-const MarketAllBox = styled.div`
+const MarketAllBoxLink = styled(Link)`
   margin-top: 25px;
   width: 100px;
   height: 24px;
@@ -73,6 +73,8 @@ const MarketAllBox = styled.div`
   font-weight: bold;
   display: flex;
   justify-content: center;
+
+  text-decoration: none;
 `;
 
 const QnABox = styled.div`
@@ -142,9 +144,7 @@ function NaviBox() {
           <LensBox></LensBox> <LensTextBox>Search</LensTextBox>
         </SearchBox>
       </SearchBoxContainer>
-      <Link to="/" style={<MarketAllBox />}>
-        Market All
-      </Link>
+      <MarketAllBoxLink to="/allcollection">Market All</MarketAllBoxLink>
       {/* <MarketAllBox>Market All</MarketAllBox> */}
       <QnABox>Q&A</QnABox>
       <ProfileBox>
@@ -155,6 +155,7 @@ function NaviBox() {
         <ConnectWalletImg></ConnectWalletImg>
         <ConnectWalletText>Connect Wallet</ConnectWalletText>
       </ConnectWalletContainer>
+      <Outlet />
     </Navibox>
   );
 }

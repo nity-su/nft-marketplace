@@ -13,11 +13,8 @@ export default function Router() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />}></Route>
           <Route path="/tradeplace" element={<Tradeplace></Tradeplace>}></Route>
-          <Route
-            path="/allcollection"
-            element={<AllCollection></AllCollection>}
-          ></Route>
-          <Route path="/nftlist" element={<NFTList></NFTList>}></Route>
+          <Route path="/allcollection" element={<AllCollection />}></Route>
+          <Route path="/nftlist" element={<NFTList />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
