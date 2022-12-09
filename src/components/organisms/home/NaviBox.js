@@ -15,6 +15,8 @@ const Navibox = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+
+  z-index: 999;
 `;
 
 const LogoBox = styled.div`
@@ -137,26 +139,28 @@ const ConnectWalletText = styled.div`
 
 function NaviBox() {
   return (
-    <Navibox>
-      <LogoBox></LogoBox>
-      <SearchBoxContainer>
-        <SearchBox>
-          <LensBox></LensBox> <LensTextBox>Search</LensTextBox>
-        </SearchBox>
-      </SearchBoxContainer>
-      <MarketAllBoxLink to="/allcollection">Market All</MarketAllBoxLink>
-      {/* <MarketAllBox>Market All</MarketAllBox> */}
-      <QnABox>Q&A</QnABox>
-      <ProfileBox>
-        <ProfileImgBox></ProfileImgBox>
-        <ProfileTextBox>Profile</ProfileTextBox>
-      </ProfileBox>
-      <ConnectWalletContainer>
-        <ConnectWalletImg></ConnectWalletImg>
-        <ConnectWalletText>Connect Wallet</ConnectWalletText>
-      </ConnectWalletContainer>
+    <>
+      <Navibox>
+        <LogoBox></LogoBox>
+        <SearchBoxContainer>
+          <SearchBox>
+            <LensBox></LensBox> <LensTextBox>Search</LensTextBox>
+          </SearchBox>
+        </SearchBoxContainer>
+        <MarketAllBoxLink to="/allcollection">Market All</MarketAllBoxLink>
+        {/* <MarketAllBox>Market All</MarketAllBox> */}
+        <QnABox>Q&A</QnABox>
+        <ProfileBox>
+          <ProfileImgBox></ProfileImgBox>
+          <ProfileTextBox>Profile</ProfileTextBox>
+        </ProfileBox>
+        <ConnectWalletContainer>
+          <ConnectWalletImg></ConnectWalletImg>
+          <ConnectWalletText>Connect Wallet</ConnectWalletText>
+        </ConnectWalletContainer>
+      </Navibox>
       <Outlet />
-    </Navibox>
+    </>
   );
 }
 
