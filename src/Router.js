@@ -1,26 +1,20 @@
 import React from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Layout from "./components/Layout";
 import Home from "./pages/Home";
-import Tradeplace from "./pages/Tradeplace";
+import Tradeplace from "./components/organisms/tradeplace/Tradeplace";
 import AllCollection from "./pages/AllCollection";
-import OneCollection from "./pages/OneCollection";
+import NFTList from "./pages/NFTList";
+import NaviBox from "@components/organisms/home/NaviBox";
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<NaviBox />}>
           <Route index element={<Home />}></Route>
           <Route path="/tradeplace" element={<Tradeplace></Tradeplace>}></Route>
-          <Route
-            path="/allcollection"
-            element={<AllCollection></AllCollection>}
-          ></Route>
-          <Route
-            path="/onecollection"
-            element={<OneCollection></OneCollection>}
-          ></Route>
+          <Route path="/allcollection" element={<AllCollection />}></Route>
+          <Route path="/nftlist" element={<NFTList />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

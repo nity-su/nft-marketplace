@@ -4,6 +4,7 @@ import LogoImg from "../../assets/images/metamusic_test_logo.png";
 import UserProfile from "../../assets/images/user_profile.png";
 import SearchLens from "../../assets/images/searchlens.png";
 import Wallet from "../../assets/images/wallet.png";
+import { Link, Outlet } from "react-router-dom";
 
 const Navibox = styled.div`
   position: sticky;
@@ -14,6 +15,8 @@ const Navibox = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+
+  z-index: 999;
 `;
 
 const LogoBox = styled.div`
@@ -64,7 +67,7 @@ const LensTextBox = styled.div`
   font-size: 20px;
 `;
 
-const MarketAllBox = styled.div`
+const MarketAllBoxLink = styled(Link)`
   margin-top: 25px;
   width: 100px;
   height: 24px;
@@ -72,6 +75,8 @@ const MarketAllBox = styled.div`
   font-weight: bold;
   display: flex;
   justify-content: center;
+
+  text-decoration: none;
 `;
 
 const QnABox = styled.div`
@@ -134,24 +139,28 @@ const ConnectWalletText = styled.div`
 
 function NaviBox() {
   return (
-    <Navibox>
-      <LogoBox></LogoBox>
-      <SearchBoxContainer>
-        <SearchBox>
-          <LensBox></LensBox> <LensTextBox>Search</LensTextBox>
-        </SearchBox>
-      </SearchBoxContainer>
-      <MarketAllBox>Market All</MarketAllBox>
-      <QnABox>Q&A</QnABox>
-      <ProfileBox>
-        <ProfileImgBox></ProfileImgBox>
-        <ProfileTextBox>Profile</ProfileTextBox>
-      </ProfileBox>
-      <ConnectWalletContainer>
-        <ConnectWalletImg></ConnectWalletImg>
-        <ConnectWalletText>Connect Wallet</ConnectWalletText>
-      </ConnectWalletContainer>
-    </Navibox>
+    <>
+      <Navibox>
+        <LogoBox></LogoBox>
+        <SearchBoxContainer>
+          <SearchBox>
+            <LensBox></LensBox> <LensTextBox>Search</LensTextBox>
+          </SearchBox>
+        </SearchBoxContainer>
+        <MarketAllBoxLink to="/allcollection">Market All</MarketAllBoxLink>
+        {/* <MarketAllBox>Market All</MarketAllBox> */}
+        <QnABox>Q&A</QnABox>
+        <ProfileBox>
+          <ProfileImgBox></ProfileImgBox>
+          <ProfileTextBox>Profile</ProfileTextBox>
+        </ProfileBox>
+        <ConnectWalletContainer>
+          <ConnectWalletImg></ConnectWalletImg>
+          <ConnectWalletText>Connect Wallet</ConnectWalletText>
+        </ConnectWalletContainer>
+      </Navibox>
+      <Outlet />
+    </>
   );
 }
 
