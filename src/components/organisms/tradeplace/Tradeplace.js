@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import TestImg2 from "@components/organisms/tradeplace/newjeans.png";
 import NaviBox from "@components/organisms/home/NaviBox";
@@ -65,6 +65,7 @@ const PriceTextBox2 = styled.div`
 `;
 
 const PriceTextBoxDetail1 = styled.div`
+  margin-top: 10px;
   width: 150px;
   height: 44px;
   font-size: 36px;
@@ -72,6 +73,7 @@ const PriceTextBoxDetail1 = styled.div`
 `;
 
 const PriceTextBoxDetail2 = styled.div`
+  margin-top: 10px;
   width: 150px;
   height: 44px;
   font-size: 16px;
@@ -146,7 +148,6 @@ const UserInfoBox = styled.div`
   margin-top: 10px;
   margin-left: 35px;
   display: flex;
-  background-color: whitesmoke;
   border-radius: 15px;
 `;
 
@@ -181,7 +182,6 @@ const NFTDetailBox = styled.div`
   height: 248px;
   margin-top: 10px;
   margin-left: 35px;
-  background-color: whitesmoke;
   border-radius: 15px;
 `;
 
@@ -208,7 +208,6 @@ const TransactionBox = styled.div`
   height: 380px;
   margin-top: 10px;
   margin-left: 35px;
-  background-color: whitesmoke;
   border-radius: 15px;
 `;
 
@@ -285,10 +284,71 @@ const TransactionDetailIndivTextBox = styled.div`
   font-weight: bold;
 `;
 
+const Button = styled.button`
+  cursor: pointer;
+  background-color: white;
+  border-radius: 15px;
+  margin: 6px;
+  border: 0;
+  outline: 0;
+  color: black;
+  width: 162px;
+  height: 76px;
+  padding: 0px 0px;
+  font-size: 24px;
+  font-weight: bold;
+  transition: ease background-color 250ms;
+  &:hover {
+    background-color: gray;
+  }
+  &:disabled {
+    cursor: default;
+    color: gray;
+  }
+`;
+
+const BuySuggestButton = styled.button`
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  padding: 0px 0px;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 15px;
+`;
+
+function clickMe() {
+  alert("페이지 링크 예정");
+}
+
+const types = ["거래 내역", "가격 제안", "유틸리티"];
+
+function ToggleGroup() {
+  const [active, setActive] = useState(types[0]);
+  return (
+    <div>
+      {types.map((type) => (
+        <ButtonToggle active={active === type} onClick={() => setActive(type)}>
+          {type}
+        </ButtonToggle>
+      ))}
+    </div>
+  );
+}
+
+const ButtonToggle = styled(Button)`
+  opacity: 0.5;
+  ${({ active }) =>
+    active &&
+    `
+
+opacity: 1;
+`};
+`;
+
 function Tradeplace() {
   return (
     <BackGroundContainer>
-      <NaviBox></NaviBox>
       <TradeplaceBackGroundContainer>
         <Container>
           <LeftBox>
@@ -300,16 +360,20 @@ function Tradeplace() {
                 <PriceTextBoxDetail2>KLAY</PriceTextBoxDetail2>
               </PriceTextBox2>
               <ButtonContainer>
-                <ButtonBuy>
-                  <ButtonBuyText>
-                    <h1>구매</h1>
-                  </ButtonBuyText>
-                </ButtonBuy>
-                <ButtonSuggest>
-                  <ButtonSuggestText>
-                    <h1>가격 제안</h1>
-                  </ButtonSuggestText>
-                </ButtonSuggest>
+                <BuySuggestButton onClick={clickMe}>
+                  <ButtonBuy>
+                    <ButtonBuyText>
+                      <h1>구매</h1>
+                    </ButtonBuyText>
+                  </ButtonBuy>
+                </BuySuggestButton>
+                <BuySuggestButton onClick={clickMe}>
+                  <ButtonSuggest>
+                    <ButtonSuggestText>
+                      <h1>가격 제안</h1>
+                    </ButtonSuggestText>
+                  </ButtonSuggest>
+                </BuySuggestButton>
               </ButtonContainer>
             </PriceBox>
           </LeftBox>
@@ -337,11 +401,7 @@ function Tradeplace() {
               </NFTInfoBox_Detail>
             </NFTDetailBox>
             <TransactionBox>
-              <TransactionTitleBox>
-                <TransactionTitleTextBox>거래 내역</TransactionTitleTextBox>
-                <TransactionTitleTextBox>가격 제안</TransactionTitleTextBox>
-                <TransactionTitleTextBox>유틸리티</TransactionTitleTextBox>
-              </TransactionTitleBox>
+              <ToggleGroup />
               <Line></Line>
               <TransactionContentBox>
                 <TransactionContentTextBox>Event</TransactionContentTextBox>
