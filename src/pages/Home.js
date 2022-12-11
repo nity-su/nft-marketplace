@@ -6,7 +6,6 @@ import React from "react";
 import styled from "styled-components";
 import About from "@components/organisms/home/About";
 import Question from "@components/organisms/home/Question";
-import NaviBox from "@components/organisms/home/NaviBox";
 
 const Container = styled.div``;
 
