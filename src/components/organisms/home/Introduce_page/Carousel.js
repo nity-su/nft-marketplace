@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
 import { Link, Outlet } from "react-router-dom";
-import TestImg2 from "@components/organisms/tradeplace/newjeans.png";
+import TestImg1 from "@components/organisms/tradeplace/newjeans.png";
+import TestImg2 from "@components/organisms/tradeplace/BTS.png";
+import TestImg3 from "@components/organisms/tradeplace/IDLE.png";
+import TestImg4 from "@components/organisms/tradeplace/LoveImage.png";
 
 const LinkBox = styled(Link)``;
 
@@ -10,7 +13,7 @@ const CommingSoonTestImg1 = styled.div`
   width: 300px;
   height: 300px;
   border-radius: 20px;
-  background-image: url(${TestImg2});
+  background-image: url(${TestImg1});
   background-repeat: no-repeat;
   background-size: cover;
 `;
@@ -20,6 +23,10 @@ const CommingSoonImg1 = styled.div`
   height: 300px;
   border-radius: 20px;
   background-color: red;
+  background-image: url(${TestImg2});
+  background-repeat: no-repeat;
+  background-size: cover;
+  
 `;
 
 const CommingSoonImg2 = styled.div`
@@ -27,6 +34,9 @@ const CommingSoonImg2 = styled.div`
   height: 300px;
   border-radius: 20px;
   background-color: green;
+  background-image: url(${TestImg3});
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 const CommingSoonImg3 = styled.div`
@@ -34,6 +44,9 @@ const CommingSoonImg3 = styled.div`
   height: 300px;
   border-radius: 20px;
   background-color: blue;
+  background-image: url(${TestImg4});
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 const Button = styled.button`
