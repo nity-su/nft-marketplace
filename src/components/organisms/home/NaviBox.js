@@ -155,7 +155,7 @@ function NaviBox() {
         </SearchBoxContainer>
         <MarketAllBoxLink to="/allcollection">Market All</MarketAllBoxLink>
         {/* <MarketAllBox>Market All</MarketAllBox> */}
-        <QnABox onClick={clickMe}>Q&A</QnABox>
+        <QnABox onClick={clickMe}>FAQ</QnABox>
         <ProfileBox onClick={clickMe}>
           <ProfileImgBox></ProfileImgBox>
           <ProfileTextBox>Profile</ProfileTextBox>
