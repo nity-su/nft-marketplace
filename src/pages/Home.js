@@ -4,7 +4,6 @@ import Introduce from "@components/organisms/home/Introduce";
 import TopAlbum from "@components/organisms/home/TopAlbum";
 import React from "react";
 import styled from "styled-components";
-import About from "@components/organisms/home/About";
 import Question from "@components/organisms/home/Question";
 
 const Container = styled.div``;
@@ -17,7 +16,6 @@ export default function Home() {
       <CommingSoon />
       <TopAlbum />
       <Question />
-      <About />
       <Footer />
     </Container>
   );
