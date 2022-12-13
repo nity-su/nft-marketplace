@@ -1,4 +1,3 @@
-import CommingSoon from "@components/organisms/home/CommingSoon";
 import Footer from "@components/organisms/home/Footer";
 import Introduce from "@components/organisms/home/Introduce";
 import TopAlbum from "@components/organisms/home/TopAlbum";
@@ -13,7 +12,6 @@ export default function Home() {
     <Container>
       {/* <NaviBox></NaviBox> */}
       <Introduce />
-      <CommingSoon />
       <TopAlbum />
       <Question />
       <Footer />

@@ -92,6 +92,11 @@ export default class AutoPlay extends Component {
           </div>
           <div>
             <Button onClick={clickMe}>
+              <CommingSoonImg1></CommingSoonImg1>
+            </Button>
+          </div>
+          <div>
+            <Button onClick={clickMe}>
               <CommingSoonImg2></CommingSoonImg2>
             </Button>
           </div>
@@ -108,11 +113,6 @@ export default class AutoPlay extends Component {
           <div>
             <Button onClick={clickMe}>
               <CommingSoonImg2></CommingSoonImg2>
-            </Button>
-          </div>
-          <div>
-            <Button onClick={clickMe}>
-              <CommingSoonImg3></CommingSoonImg3>
             </Button>
           </div>
         </Slider>
