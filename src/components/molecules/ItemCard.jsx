@@ -43,6 +43,8 @@ const NftPrice = styled.span`
 
 const Volume = styled.span``;
 
+
+
 export default function ItemCard({ rank, url }) {
   return (
     <Container>
