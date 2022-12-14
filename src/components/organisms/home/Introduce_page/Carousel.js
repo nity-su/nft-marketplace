@@ -26,7 +26,6 @@ const CommingSoonImg1 = styled.div`
   background-image: url(${TestImg2});
   background-repeat: no-repeat;
   background-size: cover;
-  
 `;
 
 const CommingSoonImg2 = styled.div`
@@ -87,7 +86,9 @@ export default class AutoPlay extends Component {
         <Slider {...settings}>
           <div>
             <LinkBox to="/tradeplace">
-              <CommingSoonTestImg1></CommingSoonTestImg1>
+              <Button>
+                <CommingSoonTestImg1></CommingSoonTestImg1>
+              </Button>
             </LinkBox>
           </div>
           <div>
