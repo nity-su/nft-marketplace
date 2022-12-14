@@ -1,5 +1,16 @@
+import styled from "styled-components";
 import React, { useState } from "react";
 import "../home/css/styles.css";
+
+const Meta = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 10vh;
+  margin-left: 450px;
+  background-color: white
+`;
 
 const qnaList = [
   {
@@ -61,6 +72,7 @@ const FAQ = () => {
 
   return (
     <div>
+      <Meta className="Question-heading">MetaMusic FAQ</Meta>
       <div className="fqa-parent">
         <div className="faq-list">
           {cardOnOff.map((item, index) => getQnACard(item, index))}

@@ -13,6 +13,43 @@ const Container = styled.div`
   background-color: white;
 `;
 
+const TradingMenu = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 2px;
+  margin-left: 315px;
+
+  background-color: #6246ea;
+`;
+
+const ButtonTop = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 130px;
+  height: 40px;
+  left: 264px;
+  top: 58px;
+
+  border: 3px solid #6246ea;
+  border-radius: 12px;
+`;
+
+const Collection = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100px;
+  height: 18px;
+  left: 291px;
+  top: 105px;
+  border: 3px solid #6246ea;
+`;
+
 const ItemCardsBox = styled.div``;
 
 export default function TopAlbum() {
@@ -75,11 +112,18 @@ export default function TopAlbum() {
 
   return (
     <>
+      <ButtonTop>TOP</ButtonTop>
+      <ButtonTop>View all</ButtonTop>
+      <Collection>COLLECTION</Collection>
+      <div>price</div>
+      <div>volume</div>
+      <TradingMenu></TradingMenu>
       <Container>
         <ItemCardsBox>
           <ItemCards url={state} />
         </ItemCardsBox>
       </Container>
+      <TradingMenu></TradingMenu>
     </>
   );
 }

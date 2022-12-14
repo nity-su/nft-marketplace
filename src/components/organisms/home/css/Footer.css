@@ -154,3 +154,10 @@
     flex-direction: column;
   }
 }
+
+.Question-heading {
+  color: black;
+  margin-bottom: 50px;
+  font-size: 50px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
