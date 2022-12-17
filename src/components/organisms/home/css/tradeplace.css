@@ -1,3 +1,70 @@
 h1 {
   color: white;
 }
+
+/* 이 아래로 TestTab Css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.box {
+  width: 600px;
+  justify-content: flex-start;
+  margin-top: 50px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+}
+
+.tab {
+  background: whitesmoke;
+  width: 162px;
+  height: 75px;
+  padding: 10px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  border: 1px solid whitesmoke;
+  border-top: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.active-tab {
+  border: none;
+  background: white;
+}
+
+.active-tab::after {
+  border-top: 2px solid #6246ea;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background: initial;
+  animation: new 0.5s;
+}
+
+.contents {
+  position: relative;
+}
+
+.content {
+  display: none;
+  position: relative;
+}
+
+.active-content {
+  display: block;
+  margin-top: 10px;
+  margin-right: 10px;
+  transition: all 1s ease-in-out;
+}
