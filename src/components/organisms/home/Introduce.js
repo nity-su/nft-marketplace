@@ -60,19 +60,12 @@ function Introduce() {
       <MetaMusicIntroBox>
         <MetaMusicIntro></MetaMusicIntro>
       </MetaMusicIntroBox>
-
-      <CommingSoonContainerBox>
-        <CommingSoonContainer>
-          <CommingSoonTitle>New Collection</CommingSoonTitle>
-          <CommingSoonImgBox>
-
       <NewCollectionContainerBox>
         <NewCollectionContainer>
           <NewCollectionTitle className="NewCollectionTextStyle">
             New Collection
           </NewCollectionTitle>
           <NewCollectionImgBox>
-
             <Carousel></Carousel>
           </NewCollectionImgBox>
         </NewCollectionContainer>
