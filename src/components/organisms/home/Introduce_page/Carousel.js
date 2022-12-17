@@ -85,7 +85,7 @@ export default class AutoPlay extends Component {
       <div>
         <Slider {...settings}>
           <div>
-            <LinkBox to="/tradeplace">
+            <LinkBox to="/nftlist">
               <Button>
                 <CommingSoonTestImg1></CommingSoonTestImg1>
               </Button>
