@@ -86,7 +86,9 @@ export default class AutoPlay extends Component {
         <Slider {...settings}>
           <div>
             <LinkBox to="/tradeplace">
-              <CommingSoonTestImg1></CommingSoonTestImg1>
+              <Button>
+                <CommingSoonTestImg1></CommingSoonTestImg1>
+              </Button>
             </LinkBox>
           </div>
           <div>

@@ -7,6 +7,7 @@ import Wallet from "../../assets/images/wallet.png";
 import { Link, Outlet } from "react-router-dom";
 
 const Navibox = styled.div`
+  opacity: 0.9;
   position: sticky;
   top: 0;
   background-color: white;
