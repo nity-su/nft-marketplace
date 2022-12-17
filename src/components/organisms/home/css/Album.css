@@ -1,0 +1,42 @@
+.top {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+  
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #6246ea;
+}
+
+.ViewAll {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #6246ea;
+}
+
+.Collection {
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 12px;
+  line-height: 15px;
+  /* identical to box height */
+
+  color: #ffffff;
+}
