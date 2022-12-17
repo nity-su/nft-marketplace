@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import TestImg2 from "@components/organisms/tradeplace/newjeans.png";
 import "../home/css/tradeplace.css";
-import { height } from "@mui/system";
+import Tradeplace_ from "./Tradeplace_";
 
 const BackGroundContainer = styled.div`
   display: flex;
@@ -64,6 +64,7 @@ const PriceTextBox2 = styled.div`
 `;
 
 const PriceTextBoxDetail1 = styled.div`
+  margin-top: 10px;
   width: 150px;
   height: 44px;
   font-size: 36px;
@@ -71,6 +72,7 @@ const PriceTextBoxDetail1 = styled.div`
 `;
 
 const PriceTextBoxDetail2 = styled.div`
+  margin-top: 10px;
   width: 150px;
   height: 44px;
   font-size: 16px;
@@ -145,7 +147,6 @@ const UserInfoBox = styled.div`
   margin-top: 10px;
   margin-left: 35px;
   display: flex;
-  background-color: whitesmoke;
   border-radius: 15px;
 `;
 
@@ -180,7 +181,6 @@ const NFTDetailBox = styled.div`
   height: 248px;
   margin-top: 10px;
   margin-left: 35px;
-  background-color: whitesmoke;
   border-radius: 15px;
 `;
 
@@ -207,27 +207,8 @@ const TransactionBox = styled.div`
   height: 380px;
   margin-top: 10px;
   margin-left: 35px;
-  background-color: whitesmoke;
   border-radius: 15px;
-`;
-
-const TransactionTitleBox = styled.div`
-  width: 523px;
-  height: 76px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-`;
-
-const TransactionTitleTextBox = styled.div`
-  width: 162px;
-  height: 76px;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 24px;
-  font-weight: bold;
 `;
 
 const Line = styled.div`
@@ -236,53 +217,42 @@ const Line = styled.div`
   background-color: black;
 `;
 
-const TransactionContentBox = styled.div`
-  width: 523px;
-  height: 40px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-`;
-
-const TransactionContentTextBox = styled.div`
-  width: 97px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
+const Button = styled.button`
+  cursor: pointer;
+  background-color: white;
+  border-radius: 15px;
+  margin: 6px;
+  border: 0;
+  outline: 0;
+  color: black;
+  width: 162px;
+  height: 76px;
+  padding: 0px 0px;
+  font-size: 24px;
   font-weight: bold;
+  transition: ease background-color 250ms;
+  &:hover {
+    background-color: gray;
+  }
+  &:disabled {
+    cursor: default;
+    color: gray;
+  }
 `;
 
-const TransactionDetailBox = styled.div`
-  width: 523px;
-  height: 260px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  gap: 5px;
-`;
-
-const TransactionDetailIndivBox = styled.div`
-  width: 523px;
-  height: 40px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-`;
-
-const TransactionDetailIndivTextBox = styled.div`
-  width: 97px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
+const BuySuggestButton = styled.button`
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  padding: 0px 0px;
+  font-size: 24px;
   font-weight: bold;
+  border-radius: 15px;
 `;
+
+function clickMe() {
+  alert("페이지 링크 예정");
+}
 
 function Tradeplace() {
   return (
@@ -298,16 +268,20 @@ function Tradeplace() {
                 <PriceTextBoxDetail2>KLAY</PriceTextBoxDetail2>
               </PriceTextBox2>
               <ButtonContainer>
-                <ButtonBuy>
-                  <ButtonBuyText>
-                    <h1>구매</h1>
-                  </ButtonBuyText>
-                </ButtonBuy>
-                <ButtonSuggest>
-                  <ButtonSuggestText>
-                    <h1>가격 제안</h1>
-                  </ButtonSuggestText>
-                </ButtonSuggest>
+                <BuySuggestButton onClick={clickMe}>
+                  <ButtonBuy>
+                    <ButtonBuyText>
+                      <h1>구매</h1>
+                    </ButtonBuyText>
+                  </ButtonBuy>
+                </BuySuggestButton>
+                <BuySuggestButton onClick={clickMe}>
+                  <ButtonSuggest>
+                    <ButtonSuggestText>
+                      <h1>가격 제안</h1>
+                    </ButtonSuggestText>
+                  </ButtonSuggest>
+                </BuySuggestButton>
               </ButtonContainer>
             </PriceBox>
           </LeftBox>
@@ -334,109 +308,7 @@ function Tradeplace() {
                 에너지를 오롯이 담아내고 있다.
               </NFTInfoBox_Detail>
             </NFTDetailBox>
-            <TransactionBox>
-              <TransactionTitleBox>
-                <TransactionTitleTextBox>거래 내역</TransactionTitleTextBox>
-                <TransactionTitleTextBox>가격 제안</TransactionTitleTextBox>
-                <TransactionTitleTextBox>유틸리티</TransactionTitleTextBox>
-              </TransactionTitleBox>
-              <Line></Line>
-              <TransactionContentBox>
-                <TransactionContentTextBox>Event</TransactionContentTextBox>
-                <TransactionContentTextBox>Price</TransactionContentTextBox>
-                <TransactionContentTextBox>From</TransactionContentTextBox>
-                <TransactionContentTextBox>To</TransactionContentTextBox>
-                <TransactionContentTextBox>Date</TransactionContentTextBox>
-              </TransactionContentBox>
-              <Line></Line>
-              <TransactionDetailBox>
-                <TransactionDetailIndivBox>
-                  <TransactionDetailIndivTextBox>
-                    Transfer
-                  </TransactionDetailIndivTextBox>
-                  <TransactionDetailIndivTextBox>
-                    -
-                  </TransactionDetailIndivTextBox>
-                  <TransactionDetailIndivTextBox>
-                    지갑주소
-                  </TransactionDetailIndivTextBox>
-                  <TransactionDetailIndivTextBox>
-                    지갑주소
-                  </TransactionDetailIndivTextBox>
-                  <TransactionDetailIndivTextBox>
-                    00 days ago
-                  </TransactionDetailIndivTextBox>
-                </TransactionDetailIndivBox>
-                <TransactionDetailIndivBox>
-                  <TransactionDetailIndivTextBox>
-                    Transfer
-                  </TransactionDetailIndivTextBox>
-                  <TransactionDetailIndivTextBox>
-                    -
-                  </TransactionDetailIndivTextBox>
-                  <TransactionDetailIndivTextBox>
-                    지갑주소
-                  </TransactionDetailIndivTextBox>
-                  <TransactionDetailIndivTextBox>
-                    지갑주소
-                  </TransactionDetailIndivTextBox>
-                  <TransactionDetailIndivTextBox>
-                    00 days ago
-                  </TransactionDetailIndivTextBox>
-                </TransactionDetailIndivBox>
-                <TransactionDetailIndivBox>
-                  <TransactionDetailIndivTextBox>
-                    Transfer
-                  </TransactionDetailIndivTextBox>
-                  <TransactionDetailIndivTextBox>
-                    -
-                  </TransactionDetailIndivTextBox>
-                  <TransactionDetailIndivTextBox>
-                    지갑주소
-                  </TransactionDetailIndivTextBox>
-                  <TransactionDetailIndivTextBox>
-                    지갑주소
-                  </TransactionDetailIndivTextBox>
-                  <TransactionDetailIndivTextBox>
-                    00 days ago
-                  </TransactionDetailIndivTextBox>
-                </TransactionDetailIndivBox>
-                <TransactionDetailIndivBox>
-                  <TransactionDetailIndivTextBox>
-                    Transfer
-                  </TransactionDetailIndivTextBox>
-                  <TransactionDetailIndivTextBox>
-                    -
-                  </TransactionDetailIndivTextBox>
-                  <TransactionDetailIndivTextBox>
-                    지갑주소
-                  </TransactionDetailIndivTextBox>
-                  <TransactionDetailIndivTextBox>
-                    지갑주소
-                  </TransactionDetailIndivTextBox>
-                  <TransactionDetailIndivTextBox>
-                    00 days ago
-                  </TransactionDetailIndivTextBox>
-                </TransactionDetailIndivBox>
-                <TransactionDetailIndivBox>
-                  <TransactionDetailIndivTextBox>
-                    Transfer
-                  </TransactionDetailIndivTextBox>
-                  <TransactionDetailIndivTextBox>
-                    -
-                  </TransactionDetailIndivTextBox>
-                  <TransactionDetailIndivTextBox>
-                    지갑주소
-                  </TransactionDetailIndivTextBox>
-                  <TransactionDetailIndivTextBox>
-                    지갑주소
-                  </TransactionDetailIndivTextBox>
-                  <TransactionDetailIndivTextBox>
-                    00 days ago
-                  </TransactionDetailIndivTextBox>
-                </TransactionDetailIndivBox>
-              </TransactionDetailBox>
-            </TransactionBox>
+            <Tradeplace_></Tradeplace_>
           </RightBox>
         </Container>
       </TradeplaceBackGroundContainer>
