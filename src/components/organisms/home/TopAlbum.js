@@ -10,36 +10,110 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 150vh;
+  height: 220vh;
   background-color: white;
 `;
 const Container2 = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   background-color: white;
-  margin-left: -700px;
+  margin-left: -510px;
 `;
 const Container3 = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-
   margin-top: 50px;
+  margin-left: 50px;
+`;
+
+const GapBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1%;
+  height: 1vh;
+  background-color: white;
 `;
 
 const TradingLine = styled.div`
-  width: 60%;
+  width: 100%;
+  height: 2px;
+  margin-top: 20px;
+
+  background-color: #6246ea;
+`;
+const TradingLine2 = styled.div`
+  width: 100%;
   height: 1px;
-  margin-top: -600px;
-  background-color: black;
+  margin-top: -435px;
+
+  background-color: gray;
+`;
+const TradingLine3 = styled.div`
+  width: 100%;
+  height: 1px;
+  margin-top: 130px;
+
+  background-color: gray;
+`;
+const TradingLine4 = styled.div`
+  width: 100%;
+  height: 1px;
+  margin-top: 130px;
+
+  background-color: gray;
+`;
+const TradingLine5 = styled.div`
+  width: 100%;
+  height: 1px;
+  margin-top: 125px;
+
+  background-color: gray;
+`;
+const TradingLine6 = styled.div`
+  width: 100%;
+  height: 1px;
+  margin-top: 130px;
+
+  background-color: gray;
+`;
+const TradingLine7 = styled.div`
+  width: 100%;
+  height: 1px;
+  margin-top: 130px;
+
+  background-color: gray;
+`;
+const TradingLine8 = styled.div`
+  width: 100%;
+  height: 1px;
+  margin-top: 130px;
+
+  background-color: gray;
+`;
+const TradingLine9 = styled.div`
+  width: 100%;
+  height: 1px;
+  margin-top: 130px;
+
+  background-color: gray;
+`;
+const TradingLine10 = styled.div`
+  width: 100%;
+  height: 1px;
+  margin-top: 130px;
+
+  background-color: gray;
 `;
 
-const TradingLine2 = styled.div`
-  width: 60%;
-  height: 1px;
-  margin-top: 500px;
-  background-color: black;
+const TradingLine11 = styled.div`
+  width: 100%;
+  height: 2px;
+  margin-top: 130px;
+
+  background-color: #6246ea;
 `;
 
 const ButtonTop = styled.div`
@@ -67,6 +141,16 @@ const Collection = styled.div`
   top: 105px;
 
   background-color: #6246ea;
+  border-radius: 12px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 12px;
+  line-height: 15px;
+  /* identical to box height */
+
+  color: #ffffff;
 `;
 
 const ItemCardsBox = styled.div``;
@@ -132,26 +216,31 @@ export default function TopAlbum() {
   return (
     <>
       <Container>
-        {/* <TradingLine /> */}
-
         <ItemCardsBox>
           <Container2>
             <ButtonTop className="top">TOP</ButtonTop>
+            <GapBox />
             <ButtonTop className="ViewAll">View all</ButtonTop>
           </Container2>
           <Container3>
-            <Collection className="Collection">COLLECTION</Collection>
-            <div>Name</div>
-            <div>Price</div>
-            <div>Volume</div>
-            <Collection className="Collection">COLLECTION</Collection>
-            <div>Name</div>
-            <div>Price</div>
-            <div>Volume</div>
+            <Collection>Collection</Collection>
+            <Collection>Name</Collection>
+            <Collection>Price</Collection>
+            <Collection>Vloum</Collection>
           </Container3>
+          <TradingLine />
           <ItemCards url={state} />
+          <TradingLine2 />
+          <TradingLine3 />
+          <TradingLine4 />
+          <TradingLine5 />
+          <TradingLine6 />
+          <TradingLine7 />
+          <TradingLine8 />
+          <TradingLine9 />
+          <TradingLine10 />
+          <TradingLine11 />
         </ItemCardsBox>
-        {/* <TradingLine2 /> */}
       </Container>
     </>
   );

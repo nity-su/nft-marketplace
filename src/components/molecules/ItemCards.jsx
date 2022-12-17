@@ -3,7 +3,7 @@ import ItemCard from "./ItemCard";
 import styled from "styled-components";
 
 const Container = styled.div`
-  display: grid;
+  display: column;
   width: 950px;
   height: 550px;
   grid-template-columns: 1fr 1fr;

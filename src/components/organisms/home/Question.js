@@ -2,14 +2,20 @@ import styled from "styled-components";
 import React, { useState } from "react";
 import "../home/css/styles.css";
 
+const Container = styled.div`
+  width: 100%;
+  height: 70vh;
+  
+`;
+
 const Meta = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 50%;
-  height: 10vh;
+  height: 18vh;
   margin-left: 450px;
-  background-color: white
+  background-color: white;
 `;
 
 const qnaList = [
@@ -71,14 +77,16 @@ const FAQ = () => {
   };
 
   return (
-    <div>
-      <Meta className="Question-heading">MetaMusic FAQ</Meta>
-      <div className="fqa-parent">
-        <div className="faq-list">
-          {cardOnOff.map((item, index) => getQnACard(item, index))}
+    <Container>
+      <div>
+        <Meta className="Question-heading">MetaMusic FAQ</Meta>
+        <div className="fqa-parent">
+          <div className="faq-list">
+            {cardOnOff.map((item, index) => getQnACard(item, index))}
+          </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

@@ -4,7 +4,7 @@ import NFT from "./NFT";
 const NftBox = styled.div`
   display: flex;
   justify-content: center;
-  
+  margin-top: 50px;
 `;
 
 const NFTListWrapper = styled.div`

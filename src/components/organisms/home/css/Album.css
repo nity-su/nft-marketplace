@@ -22,21 +22,7 @@
   display: flex;
   align-items: center;
   text-align: center;
-
   color: #6246ea;
 }
 
-.Collection {
-  display: flex;
-  align-items: center;
-  text-align: center;
 
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 900;
-  font-size: 12px;
-  line-height: 15px;
-  /* identical to box height */
-
-  color: #ffffff;
-}
