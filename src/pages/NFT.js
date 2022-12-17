@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import TestImg1 from "@components/organisms/tradeplace/newjeans.png";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const LinkBox = styled(Link)``;
 
@@ -9,7 +9,6 @@ const NFTWrapper = styled.div`
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0px 4px 15px 0px #00000040;
- 
 `;
 
 const ColorBox = styled.div`
@@ -18,7 +17,6 @@ const ColorBox = styled.div`
   background-size: cover;
   background-color: blueviolet;
   background-image: url(${TestImg1});
-  
 `;
 
 const DetailBox = styled.div`
@@ -40,19 +38,19 @@ const BoldText = styled.p`
 function NFT() {
   return (
     <LinkBox to="/tradeplace">
-    <NFTWrapper>
-      <ColorBox />
-      <DetailBox>
-        <TextsBox>
-          <BoldText>NFT</BoldText>
-          <p>뉴진스 앨범</p>
-        </TextsBox>
-        <TextsBox>
-          <BoldText>Price</BoldText>
-          <p>1000 klay</p>
-        </TextsBox>
-      </DetailBox>
-    </NFTWrapper>
+      <NFTWrapper>
+        <ColorBox />
+        <DetailBox>
+          <TextsBox>
+            <BoldText>NFT</BoldText>
+            <p>뉴진스 앨범</p>
+          </TextsBox>
+          <TextsBox>
+            <BoldText>Price</BoldText>
+            <p>1000 klay</p>
+          </TextsBox>
+        </DetailBox>
+      </NFTWrapper>
     </LinkBox>
   );
 }

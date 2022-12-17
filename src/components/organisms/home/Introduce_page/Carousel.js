@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import TestImg1 from "@components/organisms/tradeplace/newjeans.png";
 import TestImg2 from "@components/organisms/tradeplace/BTS.png";
 import TestImg3 from "@components/organisms/tradeplace/IDLE.png";
