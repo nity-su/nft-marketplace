@@ -149,7 +149,6 @@ export default function TopAlbum() {
             <div>Price</div>
             <div>Volume</div>
           </Container3>
-
           <ItemCards url={state} />
         </ItemCardsBox>
         {/* <TradingLine2 /> */}
