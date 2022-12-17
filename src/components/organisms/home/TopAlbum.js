@@ -3,6 +3,7 @@ import ItemCards from "@components/molecules/ItemCards";
 import { useEffect, useState } from "react";
 import temp from "../../../contracts/temp.json";
 import Web3 from "web3";
+import "./css/Album.css";
 
 const Container = styled.div`
   display: flex;
@@ -12,16 +13,33 @@ const Container = styled.div`
   height: 100vh;
   background-color: white;
 `;
-
-const TradingMenu = styled.div`
+const Container2 = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  width: 60%;
-  height: 2px;
-  margin-left: 315px;
+  background-color: white;
+  margin-left: -700px;
+`;
+const Container3 = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  background-color: #6246ea;
+  margin-top: 50px;
+`;
+
+const TradingLine = styled.div`
+  width: 60%;
+  height: 1px;
+  margin-top: -600px;
+  background-color: black;
+`;
+
+const TradingLine2 = styled.div`
+  width: 60%;
+  height: 1px;
+  margin-top: 500px;
+  background-color: black;
 `;
 
 const ButtonTop = styled.div`
@@ -34,7 +52,7 @@ const ButtonTop = styled.div`
   left: 264px;
   top: 58px;
 
-  border: 3px solid #6246ea;
+  border: 2px solid #6246ea;
   border-radius: 12px;
 `;
 
@@ -47,7 +65,8 @@ const Collection = styled.div`
   height: 18px;
   left: 291px;
   top: 105px;
-  border: 3px solid #6246ea;
+
+  background-color: #6246ea;
 `;
 
 const ItemCardsBox = styled.div``;
@@ -112,18 +131,29 @@ export default function TopAlbum() {
 
   return (
     <>
-      <ButtonTop>TOP</ButtonTop>
-      <ButtonTop>View all</ButtonTop>
-      <Collection>COLLECTION</Collection>
-      <div>price</div>
-      <div>volume</div>
-      <TradingMenu></TradingMenu>
       <Container>
+        {/* <TradingLine /> */}
+
         <ItemCardsBox>
+          <Container2>
+            <ButtonTop className="top">TOP</ButtonTop>
+            <ButtonTop className="ViewAll">View all</ButtonTop>
+          </Container2>
+          <Container3>
+            <Collection className="Collection">COLLECTION</Collection>
+            <div>Name</div>
+            <div>Price</div>
+            <div>Volume</div>
+            <Collection className="Collection">COLLECTION</Collection>
+            <div>Name</div>
+            <div>Price</div>
+            <div>Volume</div>
+          </Container3>
+
           <ItemCards url={state} />
         </ItemCardsBox>
+        {/* <TradingLine2 /> */}
       </Container>
-      <TradingMenu></TradingMenu>
     </>
   );
 }

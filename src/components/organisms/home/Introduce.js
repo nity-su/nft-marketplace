@@ -62,7 +62,7 @@ function Introduce() {
       </MetaMusicIntroBox>
       <CommingSoonContainerBox>
         <CommingSoonContainer>
-          <CommingSoonTitle>COMMING SOON</CommingSoonTitle>
+          <CommingSoonTitle>New Collection</CommingSoonTitle>
           <CommingSoonImgBox>
             <Carousel></Carousel>
           </CommingSoonImgBox>

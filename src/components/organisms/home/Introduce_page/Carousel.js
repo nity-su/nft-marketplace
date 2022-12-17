@@ -26,7 +26,6 @@ const CommingSoonImg1 = styled.div`
   background-image: url(${TestImg2});
   background-repeat: no-repeat;
   background-size: cover;
-  
 `;
 
 const CommingSoonImg2 = styled.div`
