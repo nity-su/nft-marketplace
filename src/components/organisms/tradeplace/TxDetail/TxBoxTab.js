@@ -1,7 +1,8 @@
 import "@components/organisms/home/css/tradeplace.css";
 import { useState } from "react";
-import TxDetail from "./TxDetail/TxDetail";
-import PriceSuggest from "./TxDetail/PriceSuggest";
+import TxDetail from "./TxDetail";
+import PriceSuggest from "./PriceSuggest";
+import Util from "./Utility";
 import styled from "styled-components";
 
 const TabContainer = styled.div`
@@ -67,7 +68,9 @@ function TestTab() {
           <div
             className={`${state === 3 ? "content active-content" : "content "}`}
           >
-            <TabContainer></TabContainer>
+            <TabContainer>
+              <Util></Util>
+            </TabContainer>
           </div>
         </div>
       </div>
