@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import TestImg2 from "@components/organisms/tradeplace/newjeans.png";
 import "../home/css/tradeplace.css";
-// import Tradeplace_ from "./Tradeplace_";
+import TxBox from "./TxBox";
 
 const BackGroundContainer = styled.div`
   display: flex;
@@ -202,44 +202,6 @@ const NFTInfoBoxDetail = styled.div`
   font-weight: bold;
 `;
 
-// const TransactionBox = styled.div`
-//   width: 525px;
-//   height: 380px;
-//   margin-top: 10px;
-//   margin-left: 35px;
-//   border-radius: 15px;
-//   justify-content: center;
-// `;
-
-// const Line = styled.div`
-//   width: 523px;
-//   height: 1px;
-//   background-color: black;
-// `;
-
-// const Button = styled.button`
-//   cursor: pointer;
-//   background-color: white;
-//   border-radius: 15px;
-//   margin: 6px;
-//   border: 0;
-//   outline: 0;
-//   color: black;
-//   width: 162px;
-//   height: 76px;
-//   padding: 0px 0px;
-//   font-size: 24px;
-//   font-weight: bold;
-//   transition: ease background-color 250ms;
-//   &:hover {
-//     background-color: gray;
-//   }
-//   &:disabled {
-//     cursor: default;
-//     color: gray;
-//   }
-// `;
-
 const BuySuggestButton = styled.button`
   cursor: pointer;
   border: 0;
@@ -308,7 +270,7 @@ function Tradeplace() {
                 에너지를 오롯이 담아내고 있다.
               </NFTInfoBoxDetail>
             </NFTDetailBox>
-            {/* <Tradeplace_></Tradeplace_> */}
+            <TxBox></TxBox>
           </RightBox>
         </Container>
       </TradeplaceBackGroundContainer>
