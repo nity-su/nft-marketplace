@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import TestImg2 from "@components/organisms/tradeplace/newjeans.png";
 import "../home/css/tradeplace.css";
-import Tradeplace_ from "./Tradeplace_";
+// import Tradeplace_ from "./Tradeplace_";
 
 const BackGroundContainer = styled.div`
   display: flex;
@@ -184,7 +184,7 @@ const NFTDetailBox = styled.div`
   border-radius: 15px;
 `;
 
-const NFTInfoBox_Title = styled.div`
+const NFTInfoBoxTitle = styled.div`
   width: 594px;
   height: 44px;
   margin-top: 10px;
@@ -193,7 +193,7 @@ const NFTInfoBox_Title = styled.div`
   font-weight: bold;
 `;
 
-const NFTInfoBox_Detail = styled.div`
+const NFTInfoBoxDetail = styled.div`
   width: 495px;
   height: 44px;
   margin-top: 10px;
@@ -202,43 +202,43 @@ const NFTInfoBox_Detail = styled.div`
   font-weight: bold;
 `;
 
-const TransactionBox = styled.div`
-  width: 525px;
-  height: 380px;
-  margin-top: 10px;
-  margin-left: 35px;
-  border-radius: 15px;
-  justify-content: center;
-`;
+// const TransactionBox = styled.div`
+//   width: 525px;
+//   height: 380px;
+//   margin-top: 10px;
+//   margin-left: 35px;
+//   border-radius: 15px;
+//   justify-content: center;
+// `;
 
-const Line = styled.div`
-  width: 523px;
-  height: 1px;
-  background-color: black;
-`;
+// const Line = styled.div`
+//   width: 523px;
+//   height: 1px;
+//   background-color: black;
+// `;
 
-const Button = styled.button`
-  cursor: pointer;
-  background-color: white;
-  border-radius: 15px;
-  margin: 6px;
-  border: 0;
-  outline: 0;
-  color: black;
-  width: 162px;
-  height: 76px;
-  padding: 0px 0px;
-  font-size: 24px;
-  font-weight: bold;
-  transition: ease background-color 250ms;
-  &:hover {
-    background-color: gray;
-  }
-  &:disabled {
-    cursor: default;
-    color: gray;
-  }
-`;
+// const Button = styled.button`
+//   cursor: pointer;
+//   background-color: white;
+//   border-radius: 15px;
+//   margin: 6px;
+//   border: 0;
+//   outline: 0;
+//   color: black;
+//   width: 162px;
+//   height: 76px;
+//   padding: 0px 0px;
+//   font-size: 24px;
+//   font-weight: bold;
+//   transition: ease background-color 250ms;
+//   &:hover {
+//     background-color: gray;
+//   }
+//   &:disabled {
+//     cursor: default;
+//     color: gray;
+//   }
+// `;
 
 const BuySuggestButton = styled.button`
   cursor: pointer;
@@ -299,16 +299,16 @@ function Tradeplace() {
               </SupplierBox>
             </UserInfoBox>
             <NFTDetailBox>
-              <NFTInfoBox_Title>상세 정보</NFTInfoBox_Title>
-              <NFTInfoBox_Detail>
+              <NFTInfoBoxTitle>상세 정보</NFTInfoBoxTitle>
+              <NFTInfoBoxDetail>
                 어디서든 편하게 들을 수 있는 세련된 이지리스닝 팝을 추구하는
                 동시에 과장 없는 자연스러운 사운드 엔지니어링으로 NewJeans
                 맴버들 본연의 목소리를 살리는 프로듀싱을 진행했다.앨범의 수록돈
                 4곡은 NewJeans 멤버들의 순수하고 자연스러운 매력과 10대 고유의
                 에너지를 오롯이 담아내고 있다.
-              </NFTInfoBox_Detail>
+              </NFTInfoBoxDetail>
             </NFTDetailBox>
-            <Tradeplace_></Tradeplace_>
+            {/* <Tradeplace_></Tradeplace_> */}
           </RightBox>
         </Container>
       </TradeplaceBackGroundContainer>
