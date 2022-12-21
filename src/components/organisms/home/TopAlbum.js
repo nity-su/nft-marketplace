@@ -18,7 +18,7 @@ export default function MarketPlace() {
   const marketPlaceData = [
     {
       image: marketplace1,
-      name: "BTS - RUN (Japanese Ver.)",
+      name: "윤하 - 사건의 지평선",
     },
     {
       image: marketplace2,
@@ -76,7 +76,7 @@ export default function MarketPlace() {
               </div>
               <h6 className="username">@MetaMusic</h6>
               <div className="price-container">
-                <h5 className="price">0.1 Ether</h5>
+                <h5 className="price">0.1 ETH</h5>
                 <FaEthereum />
               </div>
             </div>
