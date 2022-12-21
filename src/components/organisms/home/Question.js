@@ -5,16 +5,14 @@ import "../home/css/styles.css";
 const Container = styled.div`
   width: 100%;
   height: 70vh;
-  
 `;
 
 const Meta = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 100%;
   height: 18vh;
-  margin-left: 450px;
   background-color: white;
 `;
 
