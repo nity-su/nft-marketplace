@@ -5,7 +5,7 @@
   font-size: 24px;
   line-height: 29px;
   /* identical to box height */
-  
+
   display: flex;
   align-items: center;
   text-align: center;
@@ -25,4 +25,74 @@
   color: #6246ea;
 }
 
+/* 이 아래로 Top Album Tab Css */
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.box {
+  width: 890px;
+  margin-top: 50px;
+}
+
+.tabs {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+
+.tab {
+  width: 84px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 50px;
+  border: 1px solid gray;
+  background-color: white;
+  text-align: center;
+  font-size: 17.6px;
+  font-weight: 100;
+  cursor: pointer;
+  position: relative;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.active-tab {
+  border: none;
+  background: white;
+}
+
+.active-tab::after {
+  border: 2px solid #6246ea;
+  border-radius: 50px;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background: initial;
+  animation: new 0.5s;
+}
+
+.contents {
+  position: relative;
+}
+
+.content {
+  display: none;
+  position: relative;
+}
+
+.active-content {
+  display: block;
+  margin-top: 10px;
+  margin-right: 10px;
+  transition: all 1s ease-in-out;
+}
