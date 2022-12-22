@@ -3,8 +3,8 @@ import styled from "styled-components";
 import LogoImg from "../../assets/images/MetaMusic_Logo_02.png";
 import UserProfile from "../../assets/images/user_profile.png";
 import SearchLens from "../../assets/images/searchlens.png";
-import Wallet from "../../assets/images/wallet.png";
 import { Link, Outlet } from "react-router-dom";
+import ConnectWallet from "./NaviBox_page/ConnectWallet";
 
 const Navibox = styled.div`
   opacity: 0.9;
@@ -113,30 +113,6 @@ const ProfileTextBox = styled.div`
   justify-content: center;
 `;
 
-const ConnectWalletContainer = styled.div`
-  margin-top: 25px;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-`;
-
-const ConnectWalletImg = styled.div`
-  width: 24px;
-  height: 24px;
-  background-image: url(${Wallet});
-  background-repeat: no-repeat;
-  background-size: cover;
-`;
-
-const ConnectWalletText = styled.div`
-  width: 170px;
-  height: 24px;
-  font-size: 20px;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-`;
-
 function clickMe() {
   alert("페이지 링크 예정");
 }
@@ -161,10 +137,7 @@ function NaviBox() {
           <ProfileImgBox></ProfileImgBox>
           <ProfileTextBox>Profile</ProfileTextBox>
         </ProfileBox>
-        <ConnectWalletContainer onClick={clickMe}>
-          <ConnectWalletImg></ConnectWalletImg>
-          <ConnectWalletText>Connect Wallet</ConnectWalletText>
-        </ConnectWalletContainer>
+        <ConnectWallet />
       </Navibox>
       <Outlet />
     </>
