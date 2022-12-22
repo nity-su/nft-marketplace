@@ -4,7 +4,6 @@ import "../home/css/styles.css";
 
 const Container = styled.div`
   width: 100%;
-  height: 70vh;
 `;
 
 const Meta = styled.div`
@@ -76,12 +75,10 @@ const FAQ = () => {
 
   return (
     <Container>
-      <div>
-        <Meta className="Question-heading">MetaMusic FAQ</Meta>
-        <div className="fqa-parent">
-          <div className="faq-list">
-            {cardOnOff.map((item, index) => getQnACard(item, index))}
-          </div>
+      <Meta className="Question-heading">MetaMusic FAQ</Meta>
+      <div className="fqa-parent">
+        <div className="faq-list">
+          {cardOnOff.map((item, index) => getQnACard(item, index))}
         </div>
       </div>
     </Container>
