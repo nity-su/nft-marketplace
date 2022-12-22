@@ -1,247 +1,173 @@
+import React from "react";
+import { BsThreeDots } from "react-icons/bs";
+import { FaEthereum } from "react-icons/fa";
+
 import styled from "styled-components";
-import ItemCards from "@components/molecules/ItemCards";
-import { useEffect, useState } from "react";
-import temp from "../../../contracts/temp.json";
-import Web3 from "web3";
-import "./css/Album.css";
+import marketplace1 from "src/assets/images/marketplace1.png";
+import marketplace2 from "src/assets/images/marketplace2.png";
+import marketplace3 from "src/assets/images/marketplace3.png";
+import marketplace4 from "src/assets/images/marketplace4.png";
+import marketplace5 from "src/assets/images/marketplace5.png";
+import marketplace6 from "src/assets/images/marketplace6.png";
+import marketplace7 from "src/assets/images/marketplace7.png";
+import marketplace8 from "src/assets/images/marketplace8.png";
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 220vh;
-  background-color: white;
-`;
-const Container2 = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  margin-left: -510px;
-`;
-const Container3 = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 50px;
-  margin-left: 50px;
-`;
+import Button from "src/components/molecules/Button";
 
-const GapBox = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 1%;
-  height: 1vh;
-  background-color: white;
-`;
-
-const TradingLine = styled.div`
-  width: 100%;
-  height: 2px;
-  margin-top: 20px;
-
-  background-color: #6246ea;
-`;
-const TradingLine2 = styled.div`
-  width: 100%;
-  height: 1px;
-  margin-top: -435px;
-
-  background-color: gray;
-`;
-const TradingLine3 = styled.div`
-  width: 100%;
-  height: 1px;
-  margin-top: 130px;
-
-  background-color: gray;
-`;
-const TradingLine4 = styled.div`
-  width: 100%;
-  height: 1px;
-  margin-top: 130px;
-
-  background-color: gray;
-`;
-const TradingLine5 = styled.div`
-  width: 100%;
-  height: 1px;
-  margin-top: 125px;
-
-  background-color: gray;
-`;
-const TradingLine6 = styled.div`
-  width: 100%;
-  height: 1px;
-  margin-top: 130px;
-
-  background-color: gray;
-`;
-const TradingLine7 = styled.div`
-  width: 100%;
-  height: 1px;
-  margin-top: 130px;
-
-  background-color: gray;
-`;
-const TradingLine8 = styled.div`
-  width: 100%;
-  height: 1px;
-  margin-top: 130px;
-
-  background-color: gray;
-`;
-const TradingLine9 = styled.div`
-  width: 100%;
-  height: 1px;
-  margin-top: 130px;
-
-  background-color: gray;
-`;
-const TradingLine10 = styled.div`
-  width: 100%;
-  height: 1px;
-  margin-top: 130px;
-
-  background-color: gray;
-`;
-
-const TradingLine11 = styled.div`
-  width: 100%;
-  height: 2px;
-  margin-top: 130px;
-
-  background-color: #6246ea;
-`;
-
-const ButtonTop = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  width: 130px;
-  height: 40px;
-  left: 264px;
-  top: 58px;
-
-  border: 2px solid #6246ea;
-  border-radius: 12px;
-`;
-
-const Collection = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 100px;
-  height: 18px;
-  left: 291px;
-  top: 105px;
-
-  background-color: #6246ea;
-  border-radius: 12px;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 900;
-  font-size: 12px;
-  line-height: 15px;
-  /* identical to box height */
-
-  color: #ffffff;
-`;
-
-const ItemCardsBox = styled.div``;
-
-export default function TopAlbum() {
-  const [state, setState] = useState("");
-  useEffect(() => {
-    async function getMethods() {
-      const provider =
-        process.env.PROVIDER_URL ||
-        "https://eth-goerli.g.alchemy.com/v2/SF8OJ6n9AXQ8ViiDRTnFrv1-rBd_3VY-";
-
-      var web3Provider = new Web3.providers.HttpProvider(provider);
-
-      var web3 = new Web3(web3Provider);
-      var myContract = new web3.eth.Contract(
-        temp,
-        "0x4F0d0f87a5D6bCE5Fa517fAa69339DD10F31209f"
-      );
-      console.log(myContract.options.address);
-      const tokenURIPath = await myContract.methods
-        .tokenURI(0)
-        .call()
-        .catch((err) => console.log(err));
-
-      const uri = "https://gateway.ipfs.io/" + tokenURIPath.replace("://", "/");
-
-      const result = await fetch(uri, {
-        method: "GET",
-      })
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          console.log(data);
-          return data;
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-
-      const imgUri =
-        "https://gateway.ipfs.io/" + result.image.replace("://", "/");
-      setState(imgUri);
-
-      // await fetch(imgUri, { method: "GET" })
-      //   .then((response) => {
-      //     return response.json();
-      //   })
-      //   .then((data) => setState(imgUri));
-    }
-
-    getMethods();
-
-    // web3.eth
-    //   .get("0x145B667e023c016FE07dDB01a8B211C5b45ef2eC")
-    //   .then((result) => {
-    //     console.log("blance ", result);
-    //     setState(result);
-    //   });
-  }, []);
-
+export default function MarketPlace() {
+  const marketPlaceData = [
+    {
+      image: marketplace1,
+      name: "윤하 - 사건의 지평선",
+    },
+    {
+      image: marketplace2,
+      name: "NewJeans - Ditto",
+    },
+    {
+      image: marketplace3,
+      name: "쇼미더머니 11 Episode 3",
+    },
+    {
+      image: marketplace4,
+      name: "경서 - 나의 X에게",
+    },
+    {
+      image: marketplace5,
+      name: "진 - The Astronaut",
+    },
+    {
+      image: marketplace6,
+      name: "방탄소년단 - Butter",
+    },
+    {
+      image: marketplace7,
+      name: "PSY 싸이 - That That",
+    },
+    {
+      image: marketplace8,
+      name: "WSG워너비 - 보고싶었어",
+    },
+  ];
+  const marketPlaceType = ["인기", "아이돌", "발라드", "클래식", "락", "랩"];
   return (
-    <>
-      <Container>
-        <ItemCardsBox>
-          <Container2>
-            <ButtonTop className="top">TOP</ButtonTop>
-            <GapBox />
-            <ButtonTop className="ViewAll">View all</ButtonTop>
-          </Container2>
-          <Container3>
-            <Collection>Collection</Collection>
-            <Collection>Name</Collection>
-            <Collection>Price</Collection>
-            <Collection>Vloum</Collection>
-          </Container3>
-          <TradingLine />
-          <ItemCards url={state} />
-          <TradingLine2 />
-          <TradingLine3 />
-          <TradingLine4 />
-          <TradingLine5 />
-          <TradingLine6 />
-          <TradingLine7 />
-          <TradingLine8 />
-          <TradingLine9 />
-          <TradingLine10 />
-          <TradingLine11 />
-        </ItemCardsBox>
-      </Container>
-    </>
+    <Section>
+      <div className="title">
+        <h2>음악앨범 NFT 시장</h2>
+        <p>
+          소비자가 다양한 음악을 즐길 수 있게 우리는 모든 것을 준비할 것이다.
+        </p>
+      </div>
+      <div className="marketPlaceTypes">
+        {marketPlaceType.map((text, index) => {
+          return <Button text={text} key={index} blue={index === 0} />;
+        })}
+      </div>
+      <div className="marketPlaces">
+        {marketPlaceData.map(({ image, name }) => {
+          return (
+            <div className="marketplace">
+              <div className="image">
+                <img src={image} alt="marketplace" />
+              </div>
+              <div className="name">
+                <h4>{name}</h4>
+                <BsThreeDots />
+              </div>
+              <h6 className="username">@MetaMusic</h6>
+              <div className="price-container">
+                <h5 className="price">0.1 ETH</h5>
+                <FaEthereum />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </Section>
   );
 }
+
+const Section = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  margin: 0 6rem;
+  margin-bottom: 5rem;
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-direction: column;
+    h2 {
+      font-size: 3rem;
+    }
+    p {
+      color: #7b7e86;
+    }
+  }
+  .marketPlaceTypes {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    button:not(.blue) {
+      color: black;
+      border-color: #7b7e86;
+    }
+  }
+  .marketPlaces {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    .marketplace {
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      padding: 0.5rem;
+      border-radius: 1rem;
+      width: max-content;
+      cursor: pointer;
+      transition: 0.5s ease-in-out;
+      &:hover {
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+          rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+          rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      }
+      .image {
+        margin-bottom: 1rem;
+      }
+      .name {
+        display: flex;
+        color: #222222;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1rem;
+        h4 {
+        }
+      }
+      .username {
+        color: #555555;
+        font-size: 0.8rem;
+        padding: 0 1rem;
+        margin-bottom: 0.5rem;
+      }
+      .price-container {
+        padding: 0 1rem;
+        display: flex;
+        justify-content: space-between;
+        color: #02204e;
+      }
+    }
+  }
+  @media screen and (min-width: 280px) and (max-width: 1080px) {
+    margin: 2rem;
+    .marketPlaceTypes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    .marketPlaces {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+`;

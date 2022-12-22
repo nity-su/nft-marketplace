@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import "@components/organisms/home/css/tradeplace.css";
 
-const UtilityContainer = styled.div;
+const UtilityContainer = styled.div``;
 
 const TransactionBox = styled.div`
   width: 525px;
@@ -27,16 +27,6 @@ const TransactionContentBox = styled.div`
   align-items: center;
 `;
 
-const TransactionContentTextBox = styled.div`
-  width: 97px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  font-weight: bold;
-`;
-
 const TransactionDetailBox = styled.div`
   width: 523px;
   height: 260px;
@@ -47,99 +37,14 @@ const TransactionDetailBox = styled.div`
   gap: 5px;
 `;
 
-const TransactionDetailIndivBox = styled.div`
-  width: 523px;
-  height: 40px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-`;
-
-const TransactionDetailIndivTextBox = styled.div`
-  width: 97px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  font-weight: bold;
-`;
-
 function Util() {
   return (
     <UtilityContainer>
       <TransactionBox>
         <Line></Line>
-        <TransactionContentBox>
-          <TransactionContentTextBox>Price</TransactionContentTextBox>
-          <TransactionContentTextBox>Expiration</TransactionContentTextBox>
-          <TransactionContentTextBox>From</TransactionContentTextBox>
-          <TransactionContentTextBox></TransactionContentTextBox>
-        </TransactionContentBox>
+        <TransactionContentBox></TransactionContentBox>
         <Line></Line>
-        <TransactionDetailBox>
-          <TransactionDetailIndivBox>
-            <TransactionDetailIndivTextBox>
-              1,002 Klay
-            </TransactionDetailIndivTextBox>
-            <TransactionDetailIndivTextBox>
-              00 Days
-            </TransactionDetailIndivTextBox>
-            <TransactionDetailIndivTextBox>
-              지갑주소
-            </TransactionDetailIndivTextBox>
-            <TransactionDetailIndivTextBox>Buy</TransactionDetailIndivTextBox>
-          </TransactionDetailIndivBox>
-          <TransactionDetailIndivBox>
-            <TransactionDetailIndivTextBox>
-              1,002 Klay
-            </TransactionDetailIndivTextBox>
-            <TransactionDetailIndivTextBox>
-              00 Days
-            </TransactionDetailIndivTextBox>
-            <TransactionDetailIndivTextBox>
-              지갑주소
-            </TransactionDetailIndivTextBox>
-            <TransactionDetailIndivTextBox>Buy</TransactionDetailIndivTextBox>
-          </TransactionDetailIndivBox>{" "}
-          <TransactionDetailIndivBox>
-            <TransactionDetailIndivTextBox>
-              1,002 Klay
-            </TransactionDetailIndivTextBox>
-            <TransactionDetailIndivTextBox>
-              00 Days
-            </TransactionDetailIndivTextBox>
-            <TransactionDetailIndivTextBox>
-              지갑주소
-            </TransactionDetailIndivTextBox>
-            <TransactionDetailIndivTextBox>Buy</TransactionDetailIndivTextBox>
-          </TransactionDetailIndivBox>{" "}
-          <TransactionDetailIndivBox>
-            <TransactionDetailIndivTextBox>
-              1,002 Klay
-            </TransactionDetailIndivTextBox>
-            <TransactionDetailIndivTextBox>
-              00 Days
-            </TransactionDetailIndivTextBox>
-            <TransactionDetailIndivTextBox>
-              지갑주소
-            </TransactionDetailIndivTextBox>
-            <TransactionDetailIndivTextBox>Buy</TransactionDetailIndivTextBox>
-          </TransactionDetailIndivBox>
-          <TransactionDetailIndivBox>
-            <TransactionDetailIndivTextBox>
-              1,002 Klay
-            </TransactionDetailIndivTextBox>
-            <TransactionDetailIndivTextBox>
-              00 Days
-            </TransactionDetailIndivTextBox>
-            <TransactionDetailIndivTextBox>
-              지갑주소
-            </TransactionDetailIndivTextBox>
-            <TransactionDetailIndivTextBox>Buy</TransactionDetailIndivTextBox>
-          </TransactionDetailIndivBox>
-        </TransactionDetailBox>
+        <TransactionDetailBox></TransactionDetailBox>
       </TransactionBox>
     </UtilityContainer>
   );
