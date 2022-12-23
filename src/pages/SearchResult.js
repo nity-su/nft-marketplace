@@ -1,4 +1,3 @@
-import React from "react";
 import "../components/organisms/home/css/SearchBar.css";
 
 function SearchResult() {

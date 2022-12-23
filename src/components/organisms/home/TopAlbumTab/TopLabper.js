@@ -1,50 +1,50 @@
-import React from "react";
 import { BsThreeDots } from "react-icons/bs";
 import { FaEthereum } from "react-icons/fa";
 
 import styled from "styled-components";
-import marketplace1 from "@components/assets/images/marketplace1.png";
-import marketplace2 from "@components/assets/images/marketplace2.png";
-import marketplace4 from "@components/assets/images/marketplace3.png";
-import marketplace3 from "@components/assets/images/marketplace4.png";
-import marketplace5 from "@components/assets/images/marketplace5.png";
-import marketplace6 from "@components/assets/images/marketplace6.png";
-import marketplace7 from "@components/assets/images/marketplace7.png";
-import marketplace8 from "@components/assets/images/marketplace8.png";
+
+import marketplace1 from "@components/assets/images/Labper/l1.png";
+import marketplace2 from "@components/assets/images/Labper/l2.png";
+import marketplace4 from "@components/assets/images/Labper/l3.png";
+import marketplace3 from "@components/assets/images/Labper/l4.png";
+import marketplace5 from "@components/assets/images/Labper/l5.png";
+import marketplace6 from "@components/assets/images/Labper/l6.png";
+import marketplace7 from "@components/assets/images/Labper/l7.png";
+import marketplace8 from "@components/assets/images/Labper/l8.png";
 
 export default function TopLabper() {
   const marketPlaceData = [
     {
       image: marketplace1,
-      name: "윤하 - 사건의 지평선",
+      name: "Dutch Van - 메리 하우스마스",
     },
     {
       image: marketplace2,
-      name: "NewJeans - Ditto",
+      name: "굄 - 말할 수 없는 것에 속하는가",
     },
     {
       image: marketplace3,
-      name: "쇼미더머니 11 Episode 3",
+      name: "솔 - THE MEANING OF LIFE",
     },
     {
       image: marketplace4,
-      name: "경서 - 나의 X에게",
+      name: "리트릴라 (LiTrilla) - 술",
     },
     {
       image: marketplace5,
-      name: "진 - The Astronaut",
+      name: "영채(0CHAE) - 조금만 더",
     },
     {
       image: marketplace6,
-      name: "방탄소년단 - Butter",
+      name: "은성(Eunsung) - Rain & Snow",
     },
     {
       image: marketplace7,
-      name: "PSY 싸이 - That That",
+      name: "이재원 - Get out my way",
     },
     {
       image: marketplace8,
-      name: "WSG워너비 - 보고싶었어",
+      name: "차노프 - STUCK IN MY HEAD",
     },
   ];
 
@@ -80,19 +80,7 @@ const Section = styled.section`
   gap: 5rem;
   margin: 0 6rem;
   margin-bottom: 5rem;
-  .title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    flex-direction: column;
-    h2 {
-      font-size: 3rem;
-    }
-    p {
-      color: #7b7e86;
-    }
-  }
+  
   .marketPlaceTypes {
     display: flex;
     justify-content: center;

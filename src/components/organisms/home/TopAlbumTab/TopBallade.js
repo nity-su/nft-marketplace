@@ -1,51 +1,50 @@
-import React from "react";
 import { BsThreeDots } from "react-icons/bs";
 import { FaEthereum } from "react-icons/fa";
 
 import styled from "styled-components";
 
-import marketplace1 from "@components/assets/images/marketplace1.png";
-import marketplace2 from "@components/assets/images/marketplace2.png";
-import marketplace4 from "@components/assets/images/marketplace3.png";
-import marketplace3 from "@components/assets/images/marketplace4.png";
-import marketplace5 from "@components/assets/images/marketplace5.png";
-import marketplace6 from "@components/assets/images/marketplace6.png";
-import marketplace7 from "@components/assets/images/marketplace7.png";
-import marketplace8 from "@components/assets/images/marketplace8.png";
+import marketplace1 from "@components/assets/images/Ballade/b1.png";
+import marketplace2 from "@components/assets/images/Ballade/b2.png";
+import marketplace3 from "@components/assets/images/Ballade/b3.png";
+import marketplace4 from "@components/assets/images/Ballade/b4.png";
+import marketplace5 from "@components/assets/images/Ballade/b5.png";
+import marketplace6 from "@components/assets/images/Ballade/b6.png";
+import marketplace7 from "@components/assets/images/Ballade/b7.png";
+import marketplace8 from "@components/assets/images/Ballade/b8.png";
 
 export default function MarketPlace() {
   const marketPlaceData = [
     {
       image: marketplace1,
-      name: "윤하 - 사건의 지평선",
+      name: "Dianus King - 크리스마스가 다가와",
     },
     {
       image: marketplace2,
-      name: "NewJeans - Ditto",
+      name: "그네 - 좋아했어요",
     },
     {
       image: marketplace3,
-      name: "쇼미더머니 11 Episode 3",
+      name: "소시민 - 소나기",
     },
     {
       image: marketplace4,
-      name: "경서 - 나의 X에게",
+      name: "수조 - 별자리",
     },
     {
       image: marketplace5,
-      name: "진 - The Astronaut",
+      name: "영오 - 바이트미 OST Part.20",
     },
     {
       image: marketplace6,
-      name: "방탄소년단 - Butter",
+      name: "정성민, 현진영 - '탑승연애'",
     },
     {
       image: marketplace7,
-      name: "PSY 싸이 - That That",
+      name: "차소진 - 우리였는데",
     },
     {
       image: marketplace8,
-      name: "WSG워너비 - 보고싶었어",
+      name: "허니비채 - 영하 (零下)",
     },
   ];
 
@@ -81,19 +80,7 @@ const Section = styled.section`
   gap: 5rem;
   margin: 0 6rem;
   margin-bottom: 5rem;
-  .title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    flex-direction: column;
-    h2 {
-      font-size: 3rem;
-    }
-    p {
-      color: #7b7e86;
-    }
-  }
+  
   .marketPlaceTypes {
     display: flex;
     justify-content: center;

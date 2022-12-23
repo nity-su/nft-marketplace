@@ -8,7 +8,7 @@ import "../home/css/styles.css";
 
 const BackGroundBox = styled.div`
   width: 100%;
-  height: 1500px;
+  height: 1400px;
   background-size: cover;
   justify-content: center;
 `;
