@@ -58,3 +58,12 @@
   font-size: 36px;
   font-weight: 900;
 }
+
+.testsearch {
+  width: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  border-radius: 20px;
+}

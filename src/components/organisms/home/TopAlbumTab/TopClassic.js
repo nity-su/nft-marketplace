@@ -1,50 +1,51 @@
-import React from "react";
 import { BsThreeDots } from "react-icons/bs";
 import { FaEthereum } from "react-icons/fa";
 
 import styled from "styled-components";
-import marketplace1 from "@components/assets/images/marketplace1.png";
-import marketplace2 from "@components/assets/images/marketplace2.png";
-import marketplace4 from "@components/assets/images/marketplace3.png";
-import marketplace3 from "@components/assets/images/marketplace4.png";
-import marketplace5 from "@components/assets/images/marketplace5.png";
-import marketplace6 from "@components/assets/images/marketplace6.png";
-import marketplace7 from "@components/assets/images/marketplace7.png";
-import marketplace8 from "@components/assets/images/marketplace8.png";
+
+import marketplace1 from "@components/assets/images/Classic/c1.png";
+import marketplace2 from "@components/assets/images/Classic/c2.png";
+import marketplace3 from "@components/assets/images/Classic/c3.png";
+import marketplace4 from "@components/assets/images/Classic/c4.png";
+import marketplace5 from "@components/assets/images/Classic/c5.png";
+import marketplace6 from "@components/assets/images/Classic/c6.png";
+import marketplace7 from "@components/assets/images/Classic/c7.png";
+import marketplace8 from "@components/assets/images/Classic/c8.png";
+
 
 export default function TopClassic() {
   const marketPlaceData = [
     {
       image: marketplace1,
-      name: "윤하 - 사건의 지평선",
+      name: "András Schiff - J.S.Bach 4 Duettos",
     },
     {
       image: marketplace2,
-      name: "NewJeans - Ditto",
+      name: "Esther Abrami - Christmas",
     },
     {
       image: marketplace3,
-      name: "쇼미더머니 11 Episode 3",
+      name: "Gautier Capucon - Sensations",
     },
     {
       image: marketplace4,
-      name: "경서 - 나의 X에게",
+      name: "Mark Padmore, Mitsuko Uchida",
     },
     {
       image: marketplace5,
-      name: "진 - The Astronaut",
+      name: "Julian Riem - No Time to Die",
     },
     {
       image: marketplace6,
-      name: "방탄소년단 - Butter",
+      name: "Stile Antico - Byrd Tribue",
     },
     {
       image: marketplace7,
-      name: "PSY 싸이 - That That",
+      name: "박유신, Ilya Rashkovskiy - 백야",
     },
     {
       image: marketplace8,
-      name: "WSG워너비 - 보고싶었어",
+      name: "조성진 - Handel  Suite in B-Flat",
     },
   ];
 
@@ -80,19 +81,7 @@ const Section = styled.section`
   gap: 5rem;
   margin: 0 6rem;
   margin-bottom: 5rem;
-  .title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    flex-direction: column;
-    h2 {
-      font-size: 3rem;
-    }
-    p {
-      color: #7b7e86;
-    }
-  }
+  
   .marketPlaceTypes {
     display: flex;
     justify-content: center;

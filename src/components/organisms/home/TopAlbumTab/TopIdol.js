@@ -1,42 +1,42 @@
-import React from "react";
 import { BsThreeDots } from "react-icons/bs";
 import { FaEthereum } from "react-icons/fa";
 
 import styled from "styled-components";
-import marketplace1 from "@components/assets/images/marketplace1.png";
-import marketplace2 from "@components/assets/images/marketplace2.png";
-import marketplace4 from "@components/assets/images/marketplace3.png";
-import marketplace3 from "@components/assets/images/marketplace4.png";
-import marketplace5 from "@components/assets/images/marketplace5.png";
-import marketplace6 from "@components/assets/images/marketplace6.png";
-import marketplace7 from "@components/assets/images/marketplace7.png";
-import marketplace8 from "@components/assets/images/marketplace8.png";
+
+import marketplace1 from "@components/assets/images/Idol/i1.png";
+import marketplace2 from "@components/assets/images/Idol/i2.png";
+import marketplace3 from "@components/assets/images/Idol/i3.png";
+import marketplace4 from "@components/assets/images/Idol/i4.png";
+import marketplace5 from "@components/assets/images/Idol/i5.png";
+import marketplace6 from "@components/assets/images/Idol/i6.png";
+import marketplace7 from "@components/assets/images/Idol/i7.png";
+import marketplace8 from "@components/assets/images/Idol/i8.png";
 
 export default function TopIdol() {
   const marketPlaceData = [
     {
       image: marketplace1,
-      name: "윤하 - 사건의 지평선",
+      name: "ITZY (있지) - CHECKMATE",
     },
     {
       image: marketplace2,
-      name: "NewJeans - Ditto",
+      name: "TWICE (트와이스) - Love O+T=3",
     },
     {
       image: marketplace3,
-      name: "쇼미더머니 11 Episode 3",
+      name: "Stray Kids - ODDINARY",
     },
     {
       image: marketplace4,
-      name: "경서 - 나의 X에게",
+      name: "NewJeans - NewJeans 1st EP",
     },
     {
       image: marketplace5,
-      name: "진 - The Astronaut",
+      name: "선미 - 6분의1",
     },
     {
       image: marketplace6,
-      name: "방탄소년단 - Butter",
+      name: "청하 - Bare&Rare Pt.1",
     },
     {
       image: marketplace7,
@@ -44,7 +44,7 @@ export default function TopIdol() {
     },
     {
       image: marketplace8,
-      name: "WSG워너비 - 보고싶었어",
+      name: "하이라이트 (Highlight) - 불어온다",
     },
   ];
 
@@ -80,19 +80,7 @@ const Section = styled.section`
   gap: 5rem;
   margin: 0 6rem;
   margin-bottom: 5rem;
-  .title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    flex-direction: column;
-    h2 {
-      font-size: 3rem;
-    }
-    p {
-      color: #7b7e86;
-    }
-  }
+
   .marketPlaceTypes {
     display: flex;
     justify-content: center;

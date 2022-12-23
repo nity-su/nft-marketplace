@@ -1,8 +1,8 @@
-import React from "react";
 import { BsThreeDots } from "react-icons/bs";
 import { FaEthereum } from "react-icons/fa";
 
 import styled from "styled-components";
+
 import marketplace1 from "@components/assets/images/marketplace1.png";
 import marketplace2 from "@components/assets/images/marketplace2.png";
 import marketplace4 from "@components/assets/images/marketplace3.png";
@@ -26,11 +26,11 @@ export default function TopBest() {
     },
     {
       image: marketplace3,
-      name: "쇼미더머니 11 Episode 3",
+      name: "경서 - 나의 X에게",
     },
     {
       image: marketplace4,
-      name: "경서 - 나의 X에게",
+      name: "쇼미더머니 11 Episode 3",
     },
     {
       image: marketplace5,
@@ -82,19 +82,7 @@ const Section = styled.section`
   gap: 5rem;
   margin: 0 6rem;
   margin-bottom: 5rem;
-  .title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    flex-direction: column;
-    h2 {
-      font-size: 3rem;
-    }
-    p {
-      color: #7b7e86;
-    }
-  }
+ 
   .marketPlaceTypes {
     display: flex;
     justify-content: center;

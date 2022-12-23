@@ -7,6 +7,7 @@ function Footer() {
   return (
     <div className="footer-container">
       <section className="footer-subscription">
+
         <p className="footer-subscription-heading">
           Join the Adventure newsletter to receive our best vacation deals
         </p>
@@ -60,7 +61,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <section className="social-media">
+      <div className="social-media">
         <div className="social-media-wrap">
           <div className="footer-logo">
             <Link to="/" className="social-logo">
@@ -113,7 +114,7 @@ function Footer() {
             </Link>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

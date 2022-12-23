@@ -9,7 +9,6 @@ const Button = styled.div`
 `;
 
 const ConnectWalletContainer = styled.div`
-  margin-top: 25px;
   display: flex;
   justify-content: center;
   flex-direction: row;

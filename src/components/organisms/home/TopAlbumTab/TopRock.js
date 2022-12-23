@@ -1,16 +1,16 @@
-import React from "react";
 import { BsThreeDots } from "react-icons/bs";
 import { FaEthereum } from "react-icons/fa";
 
 import styled from "styled-components";
-import marketplace1 from "@components/assets/images/marketplace1.png";
-import marketplace2 from "@components/assets/images/marketplace2.png";
-import marketplace4 from "@components/assets/images/marketplace3.png";
-import marketplace3 from "@components/assets/images/marketplace4.png";
-import marketplace5 from "@components/assets/images/marketplace5.png";
-import marketplace6 from "@components/assets/images/marketplace6.png";
-import marketplace7 from "@components/assets/images/marketplace7.png";
-import marketplace8 from "@components/assets/images/marketplace8.png";
+
+import marketplace1 from "@components/assets/images/Rock/r1.png";
+import marketplace2 from "@components/assets/images/Rock/r2.png";
+import marketplace4 from "@components/assets/images/Rock/r3.png";
+import marketplace3 from "@components/assets/images/Rock/r4.png";
+import marketplace5 from "@components/assets/images/Rock/r5.png";
+import marketplace6 from "@components/assets/images/Rock/r6.png";
+import marketplace7 from "@components/assets/images/Rock/r7.png";
+import marketplace8 from "@components/assets/images/Rock/r8.png";
 
 
 
@@ -18,35 +18,35 @@ export default function TopRock() {
   const marketPlaceData = [
     {
       image: marketplace1,
-      name: "윤하 - 사건의 지평선",
+      name: "Kolumbear - Love Again",
     },
     {
       image: marketplace2,
-      name: "NewJeans - Ditto",
+      name: "Utopi (유토피) - IoU",
     },
     {
       image: marketplace3,
-      name: "쇼미더머니 11 Episode 3",
+      name: "고고학 - 질투",
     },
     {
       image: marketplace4,
-      name: "경서 - 나의 X에게",
+      name: "갤럭시 웨일 - 낡은 마음",
     },
     {
       image: marketplace5,
-      name: "진 - The Astronaut",
+      name: "연수 - Killing Me Softly",
     },
     {
       image: marketplace6,
-      name: "방탄소년단 - Butter",
+      name: "크레템 - Memories",
     },
     {
       image: marketplace7,
-      name: "PSY 싸이 - That That",
+      name: "하현우 - Show Down",
     },
     {
       image: marketplace8,
-      name: "WSG워너비 - 보고싶었어",
+      name: "현유환 - 일하기 싫어",
     },
   ];
 
@@ -82,19 +82,7 @@ const Section = styled.section`
   gap: 5rem;
   margin: 0 6rem;
   margin-bottom: 5rem;
-  .title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    flex-direction: column;
-    h2 {
-      font-size: 3rem;
-    }
-    p {
-      color: #7b7e86;
-    }
-  }
+ 
   .marketPlaceTypes {
     display: flex;
     justify-content: center;

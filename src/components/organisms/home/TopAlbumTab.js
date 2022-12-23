@@ -17,12 +17,11 @@ const TabAllContainer = styled.div`
 `;
 
 const TabTextContainer = styled.div`
-  margin-top: 100px;
-  margin-left: 10px;
+  margin-top: 70px;
 `;
 
 const TabContainer = styled.div`
-  margin-top: 70px;
+  margin-top: 30px;
   width: 100%;
   justify-content: center;
   display: flex;
@@ -43,8 +42,7 @@ export default function TopAlbumTab() {
             <div className="title">
               <h2>음악앨범 NFT 시장</h2>
               <p>
-                소비자가 다양한 음악을 즐길 수 있게 우리는 모든 것을 준비할
-                것이다.
+                소비자가 다양한 음악을 즐길 수 있게 우리는 모든 것을 준비합니다.
               </p>
             </div>
             <TabTextContainer>

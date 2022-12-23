@@ -100,13 +100,6 @@ const ButtonBuy = styled.div`
   border-radius: 15px;
 `;
 
-const ButtonBuyText = styled.div`
-  font-size: 32px;
-  font-weight: bold;
-  display: flex;
-  flex-direction: row;
-`;
-
 const ButtonSuggest = styled.div`
   width: 196px;
   height: 71px;
@@ -120,13 +113,8 @@ const ButtonSuggest = styled.div`
   font-weight: bold;
 `;
 
-const ButtonSuggestText = styled.div`
-  font-size: 32px;
-  font-weight: bold;
-  display: flex;
-`;
-
 const RightBox = styled.div`
+  margin-left: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -231,17 +219,11 @@ function Tradeplace() {
               </PriceTextBox2>
               <ButtonContainer>
                 <BuySuggestButton onClick={clickMe}>
-                  <ButtonBuy>
-                    <ButtonBuyText>
-                      <h1>구매</h1>
-                    </ButtonBuyText>
-                  </ButtonBuy>
+                  <ButtonBuy className="buybutton">구매</ButtonBuy>
                 </BuySuggestButton>
                 <BuySuggestButton onClick={clickMe}>
                   <ButtonSuggest>
-                    <ButtonSuggestText>
-                      <h1>가격 제안</h1>
-                    </ButtonSuggestText>
+                    <ButtonBuy className="buybutton">가격 제안</ButtonBuy>
                   </ButtonSuggest>
                 </BuySuggestButton>
               </ButtonContainer>
