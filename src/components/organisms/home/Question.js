@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React, { useState } from "react";
-import "../home/css/styles.css";
+
 
 const Container = styled.div`
   width: 100%;
@@ -19,7 +19,7 @@ const qnaList = [
   {
     question: "Meta Music은 어떤 회사인가요?",
     answer:
-      "아티스트들에게 더 많은 수익을 배분하는 것에 중점을 두고 질 좋은 작품 활동을 지속적으로 할 수 있게 지원하는 플랫폼입니다.",
+      "아티스트들에게 더 많은 수익을 배분하는 것에 중점을 두고 질 좋은 작품 활동을 지속적으로 할 수 있게 지원하는 플랫폼 회사입니다.",
   },
   {
     question: "앨범 NFT란 무엇인가요?",
@@ -74,15 +74,82 @@ const FAQ = () => {
   };
 
   return (
-    <Container>
-      <Meta className="Question-heading">MetaMusic FAQ</Meta>
-      <div className="fqa-parent">
-        <div className="faq-list">
-          {cardOnOff.map((item, index) => getQnACard(item, index))}
+    <Section>
+      <Container>
+        <Meta className="Question-heading">MetaMusic FAQ</Meta>
+        <div className="fqa-parent">
+          <div className="faq-list">
+            {cardOnOff.map((item, index) => getQnACard(item, index))}
+          </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </Section>
   );
 };
 
 export default FAQ;
+
+const Section = styled.section`
+  .fqa-parent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .faq-list {
+    width: 73%;
+    font-weight: 550;
+  }
+
+  .faq-card {
+    display: flex;
+    margin-top: 10px;
+    width: 100%;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    border: 2px solid black;
+    border-radius: 20px;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+
+  .faq-card-title {
+    display: flex;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .faq-card-answer {
+    position: relative;
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+    padding-right: 2rem;
+    border: 0px solid rgba(225, 228, 230, 0.5);
+    border-top-width: 1px;
+  }
+
+  .faq-card-none {
+    display: none;
+  }
+
+  .question-mark {
+    color: rgb(12, 77, 162);
+    font-size: 20px;
+    margin-right: 10px;
+  }
+
+  .answer-mark {
+    color: skyblue;
+    font-size: 20px;
+    margin-right: 10px;
+  }
+
+  .Question-heading {
+    color: black;
+    margin-bottom: 20px;
+    font-size: 50px;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
+`;

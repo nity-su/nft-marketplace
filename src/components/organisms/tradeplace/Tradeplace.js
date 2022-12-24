@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import TestImg2 from "@components/organisms/tradeplace/newjeans.png";
-import "../home/css/tradeplace.css";
-import TxBox from "./TxBox";
+import TestImg2 from "src/components/assets/images/newjeans.png";
+import TxBoxTab from "./TxDetail/TxBoxTab";
 
 const BackGroundContainer = styled.div`
   display: flex;
@@ -206,58 +205,69 @@ function clickMe() {
 
 function Tradeplace() {
   return (
-    <BackGroundContainer>
-      <TradeplaceBackGroundContainer>
-        <Container>
-          <LeftBox>
-            <NftImg></NftImg>
-            <PriceBox>
-              <PriceTextBox1>Price</PriceTextBox1>
-              <PriceTextBox2>
-                <PriceTextBoxDetail1>1,000</PriceTextBoxDetail1>
-                <PriceTextBoxDetail2>KLAY</PriceTextBoxDetail2>
-              </PriceTextBox2>
-              <ButtonContainer>
-                <BuySuggestButton onClick={clickMe}>
-                  <ButtonBuy className="buybutton">구매</ButtonBuy>
-                </BuySuggestButton>
-                <BuySuggestButton onClick={clickMe}>
-                  <ButtonSuggest>
-                    <ButtonBuy className="buybutton">가격 제안</ButtonBuy>
-                  </ButtonSuggest>
-                </BuySuggestButton>
-              </ButtonContainer>
-            </PriceBox>
-          </LeftBox>
-          <RightBox>
-            <NFTTitle>
-              NEW JEANS 블루 북 어텐션 하이프보이 쿠키 굿즈 Attention
-            </NFTTitle>
-            <UserInfoBox>
-              <SupplierBox>
-                <SupplierImgBox></SupplierImgBox>
-                <SupplierTextBox>공급자 : Meta Music</SupplierTextBox>
-              </SupplierBox>
-              <SupplierBox>
-                <SupplierTextBox>소유자 : 0x0000. . .</SupplierTextBox>
-              </SupplierBox>
-            </UserInfoBox>
-            <NFTDetailBox>
-              <NFTInfoBoxTitle>상세 정보</NFTInfoBoxTitle>
-              <NFTInfoBoxDetail>
-                어디서든 편하게 들을 수 있는 세련된 이지리스닝 팝을 추구하는
-                동시에 과장 없는 자연스러운 사운드 엔지니어링으로 NewJeans
-                맴버들 본연의 목소리를 살리는 프로듀싱을 진행했다.앨범의 수록돈
-                4곡은 NewJeans 멤버들의 순수하고 자연스러운 매력과 10대 고유의
-                에너지를 오롯이 담아내고 있다.
-              </NFTInfoBoxDetail>
-            </NFTDetailBox>
-            <TxBox></TxBox>
-          </RightBox>
-        </Container>
-      </TradeplaceBackGroundContainer>
-    </BackGroundContainer>
+    <Section>
+      <BackGroundContainer>
+        <TradeplaceBackGroundContainer>
+          <Container>
+            <LeftBox>
+              <NftImg></NftImg>
+              <PriceBox>
+                <PriceTextBox1>Price</PriceTextBox1>
+                <PriceTextBox2>
+                  <PriceTextBoxDetail1>1,000</PriceTextBoxDetail1>
+                  <PriceTextBoxDetail2>KLAY</PriceTextBoxDetail2>
+                </PriceTextBox2>
+                <ButtonContainer>
+                  <BuySuggestButton onClick={clickMe}>
+                    <ButtonBuy className="buybutton">구매</ButtonBuy>
+                  </BuySuggestButton>
+                  <BuySuggestButton onClick={clickMe}>
+                    <ButtonSuggest>
+                      <ButtonBuy className="buybutton">가격 제안</ButtonBuy>
+                    </ButtonSuggest>
+                  </BuySuggestButton>
+                </ButtonContainer>
+              </PriceBox>
+            </LeftBox>
+            <RightBox>
+              <NFTTitle className="body">
+                NEW JEANS 블루 북 어텐션 하이프보이 쿠키 굿즈 Attention
+              </NFTTitle>
+              <UserInfoBox>
+                <SupplierBox>
+                  <SupplierImgBox></SupplierImgBox>
+                  <SupplierTextBox>공급자 : Meta Music</SupplierTextBox>
+                </SupplierBox>
+                <SupplierBox>
+                  <SupplierTextBox>소유자 : 0x0000. . .</SupplierTextBox>
+                </SupplierBox>
+              </UserInfoBox>
+              <NFTDetailBox>
+                <NFTInfoBoxTitle>상세 정보</NFTInfoBoxTitle>
+                <NFTInfoBoxDetail>
+                  어디서든 편하게 들을 수 있는 세련된 이지리스닝 팝을 추구하는
+                  동시에 과장 없는 자연스러운 사운드 엔지니어링으로 NewJeans
+                  맴버들 본연의 목소리를 살리는 프로듀싱을 진행했다.앨범의
+                  수록돈 4곡은 NewJeans 멤버들의 순수하고 자연스러운 매력과 10대
+                  고유의 에너지를 오롯이 담아내고 있다.
+                </NFTInfoBoxDetail>
+              </NFTDetailBox>
+              <TxBoxTab></TxBoxTab>
+            </RightBox>
+          </Container>
+        </TradeplaceBackGroundContainer>
+      </BackGroundContainer>
+    </Section>
   );
 }
 
 export default Tradeplace;
+
+const Section = styled.section`
+  .buybutton {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+  }
+
+`;

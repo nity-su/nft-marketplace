@@ -2,14 +2,16 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import TestImg1 from "@components/organisms/tradeplace/newjeans.png";
-import TestImg2 from "@components/organisms/tradeplace/BTS.png";
-import TestImg3 from "@components/organisms/tradeplace/IDLE.png";
-import TestImg4 from "@components/organisms/tradeplace/LoveImage.png";
+import TestImg1 from "src/components/assets/images/IDLE.png";
+import TestImg2 from "src/components/assets/images/BTS.png";
+import TestImg3 from "src/components/assets/images/newjeans.png";
+import TestImg4 from "src/components/assets/images/Idol/i5.png";
+import TestImg5 from "src/components/assets/images/LoveImage.png";
+import TestImg6 from "src/components/assets/images/Idol/i1.png";
 
 const LinkBox = styled(Link)``;
 
-const CommingSoonTestImg1 = styled.div`
+const CommingSoonImg1 = styled.div`
   width: 300px;
   height: 300px;
   border-radius: 20px;
@@ -18,7 +20,7 @@ const CommingSoonTestImg1 = styled.div`
   background-size: cover;
 `;
 
-const CommingSoonImg1 = styled.div`
+const CommingSoonImg2 = styled.div`
   width: 300px;
   height: 300px;
   border-radius: 20px;
@@ -28,7 +30,7 @@ const CommingSoonImg1 = styled.div`
   background-size: cover;
 `;
 
-const CommingSoonImg2 = styled.div`
+const CommingSoonImg3 = styled.div`
   width: 300px;
   height: 300px;
   border-radius: 20px;
@@ -38,12 +40,30 @@ const CommingSoonImg2 = styled.div`
   background-size: cover;
 `;
 
-const CommingSoonImg3 = styled.div`
+const CommingSoonImg4 = styled.div`
   width: 300px;
   height: 300px;
   border-radius: 20px;
   background-color: blue;
   background-image: url(${TestImg4});
+  background-repeat: no-repeat;
+  background-size: cover;
+`;
+const CommingSoonImg5 = styled.div`
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+  background-color: blue;
+  background-image: url(${TestImg5});
+  background-repeat: no-repeat;
+  background-size: cover;
+`;
+const CommingSoonImg6 = styled.div`
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+  background-color: blue;
+  background-image: url(${TestImg6});
   background-repeat: no-repeat;
   background-size: cover;
 `;
@@ -87,14 +107,9 @@ export default class AutoPlay extends Component {
           <div>
             <LinkBox to="/nftlist">
               <Button>
-                <CommingSoonTestImg1></CommingSoonTestImg1>
+                <CommingSoonImg1></CommingSoonImg1>
               </Button>
             </LinkBox>
-          </div>
-          <div>
-            <Button onClick={clickMe}>
-              <CommingSoonImg1></CommingSoonImg1>
-            </Button>
           </div>
           <div>
             <Button onClick={clickMe}>
@@ -108,12 +123,17 @@ export default class AutoPlay extends Component {
           </div>
           <div>
             <Button onClick={clickMe}>
-              <CommingSoonImg1></CommingSoonImg1>
+              <CommingSoonImg4></CommingSoonImg4>
             </Button>
           </div>
           <div>
             <Button onClick={clickMe}>
-              <CommingSoonImg2></CommingSoonImg2>
+              <CommingSoonImg5></CommingSoonImg5>
+            </Button>
+          </div>
+          <div>
+            <Button onClick={clickMe}>
+              <CommingSoonImg6></CommingSoonImg6>
             </Button>
           </div>
         </Slider>
