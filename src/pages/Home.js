@@ -1,20 +1,17 @@
 import Footer from "@components/organisms/home/Footer";
 import Introduce from "@components/organisms/home/Introduce";
 import TopAlbum from "@components/organisms/home/TopAlbumTab";
-import React from "react";
-import styled from "styled-components";
 import Question from "@components/organisms/home/Question";
 
-const Container = styled.div``;
 
 export default function Home() {
   return (
-    <Container>
-      {/* <NaviBox></NaviBox> */}
+    <>
+      {/* <NaviBox /> */}
       <Introduce />
       <TopAlbum />
       <Question />
       <Footer />
-    </Container>
+    </>
   );
 }

@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import LogoImg from "../../assets/images/MetaMusic_Logo_02.png";
 import UserProfile from "../../assets/images/user_profile.png";
@@ -77,11 +76,11 @@ function clickMe() {
 
 function NaviBox() {
   return (
-    <>
+    <Section>
       <Navibox>
         <LogoBox to="/"></LogoBox>
 
-        <input placeholder="Search" className="testsearch" />
+        <input placeholder="Search" className="searchbox" />
 
         <MarketAllBoxLink to="/allcollection">Market All</MarketAllBoxLink>
         <QnABox onClick={clickMe}>FAQ</QnABox>
@@ -92,8 +91,19 @@ function NaviBox() {
         <ConnectWallet />
       </Navibox>
       <Outlet />
-    </>
+    </Section>
   );
 }
 
 export default NaviBox;
+
+const Section = styled.section`
+  .searchbox {
+    width: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    border-radius: 20px;
+  }
+`;
