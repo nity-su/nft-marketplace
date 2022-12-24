@@ -105,11 +105,9 @@ export default class AutoPlay extends Component {
       <div>
         <Slider {...settings}>
           <div>
-            <LinkBox to="/nftlist">
-              <Button>
-                <CommingSoonImg1></CommingSoonImg1>
-              </Button>
-            </LinkBox>
+            <Button onClick={clickMe}>
+              <CommingSoonImg1></CommingSoonImg1>
+            </Button>
           </div>
           <div>
             <Button onClick={clickMe}>
@@ -117,9 +115,11 @@ export default class AutoPlay extends Component {
             </Button>
           </div>
           <div>
-            <Button onClick={clickMe}>
-              <CommingSoonImg3></CommingSoonImg3>
-            </Button>
+            <LinkBox to="/nftlist">
+              <Button>
+                <CommingSoonImg3></CommingSoonImg3>
+              </Button>
+            </LinkBox>
           </div>
           <div>
             <Button onClick={clickMe}>
