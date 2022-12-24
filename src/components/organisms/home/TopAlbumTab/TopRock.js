@@ -12,25 +12,23 @@ import marketplace6 from "@components/assets/images/Rock/r6.png";
 import marketplace7 from "@components/assets/images/Rock/r7.png";
 import marketplace8 from "@components/assets/images/Rock/r8.png";
 
-
-
 export default function TopRock() {
   const marketPlaceData = [
     {
       image: marketplace1,
-      name: "Kolumbear - Love Again",
+      name: "Kolumbear - 널 위한 발라드",
     },
     {
       image: marketplace2,
-      name: "Utopi (유토피) - IoU",
+      name: "Utopi (유토피) - 신입사원 OST",
     },
     {
       image: marketplace3,
-      name: "고고학 - 질투",
+      name: "고고학 - 고고학",
     },
     {
       image: marketplace4,
-      name: "갤럭시 웨일 - 낡은 마음",
+      name: "갤럭시 웨일 - 뮤직 스토리",
     },
     {
       image: marketplace5,
@@ -42,11 +40,11 @@ export default function TopRock() {
     },
     {
       image: marketplace7,
-      name: "하현우 - Show Down",
+      name: "하현우 - 카지노 OST",
     },
     {
       image: marketplace8,
-      name: "현유환 - 일하기 싫어",
+      name: "현유환 - I' ll",
     },
   ];
 
@@ -82,7 +80,7 @@ const Section = styled.section`
   gap: 5rem;
   margin: 0 6rem;
   margin-bottom: 5rem;
- 
+
   .marketPlaceTypes {
     display: flex;
     justify-content: center;

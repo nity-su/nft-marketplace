@@ -16,11 +16,11 @@ export default function TopIdol() {
   const marketPlaceData = [
     {
       image: marketplace1,
-      name: "ITZY (있지) - CHECKMATE",
+      name: "ITZY - CHECKMATE",
     },
     {
       image: marketplace2,
-      name: "TWICE (트와이스) - Love O+T=3",
+      name: "트와이스 - Love O+T=3",
     },
     {
       image: marketplace3,
@@ -40,11 +40,11 @@ export default function TopIdol() {
     },
     {
       image: marketplace7,
-      name: "PSY 싸이 - That That",
+      name: "하이라이트 - The Blowing",
     },
     {
       image: marketplace8,
-      name: "하이라이트 (Highlight) - 불어온다",
+      name: "에이핑크 - HORN",
     },
   ];
 

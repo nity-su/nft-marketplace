@@ -18,7 +18,7 @@ export default function TopBest() {
   const marketPlaceData = [
     {
       image: marketplace1,
-      name: "윤하 - 사건의 지평선",
+      name: "윤하 - YOUNHA 6th Album",
     },
     {
       image: marketplace2,
@@ -42,11 +42,11 @@ export default function TopBest() {
     },
     {
       image: marketplace7,
-      name: "PSY 싸이 - That That",
+      name: "PSY 싸이 - 싸다9",
     },
     {
       image: marketplace8,
-      name: "WSG워너비 - 보고싶었어",
+      name: "WSG워너비 - WSG워너비 1집",
     },
   ];
   
