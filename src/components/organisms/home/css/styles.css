@@ -14,7 +14,7 @@
   width: 100%;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 20px;
   flex-direction: column;
   margin-bottom: 15px;
@@ -57,4 +57,13 @@
   color: #6246ea;
   font-size: 36px;
   font-weight: 900;
+}
+
+.testsearch {
+  width: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  border-radius: 20px;
 }

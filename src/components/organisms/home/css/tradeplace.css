@@ -1,46 +1,42 @@
-h1 {
+.buybutton {
+  font-size: 32px;
+  font-weight: bold;
   color: white;
 }
 
 /* 이 아래로 TestTab Css */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.box {
+.txbox {
   width: 600px;
   justify-content: flex-start;
   margin-top: 50px;
 }
 
-.tabs {
+.txtabs {
   display: flex;
   justify-content: space-around;
 }
 
-.tab {
-  background: whitesmoke;
+.txtab {
   width: 162px;
-  height: 75px;
+  height: 50px;
+  margin-bottom: 20px;
   padding: 10px;
   text-align: center;
   font-size: 24px;
   font-weight: bold;
-  border: 1px solid whitesmoke;
-  border-top: none;
+  border: 1px solid gray;
+  border-radius: 50px;
   cursor: pointer;
   position: relative;
 }
 
-.active-tab {
+.txactive-tab {
   border: none;
   background: white;
 }
 
-.active-tab::after {
+.txactive-tab::after {
   border-top: 2px solid #6246ea;
   content: "";
   position: absolute;
@@ -53,16 +49,16 @@ h1 {
   animation: new 0.5s;
 }
 
-.contents {
+.txcontents {
   position: relative;
 }
 
-.content {
+.txcontent {
   display: none;
   position: relative;
 }
 
-.active-content {
+.txactive-content {
   display: block;
   margin-top: 10px;
   margin-right: 10px;

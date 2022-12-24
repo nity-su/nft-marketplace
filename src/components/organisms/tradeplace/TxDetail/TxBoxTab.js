@@ -1,7 +1,8 @@
 import "@components/organisms/home/css/tradeplace.css";
 import { useState } from "react";
-import TxDetail from "./TxDetail/TxDetail";
-import PriceSuggest from "./TxDetail/PriceSuggest";
+import TxDetail from "./TxDetail";
+import PriceSuggest from "./PriceSuggest";
+import Util from "./Utility";
 import styled from "styled-components";
 
 const TabContainer = styled.div`
@@ -22,24 +23,24 @@ function TestTab() {
 
   return (
     <div className="App">
-      <div className="box">
+      <div className="txbox">
         <TabTextContainer>
-          <div className="tabs">
+          <div className="txtabs">
             <div
               onClick={() => action(1)}
-              className={`${state === 1 ? "tab active-tab" : "tab"}`}
+              className={`${state === 1 ? "txtab txactive-tab" : "txtab"}`}
             >
               거래 내역
             </div>
             <div
               onClick={() => action(2)}
-              className={`${state === 2 ? "tab active-tab" : "tab"}`}
+              className={`${state === 2 ? "txtab txactive-tab" : "txtab"}`}
             >
               가격 제안
             </div>
             <div
               onClick={() => action(3)}
-              className={`${state === 3 ? "tab active-tab" : "tab"}`}
+              className={`${state === 3 ? "txtab txactive-tab" : "txtab"}`}
             >
               유틸리티
             </div>
@@ -47,9 +48,9 @@ function TestTab() {
         </TabTextContainer>
 
         {/* contents */}
-        <div className="contents">
+        <div className="txcontents">
           <div
-            className={`${state === 1 ? "content active-content" : "content "}`}
+            className={`${state === 1 ? "txcontent txactive-content" : "txcontent "}`}
           >
             <TabContainer>
               <TxDetail></TxDetail>
@@ -57,7 +58,7 @@ function TestTab() {
           </div>
 
           <div
-            className={`${state === 2 ? "content active-content" : "content "}`}
+            className={`${state === 2 ? "txcontent txactive-content" : "txcontent "}`}
           >
             <TabContainer>
               <PriceSuggest></PriceSuggest>
@@ -65,9 +66,11 @@ function TestTab() {
           </div>
 
           <div
-            className={`${state === 3 ? "content active-content" : "content "}`}
+            className={`${state === 3 ? "txcontent txactive-content" : "txcontent "}`}
           >
-            <TabContainer></TabContainer>
+            <TabContainer>
+              <Util></Util>
+            </TabContainer>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import TestImg2 from "@components/organisms/tradeplace/newjeans.png";
 import "../home/css/tradeplace.css";
-// import Tradeplace_ from "./Tradeplace_";
+import TxBox from "./TxBox";
 
 const BackGroundContainer = styled.div`
   display: flex;
@@ -100,13 +100,6 @@ const ButtonBuy = styled.div`
   border-radius: 15px;
 `;
 
-const ButtonBuyText = styled.div`
-  font-size: 32px;
-  font-weight: bold;
-  display: flex;
-  flex-direction: row;
-`;
-
 const ButtonSuggest = styled.div`
   width: 196px;
   height: 71px;
@@ -120,13 +113,8 @@ const ButtonSuggest = styled.div`
   font-weight: bold;
 `;
 
-const ButtonSuggestText = styled.div`
-  font-size: 32px;
-  font-weight: bold;
-  display: flex;
-`;
-
 const RightBox = styled.div`
+  margin-left: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -202,44 +190,6 @@ const NFTInfoBoxDetail = styled.div`
   font-weight: bold;
 `;
 
-// const TransactionBox = styled.div`
-//   width: 525px;
-//   height: 380px;
-//   margin-top: 10px;
-//   margin-left: 35px;
-//   border-radius: 15px;
-//   justify-content: center;
-// `;
-
-// const Line = styled.div`
-//   width: 523px;
-//   height: 1px;
-//   background-color: black;
-// `;
-
-// const Button = styled.button`
-//   cursor: pointer;
-//   background-color: white;
-//   border-radius: 15px;
-//   margin: 6px;
-//   border: 0;
-//   outline: 0;
-//   color: black;
-//   width: 162px;
-//   height: 76px;
-//   padding: 0px 0px;
-//   font-size: 24px;
-//   font-weight: bold;
-//   transition: ease background-color 250ms;
-//   &:hover {
-//     background-color: gray;
-//   }
-//   &:disabled {
-//     cursor: default;
-//     color: gray;
-//   }
-// `;
-
 const BuySuggestButton = styled.button`
   cursor: pointer;
   border: 0;
@@ -269,17 +219,11 @@ function Tradeplace() {
               </PriceTextBox2>
               <ButtonContainer>
                 <BuySuggestButton onClick={clickMe}>
-                  <ButtonBuy>
-                    <ButtonBuyText>
-                      <h1>구매</h1>
-                    </ButtonBuyText>
-                  </ButtonBuy>
+                  <ButtonBuy className="buybutton">구매</ButtonBuy>
                 </BuySuggestButton>
                 <BuySuggestButton onClick={clickMe}>
                   <ButtonSuggest>
-                    <ButtonSuggestText>
-                      <h1>가격 제안</h1>
-                    </ButtonSuggestText>
+                    <ButtonBuy className="buybutton">가격 제안</ButtonBuy>
                   </ButtonSuggest>
                 </BuySuggestButton>
               </ButtonContainer>
@@ -308,7 +252,7 @@ function Tradeplace() {
                 에너지를 오롯이 담아내고 있다.
               </NFTInfoBoxDetail>
             </NFTDetailBox>
-            {/* <Tradeplace_></Tradeplace_> */}
+            <TxBox></TxBox>
           </RightBox>
         </Container>
       </TradeplaceBackGroundContainer>
