@@ -4,7 +4,6 @@ import TestImg from "../../assets/images/testimg.jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Carousel from "./Introduce_page/Carousel";
-import "../home/css/styles.css";
 
 const BackGroundBox = styled.div`
   width: 100%;
@@ -56,6 +55,7 @@ const NewCollectionImgBox = styled.div`
 
 function Introduce() {
   return (
+    <Section>
     <BackGroundBox>
       <MetaMusicIntroBox>
         <MetaMusicIntro></MetaMusicIntro>
@@ -71,7 +71,16 @@ function Introduce() {
         </NewCollectionContainer>
       </NewCollectionContainerBox>
     </BackGroundBox>
+    </Section>
   );
 }
 
 export default Introduce;
+
+const Section = styled.section`
+  .NewCollectionTextStyle {
+    color: #6246ea;
+    font-size: 36px;
+    font-weight: 900;
+  }
+`;

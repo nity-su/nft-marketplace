@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-import "@components/organisms/home/css/Album.css";
 import TopBest from "./TopAlbumTab/TopBest";
 import TopIdol from "./TopAlbumTab/TopIdol";
 import TopBallde from "./TopAlbumTab/TopBallade";
@@ -88,6 +87,7 @@ export default function TopAlbumTab() {
             </TabTextContainer>
 
             {/* contents */}
+            
             <div className="contents">
               <div
                 className={`${
@@ -237,5 +237,67 @@ const Section = styled.section`
       justify-content: center;
       align-items: center;
     }
+  }
+
+  .box {
+    width: 890px;
+    margin-top: 50px;
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .tab {
+    width: 84px;
+    height: 40px;
+    border-radius: 50px;
+    border: 1px solid gray;
+    background-color: white;
+    font-size: 19px;
+    font-weight: 550;
+    cursor: pointer;
+    position: relative;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+
+  .active-tab {
+    border: none;
+    background: white;
+  }
+
+  .active-tab::after {
+    border: 2px solid #6246ea;
+    border-radius: 50px;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background: initial;
+    animation: new 0.5s;
+  }
+
+  .contents {
+    position: relative;
+  }
+
+  .content {
+    display: none;
+    position: relative;
+  }
+
+  .active-content {
+    display: block;
+    margin-top: 10px;
+    margin-right: 10px;
+    transition: all 1s ease-in-out;
   }
 `;

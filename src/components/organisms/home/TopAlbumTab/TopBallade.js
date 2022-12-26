@@ -80,7 +80,7 @@ const Section = styled.section`
   gap: 5rem;
   margin: 0 6rem;
   margin-bottom: 5rem;
-  
+
   .marketPlaceTypes {
     display: flex;
     justify-content: center;

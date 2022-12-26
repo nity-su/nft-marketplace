@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import TestImg1 from "@components/organisms/tradeplace/newjeans.png";
+import TestImg1 from "src/components/assets/images/newjeans.png";
 import { Link } from "react-router-dom";
 
 const LinkBox = styled(Link)``;

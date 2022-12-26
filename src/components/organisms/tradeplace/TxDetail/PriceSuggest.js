@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import "@components/organisms/home/css/tradeplace.css";
 
 const PriceSuggestContainer = styled.div``;
 

@@ -28,7 +28,7 @@ export default function TopLabper() {
     },
     {
       image: marketplace4,
-      name: "리트릴라 (LiTrilla) - 술",
+      name: "리트릴라 (LiTrilla) - 술(Turnt Up)",
     },
     {
       image: marketplace5,
