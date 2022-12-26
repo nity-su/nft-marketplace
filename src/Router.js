@@ -4,6 +4,7 @@ import Tradeplace from "./components/organisms/tradeplace/Tradeplace";
 import AllCollection from "./pages/AllCollection";
 import NFTList from "./pages/NFTList";
 import NaviBox from "@components/organisms/home/NaviBox";
+import Register from "@components/organisms/RegisterCollection/Register";
 
 export default function Router() {
   return (
@@ -14,7 +15,8 @@ export default function Router() {
           <Route path="/tradeplace" element={<Tradeplace />}></Route>
           <Route path="/allcollection" element={<AllCollection />}></Route>
           <Route path="/nftlist" element={<NFTList />}></Route>
-          </Route>
+          <Route path="/register-collection" element={<Register />}></Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   );
