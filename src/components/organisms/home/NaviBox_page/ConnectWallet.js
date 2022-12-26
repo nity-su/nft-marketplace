@@ -31,7 +31,7 @@ const ConnectWalletText = styled.div`
   justify-content: center;
 `;
 
-export default function ConnectWallet() {
+export default function ConnectWallet({ setAddr }) {
   return (
     <>
       <ConnectWalletContainer>
@@ -41,7 +41,7 @@ export default function ConnectWallet() {
               const ethereum = window.ethereum;
               ethereum
                 .request({ method: "eth_requestAccounts" })
-                .then(console.log);
+                .then((addr) => setAddr(addr[0]));
             }
           }}
         >
@@ -54,7 +54,7 @@ export default function ConnectWallet() {
               const ethereum = window.ethereum;
               ethereum
                 .request({ method: "eth_requestAccounts" })
-                .then(console.log);
+                .then((addr) => setAddr(addr[0]));
             }
           }}
         >

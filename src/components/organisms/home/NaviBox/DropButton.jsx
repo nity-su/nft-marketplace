@@ -15,7 +15,7 @@ const DropDownMenu = styled(Link)`
   background-color: #b39e9e;
 `;
 
-export default function DropButton() {
+export default function DropButton({ address }) {
   const [state, setState] = useState();
 
   function onHandler() {
@@ -36,6 +36,7 @@ export default function DropButton() {
           <DropDownMenu
             to="/register-collection"
             onClick={openHandlerForProfile}
+            state={{ address: address }}
           >
             Create Collection
           </DropDownMenu>,
