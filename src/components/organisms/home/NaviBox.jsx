@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import LogoImg from "../../assets/images/MetaMusic_Logo_02.png";
-import UserProfile from "../../assets/images/user_profile.png";
 import { Link, Outlet } from "react-router-dom";
 import ConnectWallet from "./NaviBox_page/ConnectWallet";
+import DropButton from "./NaviBox/DropButton";
+import { useState } from "react";
 
 const Navibox = styled.div`
   opacity: 0.9;
@@ -48,34 +49,35 @@ const QnABox = styled.div`
   justify-content: center;
 `;
 
-const ProfileBox = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-`;
+// const ProfileBox = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   flex-direction: row;
+// `;
 
-const ProfileImgBox = styled.div`
-  width: 24px;
-  height: 24px;
-  background-image: url(${UserProfile});
-  background-repeat: no-repeat;
-  background-size: cover;
-`;
+// const ProfileImgBox = styled.div`
+//   width: 24px;
+//   height: 24px;
+//   background-image: url(${UserProfile});
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// `;
 
-const ProfileTextBox = styled.div`
-  width: 100px;
-  height: 24px;
-  font-size: 20px;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-`;
+// const ProfileTextBox = styled.div`
+//   width: 100px;
+//   height: 24px;
+//   font-size: 20px;
+//   font-weight: bold;
+//   display: flex;
+//   justify-content: center;
+// `;
 
 function clickMe() {
   alert("페이지 링크 예정");
 }
 
 function NaviBox() {
+  const [address, setAddr] = useState();
   return (
     <>
       <Navibox>
@@ -85,11 +87,12 @@ function NaviBox() {
 
         <MarketAllBoxLink to="/allcollection">Market All</MarketAllBoxLink>
         <QnABox onClick={clickMe}>FAQ</QnABox>
-        <ProfileBox onClick={clickMe}>
+        {/* <ProfileBox onClick={clickMe}>
           <ProfileImgBox></ProfileImgBox>
           <ProfileTextBox>Profile</ProfileTextBox>
-        </ProfileBox>
-        <ConnectWallet />
+        </ProfileBox> */}
+        <DropButton address={address} />
+        <ConnectWallet setAddr={setAddr} />
       </Navibox>
       <Outlet />
     </>

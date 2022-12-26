@@ -27,22 +27,20 @@ export default function DropButton({ address }) {
   }
 
   return (
-    <div>
-      <Dropdown
-        open={state}
-        triger={<Button onClick={onHandler}>Profile</Button>}
-        menu={[
-          <DropDownMenu>프로필</DropDownMenu>,
-          <DropDownMenu
-            to="/register-collection"
-            onClick={openHandlerForProfile}
-            state={{ address: address }}
-          >
-            Create Collection
-          </DropDownMenu>,
-        ]}
-      />
-    </div>
+    <Dropdown
+      open={state}
+      triger={<Button onClick={onHandler}>Profile</Button>}
+      menu={[
+        <DropDownMenu>프로필</DropDownMenu>,
+        <DropDownMenu
+          to="/register-collection"
+          onClick={openHandlerForProfile}
+          state={{ address: address }}
+        >
+          Create Collection
+        </DropDownMenu>,
+      ]}
+    />
   );
 }
 
