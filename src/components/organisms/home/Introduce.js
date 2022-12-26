@@ -56,21 +56,21 @@ const NewCollectionImgBox = styled.div`
 function Introduce() {
   return (
     <Section>
-    <BackGroundBox>
-      <MetaMusicIntroBox>
-        <MetaMusicIntro></MetaMusicIntro>
-      </MetaMusicIntroBox>
-      <NewCollectionContainerBox>
-        <NewCollectionContainer>
-          <NewCollectionTitle className="NewCollectionTextStyle">
-            New Collection
-          </NewCollectionTitle>
-          <NewCollectionImgBox>
-            <Carousel></Carousel>
-          </NewCollectionImgBox>
-        </NewCollectionContainer>
-      </NewCollectionContainerBox>
-    </BackGroundBox>
+      <BackGroundBox>
+        <MetaMusicIntroBox>
+          <MetaMusicIntro></MetaMusicIntro>
+        </MetaMusicIntroBox>
+        <NewCollectionContainerBox>
+          <NewCollectionContainer>
+            <NewCollectionTitle className="NewCollectionTextStyle">
+              New Collection
+            </NewCollectionTitle>
+            <NewCollectionImgBox>
+              <Carousel></Carousel>
+            </NewCollectionImgBox>
+          </NewCollectionContainer>
+        </NewCollectionContainerBox>
+      </BackGroundBox>
     </Section>
   );
 }
@@ -79,8 +79,11 @@ export default Introduce;
 
 const Section = styled.section`
   .NewCollectionTextStyle {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+    text-align: center;
     color: #6246ea;
-    font-size: 36px;
-    font-weight: 900;
+    margin-bottom: 20px;
   }
 `;

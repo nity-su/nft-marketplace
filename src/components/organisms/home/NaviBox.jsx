@@ -33,8 +33,6 @@ const LogoBox = styled(Link)`
 const MarketAllBoxLink = styled(Link)`
   width: 100px;
   height: 24px;
-  font-size: 20px;
-  font-weight: bold;
   display: flex;
   justify-content: center;
   text-decoration: none;
@@ -43,8 +41,6 @@ const MarketAllBoxLink = styled(Link)`
 const QnABox = styled.div`
   width: 100px;
   height: 24px;
-  font-size: 20px;
-  font-weight: bold;
   display: flex;
   justify-content: center;
 `;
@@ -66,8 +62,6 @@ const QnABox = styled.div`
 // const ProfileTextBox = styled.div`
 //   width: 100px;
 //   height: 24px;
-//   font-size: 20px;
-//   font-weight: bold;
 //   display: flex;
 //   justify-content: center;
 // `;
@@ -79,11 +73,11 @@ function clickMe() {
 function NaviBox() {
   const [address, setAddr] = useState();
   return (
-    <>
-      <Navibox>
+    <Section>
+      <Navibox className="NaviBoxFonts">
         <LogoBox to="/"></LogoBox>
 
-        <input placeholder="Search" className="testsearch" />
+        <input placeholder="Search" className="searchbox" />
 
         <MarketAllBoxLink to="/allcollection">Market All</MarketAllBoxLink>
         <QnABox onClick={clickMe}>FAQ</QnABox>
@@ -95,8 +89,26 @@ function NaviBox() {
         <ConnectWallet setAddr={setAddr} />
       </Navibox>
       <Outlet />
-    </>
+    </Section>
   );
 }
 
 export default NaviBox;
+
+const Section = styled.section`
+  .searchbox {
+    width: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    border-radius: 20px;
+    font-family: "Noto Sans KR", sans-serif;
+  }
+
+  .NaviBoxFonts {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+  }
+`;
