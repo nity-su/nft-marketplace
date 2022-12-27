@@ -47,7 +47,7 @@ function NFT() {
           </TextsBox>
           <TextsBox>
             <BoldText>Price</BoldText>
-            <p>1000 klay</p>
+            <p>1,000 klay</p>
           </TextsBox>
         </DetailBox>
       </NFTWrapper>

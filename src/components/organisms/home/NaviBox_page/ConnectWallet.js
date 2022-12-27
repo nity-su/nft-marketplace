@@ -25,13 +25,11 @@ const ConnectWalletImg = styled.div`
 const ConnectWalletText = styled.div`
   width: 170px;
   height: 24px;
-  font-size: 20px;
-  font-weight: bold;
   display: flex;
   justify-content: center;
 `;
 
-export default function ConnectWallet() {
+export default function ConnectWallet({ setAddr }) {
   return (
     <>
       <ConnectWalletContainer>
@@ -41,7 +39,7 @@ export default function ConnectWallet() {
               const ethereum = window.ethereum;
               ethereum
                 .request({ method: "eth_requestAccounts" })
-                .then(console.log);
+                .then((addr) => setAddr(addr[0]));
             }
           }}
         >
@@ -54,14 +52,15 @@ export default function ConnectWallet() {
               const ethereum = window.ethereum;
               ethereum
                 .request({ method: "eth_requestAccounts" })
-                .then(console.log);
+                .then((addr) => setAddr(addr[0]));
             }
           }}
         >
-          <ConnectWalletText>Connect Wallet</ConnectWalletText>
+          <ConnectWalletText className="NaviBoxFonts">
+            Connect Wallet
+          </ConnectWalletText>
         </Button>
       </ConnectWalletContainer>
-      ;
     </>
   );
 }
