@@ -5,6 +5,7 @@ import AllCollection from "./pages/AllCollection";
 import NFTList from "./pages/NFTList";
 import NaviBox from "@components/organisms/home/NaviBox";
 import Register from "@components/organisms/RegisterCollection/Register";
+import Main from "@components/Main/Main";
 
 export default function Router() {
   return (
@@ -16,6 +17,7 @@ export default function Router() {
           <Route path="/allcollection" element={<AllCollection />}></Route>
           <Route path="/nftlist" element={<NFTList />}></Route>
           <Route path="/register-collection" element={<Register />}></Route>
+          <Route path="/main" element={<Main />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
