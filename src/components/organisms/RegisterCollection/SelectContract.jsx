@@ -29,7 +29,7 @@ export default function SelectContract({ address }) {
         .catch(console.log);
     }
     getNFTByAddress();
-  }, []);
+  }, );
   /*
   const web3 = new Web3(
     "https://goerli.infura.io/v3/b6b8a50b28304843adddcd4cf34098bd"
