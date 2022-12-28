@@ -35,8 +35,6 @@ const LogoBox = styled(Link)`
 const MarketAllBoxLink = styled(Link)`
   width: 100px;
   height: 24px;
-  font-size: 20px;
-  font-weight: bold;
   display: flex;
   justify-content: center;
   text-decoration: none;
@@ -45,10 +43,9 @@ const MarketAllBoxLink = styled(Link)`
 const QnABox = styled.div`
   width: 100px;
   height: 24px;
-  font-size: 20px;
-  font-weight: bold;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 `;
 
 const ProfileBox = styled.div`
@@ -68,19 +65,23 @@ const ProfileBox = styled.div`
 // const ProfileTextBox = styled.div`
 //   width: 100px;
 //   height: 24px;
-//   font-size: 20px;
-//   font-weight: bold;
 //   display: flex;
 //   justify-content: center;
 // `;
+
 
 const Label = styled.label`
   width: 50px;
   height: 15xp;
 `;
 
-function clickMe() {
-  alert("페이지 링크 예정");
+
+function clickhi() {
+  window.scroll({
+    top: 2400,
+    left: 100,
+    behavior: "smooth",
+  });
 }
 
 function NaviBox() {
@@ -93,8 +94,8 @@ function NaviBox() {
   const [address, setAddr] = useState();
 
   return (
-    <>
-      <Navibox>
+    <Section>
+      <Navibox className="NaviBoxFonts">
         <LogoBox to="/"></LogoBox>
         <div>
           <input
@@ -108,9 +109,8 @@ function NaviBox() {
             클릭
           </Label>
         </div>
-
         <MarketAllBoxLink to="/allcollection">Market All</MarketAllBoxLink>
-        <QnABox onClick={clickMe}>FAQ</QnABox>
+        <QnABox onClick={clickhi}>FAQ</QnABox>
         {/* <ProfileBox onClick={clickMe}>
           <ProfileImgBox></ProfileImgBox>
           <ProfileTextBox>Profile</ProfileTextBox>
@@ -121,8 +121,26 @@ function NaviBox() {
         <ConnectWallet setAddr={setAddr} />
       </Navibox>
       <Outlet />
-    </>
+    </Section>
   );
 }
 
 export default NaviBox;
+
+const Section = styled.section`
+  .searchbox {
+    width: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    border-radius: 20px;
+    font-family: "Noto Sans KR", sans-serif;
+  }
+
+  .NaviBoxFonts {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+  }
+`;

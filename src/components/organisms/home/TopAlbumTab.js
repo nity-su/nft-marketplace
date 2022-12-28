@@ -38,7 +38,7 @@ export default function TopAlbumTab() {
       <TabAllContainer>
         <div className="App">
           <div className="box">
-            <div className="title">
+            <div className="TitleText">
               <h2>음악앨범 NFT 시장</h2>
               <p>
                 소비자가 다양한 음악을 즐길 수 있게 우리는 모든 것을 준비합니다.
@@ -87,7 +87,7 @@ export default function TopAlbumTab() {
             </TabTextContainer>
 
             {/* contents */}
-            
+
             <div className="contents">
               <div
                 className={`${
@@ -161,19 +161,7 @@ const Section = styled.section`
   gap: 5rem;
   margin: 0 6rem;
   margin-bottom: 5rem;
-  .title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    flex-direction: column;
-    h2 {
-      font-size: 3rem;
-    }
-    p {
-      color: #7b7e86;
-    }
-  }
+
   .marketPlaceTypes {
     display: flex;
     justify-content: center;
@@ -187,6 +175,7 @@ const Section = styled.section`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
+    font-family: "Noto Sans KR", sans-serif;
     .marketplace {
       box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
       padding: 0.5rem;
@@ -216,12 +205,14 @@ const Section = styled.section`
         font-size: 0.8rem;
         padding: 0 1rem;
         margin-bottom: 0.5rem;
+        margin-top: 10px;
       }
       .price-container {
         padding: 0 1rem;
         display: flex;
         justify-content: space-between;
         color: #02204e;
+        margin-top: 20px;
       }
     }
   }
@@ -257,8 +248,9 @@ const Section = styled.section`
     border-radius: 50px;
     border: 1px solid gray;
     background-color: white;
+    font-family: "Pretendard-Regular";
     font-size: 19px;
-    font-weight: 550;
+    font-weight: 500;
     cursor: pointer;
     position: relative;
     justify-content: center;
@@ -299,5 +291,25 @@ const Section = styled.section`
     margin-top: 10px;
     margin-right: 10px;
     transition: all 1s ease-in-out;
+  }
+  .TitleText {
+    font-family: "Pretendard-Regular";
+    line-height: 2;
+    text-align: center;
+    h2 {
+      color: #6246ea;
+      font-size: 48px;
+      font-weight: 700;
+    }
+    p {
+      color: #7b7e86;
+    }
+  }
+  @font-face {
+    font-family: "Pretendard-Regular";
+    src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+      format("woff");
+    font-weight: 100, 200, 300, 400, 500, 600, 700, 800, 900;
+    font-style: normal;
   }
 `;

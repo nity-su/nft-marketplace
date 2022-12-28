@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import React, { useState } from "react";
 
-
 const Container = styled.div`
   width: 100%;
 `;
@@ -135,7 +134,7 @@ const Section = styled.section`
   }
 
   .question-mark {
-    color: rgb(12, 77, 162);
+    color: #6246ea;
     font-size: 20px;
     margin-right: 10px;
   }
@@ -147,7 +146,7 @@ const Section = styled.section`
   }
 
   .Question-heading {
-    color: black;
+    color: #6246ea;
     margin-bottom: 20px;
     font-size: 50px;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
