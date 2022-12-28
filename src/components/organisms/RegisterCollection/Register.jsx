@@ -33,7 +33,15 @@ const Input = styled.input`
   display: none;
 `;
 
+const InputButton = styled.input`
+  margin-top: 48px;
+  width: 100px;
+  height: 80px;
+`;
+
 const FeatureBox = styled.div`
+  width: 240px;
+  height: 180px;
   margin-top: 48px;
 `;
 
@@ -41,7 +49,7 @@ const LableFeature = styled.label`
   width: 240px;
   height: 180px;
   display: block;
-  border: 2px dotted solid;
+  border: 2px dotted black;
   border-radius: 8%;
   background-image: url(${(props) => props.imgUrl});
   background-size: cover;
@@ -71,7 +79,7 @@ export default function Register() {
   const [files, setFile] = useState({ logo: "", feature: "" });
   const [logoFile, setLogoFile] = useState("");
   const [featureFile, setfeatureFile] = useState("");
-
+  const [conAddrDB, setConAddrDB] = useState({ name: "", address: "" });
   const location = useLocation();
   const address = location.state.address;
 
@@ -108,6 +116,21 @@ export default function Register() {
     fileReader.readAsDataURL(file);
   };
 
+  function register() {
+    fetch("https://csw-api.vercel.app/sql/register", {
+      method: "post",
+      body: JSON.stringify({
+        address: `${conAddrDB.address}`,
+        name: `${conAddrDB.name}`,
+      }),
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then(console.log)
+      .catch(console.log);
+  }
+
   return (
     <Container>
       <RegisterImageWrapper>
@@ -132,10 +155,16 @@ export default function Register() {
                 required
                 onChange={fileOnChanged}
               />
-              <Input
+              <InputButton
+                id="submit"
                 type="button"
                 onClick={() => {
-                  onHandleChange(files, address);
+                  if (!conAddrDB.address && !conAddrDB.name) {
+                    return;
+                  }
+
+                  onHandleChange(files, conAddrDB.address);
+                  register();
                 }}
                 value="누르세요"
               />
@@ -143,7 +172,9 @@ export default function Register() {
           </Form>
         ) : null}
       </RegisterImageWrapper>
-      {address ? <SelectContract address={address} /> : null}
+      {address ? (
+        <SelectContract address={address} setContractAddress={setConAddrDB} />
+      ) : null}
     </Container>
   );
 }

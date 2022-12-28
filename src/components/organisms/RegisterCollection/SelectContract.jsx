@@ -2,7 +2,7 @@ import React from "react";
 import runMain from "./getNFT";
 import { useEffect, useState } from "react";
 
-export default function SelectContract({ address }) {
+export default function SelectContract({ address, setContractAddress }) {
   const [contractAddressArray, setState] = useState([]);
 
   useEffect(() => {
@@ -29,7 +29,10 @@ export default function SelectContract({ address }) {
         .catch(console.log);
     }
     getNFTByAddress();
-  }, );
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   /*
   const web3 = new Web3(
     "https://goerli.infura.io/v3/b6b8a50b28304843adddcd4cf34098bd"
@@ -44,12 +47,16 @@ export default function SelectContract({ address }) {
   소유권 증명
 */
   function checkOnlyOne(target) {
-    console.log(target.value);
     const boxs = document.getElementsByName("cotract_address");
+    //예외처리하기
     boxs.forEach((v) => {
       if (v !== target) {
         v.checked = false;
       }
+    });
+
+    return new Promise(function (resolve, reject) {
+      resolve(true);
     });
   }
 
@@ -67,7 +74,14 @@ export default function SelectContract({ address }) {
               type="checkbox"
               name="cotract_address"
               value={element.contract.address}
-              onChange={(e) => checkOnlyOne(e.target)}
+              onChange={(e) =>
+                checkOnlyOne(e.target).then(() => {
+                  setContractAddress({
+                    name: element.contract.name,
+                    address: element.contract.address,
+                  });
+                })
+              }
             />
           </li>
         );

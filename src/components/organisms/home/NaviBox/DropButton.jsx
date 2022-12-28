@@ -3,8 +3,10 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+const Cotainer = styled.div``;
+
 const Button = styled.button`
-  width: 50px;
+  width: 150px;
   height: 50px;
 `;
 
@@ -46,7 +48,7 @@ export default function DropButton({ address }) {
 
 const Dropdown = function ({ menu, triger, open }) {
   return (
-    <>
+    <Cotainer>
       {triger}
       {open ? (
         <ul>
@@ -55,6 +57,6 @@ const Dropdown = function ({ menu, triger, open }) {
           ))}
         </ul>
       ) : null}
-    </>
+    </Cotainer>
   );
 };
