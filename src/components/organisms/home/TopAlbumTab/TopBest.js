@@ -12,8 +12,6 @@ import marketplace6 from "@components/assets/images/marketplace6.png";
 import marketplace7 from "@components/assets/images/marketplace7.png";
 import marketplace8 from "@components/assets/images/marketplace8.png";
 
-
-
 export default function TopBest() {
   const marketPlaceData = [
     {
@@ -49,7 +47,7 @@ export default function TopBest() {
       name: "WSG워너비 - WSG워너비 1집",
     },
   ];
-  
+
   return (
     <Section>
       <div className="marketPlaces">
@@ -82,7 +80,7 @@ const Section = styled.section`
   gap: 5rem;
   margin: 0 6rem;
   margin-bottom: 5rem;
- 
+
   .marketPlaceTypes {
     display: flex;
     justify-content: center;
