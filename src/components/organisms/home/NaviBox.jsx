@@ -43,6 +43,7 @@ const QnABox = styled.div`
   height: 24px;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 `;
 
 // const ProfileBox = styled.div`
@@ -66,8 +67,12 @@ const QnABox = styled.div`
 //   justify-content: center;
 // `;
 
-function clickMe() {
-  alert("페이지 링크 예정");
+function clickhi() {
+  window.scroll({
+    top: 2400,
+    left: 100,
+    behavior: "smooth",
+  });
 }
 
 function NaviBox() {
@@ -80,7 +85,7 @@ function NaviBox() {
         <input placeholder="Search" className="searchbox" />
 
         <MarketAllBoxLink to="/allcollection">Market All</MarketAllBoxLink>
-        <QnABox onClick={clickMe}>FAQ</QnABox>
+        <QnABox onClick={clickhi}>FAQ</QnABox>
         {/* <ProfileBox onClick={clickMe}>
           <ProfileImgBox></ProfileImgBox>
           <ProfileTextBox>Profile</ProfileTextBox>

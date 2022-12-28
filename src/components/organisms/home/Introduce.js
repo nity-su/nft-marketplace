@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import TestImg from "../../assets/images/testimg.jpg";
+import Mainpick from "../../assets/images/Mainpick2.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Carousel from "./Introduce_page/Carousel";
 
 const BackGroundBox = styled.div`
   width: 100%;
-  height: 1400px;
+  height: 1200px;
   background-size: cover;
   justify-content: center;
 `;
@@ -35,10 +35,10 @@ const MetaMusicIntroText = styled.div`
 `;
 
 const MetaMusicIntroImg = styled.div`
-  width: 440px;
-  height: 513px;
+  width: 400px;
+  height: 400px;
   border-radius: 20px;
-  background-image: url(${TestImg});
+  background-image: url(${Mainpick});
   background-repeat: no-repeat;
   background-size: cover;
 `;
@@ -126,10 +126,9 @@ const Section = styled.section`
 
     .NewCollection {
       font-weight: 700;
-      font-size: 50px;
-      text-align: center;
+      font-size: 30px;
+      margin-left: 10px;
       color: #6246ea;
-      margin-bottom: 20px;
     }
   }
 `;
