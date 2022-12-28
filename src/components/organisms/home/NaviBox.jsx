@@ -6,6 +6,8 @@ import ConnectWallet from "./NaviBox_page/ConnectWallet";
 import DropButton from "./NaviBox/DropButton";
 import { useState } from "react";
 
+import { useNavigate } from "react-router-dom";
+
 const Navibox = styled.div`
   opacity: 0.9;
   position: sticky;
@@ -49,11 +51,11 @@ const QnABox = styled.div`
   justify-content: center;
 `;
 
-// const ProfileBox = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   flex-direction: row;
-// `;
+const ProfileBox = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+`;
 
 // const ProfileImgBox = styled.div`
 //   width: 24px;
@@ -72,18 +74,40 @@ const QnABox = styled.div`
 //   justify-content: center;
 // `;
 
+const Label = styled.label`
+  width: 50px;
+  height: 15xp;
+`;
+
 function clickMe() {
   alert("페이지 링크 예정");
 }
 
 function NaviBox() {
+  let navigate = useNavigate();
+  const routeChange = (name) => {
+    // let path = `newPath`;
+    navigate("/temp", { state: name });
+  };
+  let serachInfo;
   const [address, setAddr] = useState();
+
   return (
     <>
       <Navibox>
         <LogoBox to="/"></LogoBox>
-
-        <input placeholder="Search" className="testsearch" />
+        <div>
+          <input
+            placeholder="Search"
+            className="testsearch"
+            onChange={(e) => {
+              serachInfo = e.target.value;
+            }}
+          />
+          <Label htmlFor="testsearch" onClick={() => routeChange(serachInfo)}>
+            클릭
+          </Label>
+        </div>
 
         <MarketAllBoxLink to="/allcollection">Market All</MarketAllBoxLink>
         <QnABox onClick={clickMe}>FAQ</QnABox>
@@ -91,7 +115,9 @@ function NaviBox() {
           <ProfileImgBox></ProfileImgBox>
           <ProfileTextBox>Profile</ProfileTextBox>
         </ProfileBox> */}
-        <DropButton address={address} />
+        <ProfileBox>
+          <DropButton address={address} />
+        </ProfileBox>
         <ConnectWallet setAddr={setAddr} />
       </Navibox>
       <Outlet />
