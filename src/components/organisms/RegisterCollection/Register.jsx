@@ -55,7 +55,7 @@ const LableFeature = styled.label`
   background-size: cover;
 `;
 
-function onHandleChange(files, address) {
+async function onHandleChange(files, address) {
   const fromData = new FormData();
   fromData.append("account", address);
   fromData.append("logo", files.logo);
@@ -63,16 +63,14 @@ function onHandleChange(files, address) {
 
   console.log(fromData.get("logo"));
 
-  fetch("https://csw-api.vercel.app/uploadImage", {
+  const promise = await fetch("https://csw-api.vercel.app/uploadImage", {
     method: "post",
     body: fromData,
-  })
-    .then((x) => {
-      console.log("send");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  }).then((x) => {
+    console.log("send");
+  });
+
+  return promise;
 }
 
 export default function Register() {
@@ -163,8 +161,9 @@ export default function Register() {
                     return;
                   }
 
-                  onHandleChange(files, conAddrDB.address);
-                  register();
+                  onHandleChange(files, conAddrDB.address).then(() => {
+                    register();
+                  });
                 }}
                 value="누르세요"
               />
