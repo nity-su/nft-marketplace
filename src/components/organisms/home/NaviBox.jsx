@@ -5,8 +5,8 @@ import { Link, Outlet } from "react-router-dom";
 import ConnectWallet from "./NaviBox_page/ConnectWallet";
 import DropButton from "./NaviBox/DropButton";
 import { useState } from "react";
-
 import { useNavigate } from "react-router-dom";
+import Lens from "../../assets/images/searchlens.png";
 
 const Navibox = styled.div`
   opacity: 0.9;
@@ -32,6 +32,15 @@ const LogoBox = styled(Link)`
   background-size: contain;
 `;
 
+const SearchBoxContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 30px;
+  outline-style: auto;
+  outline-color: gray;
+`;
+
 const MarketAllBoxLink = styled(Link)`
   width: 100px;
   height: 24px;
@@ -51,30 +60,21 @@ const QnABox = styled.div`
 const ProfileBox = styled.div`
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
 `;
 
-// const ProfileImgBox = styled.div`
-//   width: 24px;
-//   height: 24px;
-//   background-image: url(${UserProfile});
-//   background-repeat: no-repeat;
-//   background-size: cover;
-// `;
-
-// const ProfileTextBox = styled.div`
-//   width: 100px;
-//   height: 24px;
-//   display: flex;
-//   justify-content: center;
-// `;
-
+const LabelContainer = styled.div`
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const Label = styled.label`
   width: 50px;
   height: 15xp;
 `;
-
 
 function clickhi() {
   window.scroll({
@@ -97,24 +97,24 @@ function NaviBox() {
     <Section>
       <Navibox className="NaviBoxFonts">
         <LogoBox to="/"></LogoBox>
-        <div>
+        <SearchBoxContainer>
           <input
             placeholder="Search"
-            className="testsearch"
+            className="searchbox"
             onChange={(e) => {
               serachInfo = e.target.value;
             }}
           />
-          <Label htmlFor="testsearch" onClick={() => routeChange(serachInfo)}>
-            클릭
-          </Label>
-        </div>
+          <LabelContainer>
+            <Label
+              className="searchbutton"
+              htmlFor="searchbox"
+              onClick={() => routeChange(serachInfo)}
+            ></Label>
+          </LabelContainer>
+        </SearchBoxContainer>
         <MarketAllBoxLink to="/allcollection">Market All</MarketAllBoxLink>
         <QnABox onClick={clickhi}>FAQ</QnABox>
-        {/* <ProfileBox onClick={clickMe}>
-          <ProfileImgBox></ProfileImgBox>
-          <ProfileTextBox>Profile</ProfileTextBox>
-        </ProfileBox> */}
         <ProfileBox>
           <DropButton address={address} />
         </ProfileBox>
@@ -134,8 +134,19 @@ const Section = styled.section`
     align-items: center;
     justify-content: center;
     height: 30px;
-    border-radius: 20px;
     font-family: "Noto Sans KR", sans-serif;
+  }
+
+  .searchbutton {
+    display: flex;
+    height: 25px;
+    width: 25px;
+    font-family: "Noto Sans KR", sans-serif;
+    background-image: url(${Lens});
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.5;
+    cursor: pointer;
   }
 
   .NaviBoxFonts {
