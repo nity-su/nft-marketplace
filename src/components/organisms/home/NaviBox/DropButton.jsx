@@ -6,15 +6,11 @@ import { Link } from "react-router-dom";
 const Cotainer = styled.div``;
 
 const Button = styled.button`
-  width: 150px;
   height: 50px;
 `;
 
 const DropDownMenu = styled(Link)`
-  width: 150px;
-  margin: 32px 4px;
-  border: solid black 2px;
-  background-color: #b39e9e;
+  width: 100%;
 `;
 
 export default function DropButton({ address }) {
@@ -29,20 +25,28 @@ export default function DropButton({ address }) {
   }
 
   return (
-    <Dropdown
-      open={state}
-      triger={<Button onClick={onHandler}>Profile</Button>}
-      menu={[
-        <DropDownMenu>프로필</DropDownMenu>,
-        <DropDownMenu
-          to="/register-collection"
-          onClick={openHandlerForProfile}
-          state={{ address: address }}
-        >
-          Create Collection
-        </DropDownMenu>,
-      ]}
-    />
+    <Section>
+      <Dropdown
+        open={state}
+        triger={
+          <Button className="ProfileTextBox" onClick={onHandler}>
+            Profile
+          </Button>
+        }
+        menu={[
+          <div className="ProfileContent">
+            <DropDownMenu>프로필</DropDownMenu>
+            <DropDownMenu
+              to="/register-collection"
+              onClick={openHandlerForProfile}
+              state={{ address: address }}
+            >
+              Create Collection
+            </DropDownMenu>
+          </div>,
+        ]}
+      />
+    </Section>
   );
 }
 
@@ -60,3 +64,26 @@ const Dropdown = function ({ menu, triger, open }) {
     </Cotainer>
   );
 };
+
+const Section = styled.section`
+  .ProfileTextBox {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    background-color: white;
+    border: 0px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .ProfileContent {
+    position: fixed;
+    margin-top: 10px;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
