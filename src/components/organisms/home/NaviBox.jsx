@@ -14,7 +14,7 @@ const Navibox = styled.div`
   top: 0;
   background-color: white;
   width: 100%;
-  height: 50px;
+  height: 60px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -22,11 +22,21 @@ const Navibox = styled.div`
   z-index: 999;
 `;
 
+const LogoBoxContainer = styled.div`
+  opacity: 0.9;
+  background-color: white;
+  margin-left: 20px;
+  width: 130px;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+`;
+
 const LogoBox = styled(Link)`
-  width: 200px;
-  height: 70px;
-  margin-top: 35px;
-  margin-left: 10px;
+  width: 130px;
+  height: 50px;
   background-image: url(${LogoImg});
   background-repeat: no-repeat;
   background-size: contain;
@@ -36,9 +46,21 @@ const SearchBoxContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  width: 100%;
   height: 30px;
   outline-style: auto;
   outline-color: gray;
+`;
+
+const TempBox = styled.div`
+  opacity: 0.9;
+  background-color: white;
+  width: 1400px;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 `;
 
 const MarketAllBoxLink = styled(Link)`
@@ -61,6 +83,7 @@ const ProfileBox = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: row;
+  margin-bottom: 7px;
 `;
 
 const LabelContainer = styled.div`
@@ -96,7 +119,9 @@ function NaviBox() {
   return (
     <Section>
       <Navibox className="NaviBoxFonts">
-        <LogoBox to="/"></LogoBox>
+        <LogoBoxContainer>
+          <LogoBox to="/"></LogoBox>
+        </LogoBoxContainer>
         <SearchBoxContainer>
           <input
             placeholder="Search"
@@ -113,12 +138,16 @@ function NaviBox() {
             ></Label>
           </LabelContainer>
         </SearchBoxContainer>
-        <MarketAllBoxLink to="/allcollection">Market All</MarketAllBoxLink>
-        <QnABox onClick={clickhi}>FAQ</QnABox>
-        <ProfileBox>
-          <DropButton address={address} />
-        </ProfileBox>
-        <ConnectWallet setAddr={setAddr} />
+        <TempBox>
+          <MarketAllBoxLink className="MarketAllBox" to="/allcollection">
+            Market All
+          </MarketAllBoxLink>
+          <QnABox onClick={clickhi}>FAQ</QnABox>
+          <ProfileBox>
+            <DropButton address={address} />
+          </ProfileBox>
+          <ConnectWallet setAddr={setAddr} />
+        </TempBox>
       </Navibox>
       <Outlet />
     </Section>
@@ -129,7 +158,7 @@ export default NaviBox;
 
 const Section = styled.section`
   .searchbox {
-    width: 550px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -147,6 +176,9 @@ const Section = styled.section`
     background-size: contain;
     opacity: 0.5;
     cursor: pointer;
+  }
+
+  .MarketAllBox {
   }
 
   .NaviBoxFonts {

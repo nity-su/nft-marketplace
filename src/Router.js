@@ -19,7 +19,6 @@ export default function Router() {
           <Route path="/register-collection" element={<Register />}></Route>
           <Route path="/temp" element={<TEMP />} />
         </Route>
-
       </Routes>
     </BrowserRouter>
   );
