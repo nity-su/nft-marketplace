@@ -94,7 +94,7 @@ function NaviBox() {
 
   return (
     <>
-      <Navibox>
+      <Navibox id="Navibox">
         <LogoBox to="/"></LogoBox>
         <div>
           <input

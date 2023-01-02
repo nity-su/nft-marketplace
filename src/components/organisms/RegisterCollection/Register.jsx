@@ -79,7 +79,13 @@ export default function Register() {
   const [featureFile, setfeatureFile] = useState("");
   const [conAddrDB, setConAddrDB] = useState({ name: "", address: "" });
   const location = useLocation();
-  const address = location.state.address;
+  try {
+    var address = location.state.address;
+  } catch {
+    alert("please connect metamask");
+  }
+
+  // const address = location.state.address;
 
   console.log("address", address);
 

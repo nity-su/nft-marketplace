@@ -61,7 +61,6 @@ export default function ConnectWallet({ setAddr }) {
           <ConnectWalletText>Connect Wallet</ConnectWalletText>
         </Button>
       </ConnectWalletContainer>
-      ;
     </>
   );
 }
