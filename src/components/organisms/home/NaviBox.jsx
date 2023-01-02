@@ -5,8 +5,8 @@ import { Link, Outlet } from "react-router-dom";
 import ConnectWallet from "./NaviBox_page/ConnectWallet";
 import DropButton from "./NaviBox/DropButton";
 import { useState } from "react";
-
 import { useNavigate } from "react-router-dom";
+import Lens from "../../assets/images/searchlens.png";
 
 const Navibox = styled.div`
   opacity: 0.9;
@@ -14,7 +14,7 @@ const Navibox = styled.div`
   top: 0;
   background-color: white;
   width: 100%;
-  height: 50px;
+  height: 60px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -22,21 +22,50 @@ const Navibox = styled.div`
   z-index: 999;
 `;
 
+const LogoBoxContainer = styled.div`
+  opacity: 0.9;
+  background-color: white;
+  margin-left: 20px;
+  width: 130px;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+`;
+
 const LogoBox = styled(Link)`
-  width: 200px;
-  height: 70px;
-  margin-top: 35px;
-  margin-left: 10px;
+  width: 130px;
+  height: 50px;
   background-image: url(${LogoImg});
   background-repeat: no-repeat;
   background-size: contain;
 `;
 
+const SearchBoxContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 30px;
+  outline-style: auto;
+  outline-color: gray;
+`;
+
+const TempBox = styled.div`
+  opacity: 0.9;
+  background-color: white;
+  width: 1400px;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+`;
+
 const MarketAllBoxLink = styled(Link)`
   width: 100px;
   height: 24px;
-  font-size: 20px;
-  font-weight: bold;
   display: flex;
   justify-content: center;
   text-decoration: none;
@@ -45,42 +74,37 @@ const MarketAllBoxLink = styled(Link)`
 const QnABox = styled.div`
   width: 100px;
   height: 24px;
-  font-size: 20px;
-  font-weight: bold;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 `;
 
 const ProfileBox = styled.div`
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
+  margin-bottom: 7px;
 `;
 
-// const ProfileImgBox = styled.div`
-//   width: 24px;
-//   height: 24px;
-//   background-image: url(${UserProfile});
-//   background-repeat: no-repeat;
-//   background-size: cover;
-// `;
-
-// const ProfileTextBox = styled.div`
-//   width: 100px;
-//   height: 24px;
-//   font-size: 20px;
-//   font-weight: bold;
-//   display: flex;
-//   justify-content: center;
-// `;
+const LabelContainer = styled.div`
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const Label = styled.label`
   width: 50px;
   height: 15xp;
 `;
 
-function clickMe() {
-  alert("페이지 링크 예정");
+function clickhi() {
+  window.scroll({
+    top: 2400,
+    left: 100,
+    behavior: "smooth",
+  });
 }
 
 function NaviBox() {
@@ -93,36 +117,73 @@ function NaviBox() {
   const [address, setAddr] = useState();
 
   return (
-    <>
-      <Navibox id="Navibox">
-        <LogoBox to="/"></LogoBox>
-        <div>
+    <Section>
+      <Navibox className="NaviBoxFonts">
+        <LogoBoxContainer>
+          <LogoBox to="/"></LogoBox>
+        </LogoBoxContainer>
+        <SearchBoxContainer>
           <input
             placeholder="Search"
-            className="testsearch"
+            className="searchbox"
             onChange={(e) => {
               serachInfo = e.target.value;
             }}
           />
-          <Label htmlFor="testsearch" onClick={() => routeChange(serachInfo)}>
-            클릭
-          </Label>
-        </div>
-
-        <MarketAllBoxLink to="/allcollection">Market All</MarketAllBoxLink>
-        <QnABox onClick={clickMe}>FAQ</QnABox>
-        {/* <ProfileBox onClick={clickMe}>
-          <ProfileImgBox></ProfileImgBox>
-          <ProfileTextBox>Profile</ProfileTextBox>
-        </ProfileBox> */}
-        <ProfileBox>
-          <DropButton address={address} />
-        </ProfileBox>
-        <ConnectWallet setAddr={setAddr} />
+          <LabelContainer>
+            <Label
+              className="searchbutton"
+              htmlFor="searchbox"
+              onClick={() => routeChange(serachInfo)}
+            ></Label>
+          </LabelContainer>
+        </SearchBoxContainer>
+        <TempBox>
+          <MarketAllBoxLink className="MarketAllBox" to="/allcollection">
+            Market All
+          </MarketAllBoxLink>
+          <QnABox onClick={clickhi}>FAQ</QnABox>
+          <ProfileBox>
+            <DropButton address={address} />
+          </ProfileBox>
+          <ConnectWallet setAddr={setAddr} />
+        </TempBox>
       </Navibox>
       <Outlet />
-    </>
+    </Section>
   );
 }
 
 export default NaviBox;
+
+const Section = styled.section`
+  .searchbox {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    font-family: "Noto Sans KR", sans-serif;
+  }
+
+  .searchbutton {
+    display: flex;
+    height: 25px;
+    width: 25px;
+    font-family: "Noto Sans KR", sans-serif;
+    background-image: url(${Lens});
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+  .MarketAllBox {
+  }
+
+  .NaviBoxFonts {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+  }
+`;

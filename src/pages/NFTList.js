@@ -17,21 +17,29 @@ const NFTListWrapper = styled.div`
 
 function NFTList() {
   return (
-    <NftBox>
-      <NFTListWrapper>
-        <NFT />
-        <NFT />
-        <NFT />
-        <NFT />
-        <NFT />
-        <NFT />
-        <NFT />
-        <NFT />
-        <NFT />
-        <NFT />
-      </NFTListWrapper>
-    </NftBox>
+    <Section>
+      <NftBox className="NFTListFonts">
+        <NFTListWrapper>
+          <NFT />
+          <NFT />
+          <NFT />
+          <NFT />
+          <NFT />
+          <NFT />
+          <NFT />
+          <NFT />
+          <NFT />
+          <NFT />
+        </NFTListWrapper>
+      </NftBox>
+    </Section>
   );
 }
 
 export default NFTList;
+
+const Section = styled.section`
+  .NFTListFonts {
+    font-family: "Noto Sans KR", sans-serif;
+  }
+`;

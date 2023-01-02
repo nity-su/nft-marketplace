@@ -25,8 +25,6 @@ const ConnectWalletImg = styled.div`
 const ConnectWalletText = styled.div`
   width: 170px;
   height: 24px;
-  font-size: 20px;
-  font-weight: bold;
   display: flex;
   justify-content: center;
 `;
@@ -58,7 +56,9 @@ export default function ConnectWallet({ setAddr }) {
             }
           }}
         >
-          <ConnectWalletText>Connect Wallet</ConnectWalletText>
+          <ConnectWalletText className="NaviBoxFonts">
+            Connect Wallet
+          </ConnectWalletText>
         </Button>
       </ConnectWalletContainer>
     </>
