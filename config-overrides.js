@@ -13,6 +13,7 @@ module.exports = override(
     "@assets": path.resolve(__dirname, "src", "assets"),
     "@pages": path.resolve(__dirname, "src", "pages"),
     "@useCoustom": path.resolve(__dirname, "src", "useCoustom"),
+    "@contracts": path.resolve(__dirname, "src", "contracts"),
   }),
   ...addBabelPlugins(["babel-plugin-styled-components"])
 );
