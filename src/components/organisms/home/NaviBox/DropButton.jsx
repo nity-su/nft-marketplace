@@ -127,6 +127,54 @@ export default function DropButton({ address }) {
             >
               Create Collection
             </DropDownMenu>
+            <DropDownMenu
+              id="SwapButton"
+              onClick={() => {
+                // swapButton();
+                setPopUpOn((swap) => {
+                  return !swap;
+                });
+              }}
+            >
+              SWAP
+              {popUpOn ? (
+                <PopupSwapNode>
+                  <span ref={refCallback}></span>
+                  <SwapContainer
+                    onClick={(event) => {
+                      console.log("event");
+                      event.stopPropagation();
+                    }}
+                  >
+                    <SwapWindow>
+                      <InputTextBox>
+                        <label htmlFor="SwapValue">코인 수</label>
+                        <Input
+                          id="SwapValue"
+                          type="number"
+                          onChange={(e) => {
+                            if (e.target.value < 0) {
+                              e.target.value = 0;
+                            }
+                            setCount(e.target.value);
+                          }}
+                        />
+                      </InputTextBox>
+                      <ButtonBox>
+                        <ConfirmBtn
+                          onClick={() => {
+                            swapButton(count);
+                          }}
+                        >
+                          확인
+                        </ConfirmBtn>
+                        <CancelBtn>취소</CancelBtn>
+                      </ButtonBox>
+                    </SwapWindow>
+                  </SwapContainer>
+                </PopupSwapNode>
+              ) : null}
+            </DropDownMenu>
           </div>,
           <DropDownMenu
             id="SwapButton"
