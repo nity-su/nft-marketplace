@@ -29,8 +29,10 @@ export default function SelectContract({ address, setContractAddress }) {
         .catch(console.log);
     }
     getNFTByAddress();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   /*
   const web3 = new Web3(
     "https://goerli.infura.io/v3/b6b8a50b28304843adddcd4cf34098bd"

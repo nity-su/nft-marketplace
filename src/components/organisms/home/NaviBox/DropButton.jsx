@@ -10,7 +10,6 @@ import { useRef } from "react";
 const Container = styled.div``;
 
 const Button = styled.button`
-  width: 150px;
   height: 50px;
 `;
 
@@ -72,10 +71,7 @@ const Input = styled.input`
 `;
 
 const DropDownMenu = styled(Link)`
-  width: 150px;
-  margin: 32px 4px;
-  border: solid black 2px;
-  background-color: #b39e9e;
+  width: 100%;
 `;
 
 export default function DropButton({ address }) {
@@ -113,68 +109,76 @@ export default function DropButton({ address }) {
   }
 
   return (
-    <Dropdown
-      open={state}
-      triger={<Button onClick={onHandler}>Profile</Button>}
-      menu={[
-        <DropDownMenu>프로필</DropDownMenu>,
-        <DropDownMenu
-          to="/register-collection"
-          onClick={openHandlerForProfile}
-          state={{ address: address }}
-        >
-          Create Collection
-        </DropDownMenu>,
-        <DropDownMenu
-          id="SwapButton"
-          onClick={() => {
-            // swapButton();
-            setPopUpOn((swap) => {
-              return !swap;
-            });
-          }}
-        >
-          SWAP
-          {popUpOn ? (
-            <PopupSwapNode>
-              <span ref={refCallback}></span>
-              <SwapContainer
-                onClick={(event) => {
-                  console.log("event");
-                  event.stopPropagation();
-                }}
-              >
-                <SwapWindow>
-                  <InputTextBox>
-                    <label htmlFor="SwapValue">코인 수</label>
-                    <Input
-                      id="SwapValue"
-                      type="number"
-                      onChange={(e) => {
-                        if (e.target.value < 0) {
-                          e.target.value = 0;
-                        }
-                        setCount(e.target.value);
-                      }}
-                    />
-                  </InputTextBox>
-                  <ButtonBox>
-                    <ConfirmBtn
-                      onClick={() => {
-                        swapButton(count);
-                      }}
-                    >
-                      확인
-                    </ConfirmBtn>
-                    <CancelBtn>취소</CancelBtn>
-                  </ButtonBox>
-                </SwapWindow>
-              </SwapContainer>
-            </PopupSwapNode>
-          ) : null}
-        </DropDownMenu>,
-      ]}
-    />
+    <Section>
+      <Dropdown
+        open={state}
+        triger={
+          <Button className="ProfileTextBox" onClick={onHandler}>
+            Profile
+          </Button>
+        }
+        menu={[
+          <div className="ProfileContent">
+            <DropDownMenu>프로필</DropDownMenu>
+            <DropDownMenu
+              to="/register-collection"
+              onClick={openHandlerForProfile}
+              state={{ address: address }}
+            >
+              Create Collection
+            </DropDownMenu>
+            <DropDownMenu
+              id="SwapButton"
+              onClick={() => {
+                // swapButton();
+                setPopUpOn((swap) => {
+                  return !swap;
+                });
+              }}
+            >
+              SWAP
+              {popUpOn ? (
+                <PopupSwapNode>
+                  <span ref={refCallback}></span>
+                  <SwapContainer
+                    onClick={(event) => {
+                      console.log("event");
+                      event.stopPropagation();
+                    }}
+                  >
+                    <SwapWindow>
+                      <InputTextBox>
+                        <label htmlFor="SwapValue">코인 수</label>
+                        <Input
+                          id="SwapValue"
+                          type="number"
+                          onChange={(e) => {
+                            if (e.target.value < 0) {
+                              e.target.value = 0;
+                            }
+                            setCount(e.target.value);
+                          }}
+                        />
+                      </InputTextBox>
+                      <ButtonBox>
+                        <ConfirmBtn
+                          onClick={() => {
+                            swapButton(count);
+                          }}
+                        >
+                          확인
+                        </ConfirmBtn>
+                        <CancelBtn>취소</CancelBtn>
+                      </ButtonBox>
+                    </SwapWindow>
+                  </SwapContainer>
+                </PopupSwapNode>
+              ) : null}
+            </DropDownMenu>
+          </div>,
+        ]}
+      />
+    </Section>
   );
 }
 
@@ -192,3 +196,26 @@ const Dropdown = function ({ menu, triger, open }) {
     </Container>
   );
 };
+
+const Section = styled.section`
+  .ProfileTextBox {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    background-color: white;
+    border: 0px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .ProfileContent {
+    position: fixed;
+    margin-top: 10px;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
