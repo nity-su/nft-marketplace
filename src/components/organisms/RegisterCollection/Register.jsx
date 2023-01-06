@@ -120,12 +120,17 @@ export default function Register() {
     fileReader.readAsDataURL(file);
   };
 
-  function register() {
+  async function register() {
+    const accounts = await window.ethereum.request({
+      method: "eth_requestAccounts",
+    });
+    console.log(accounts[0]);
     fetch("https://csw-api.vercel.app/sql/register", {
       method: "post",
       body: JSON.stringify({
         address: `${conAddrDB.address}`,
         name: `${conAddrDB.name}`,
+        owner: `${accounts[0]}`,
       }),
       headers: {
         "Content-type": "application/json",
@@ -166,7 +171,6 @@ export default function Register() {
                   if (!conAddrDB.address && !conAddrDB.name) {
                     return;
                   }
-
                   onHandleChange(files, conAddrDB.address).then(() => {
                     register();
                   });

@@ -127,6 +127,11 @@ export default function DropButton({ address }) {
             >
               Create Collection
             </DropDownMenu>
+
+            <DropDownMenu to="/MyCollection" onClick={openHandlerForProfile}>
+              MyCollection
+            </DropDownMenu>
+
             <DropDownMenu
               id="SwapButton"
               onClick={() => {
