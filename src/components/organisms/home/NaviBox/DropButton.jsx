@@ -71,6 +71,10 @@ const Input = styled.input`
 `;
 
 const DropDownMenu = styled(Link)`
+  color: black;
+  background-color: whitesmoke;
+  text-decoration: none;
+  padding : 4px; 0px;
   width: 100%;
 `;
 
@@ -217,7 +221,6 @@ const Section = styled.section`
   .ProfileContent {
     position: fixed;
     margin-top: 10px;
-    gap: 10px;
     display: flex;
     justify-content: center;
     flex-direction: column;

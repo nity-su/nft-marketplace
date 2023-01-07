@@ -4,8 +4,10 @@ import { useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  display: grid;
-  grid-template-columns: repeat(5, 20%);
+  width: 100%;
+  padding-top: 128px;
+  padding-left: 48px;
+  padding-right: 48px;
 `;
 
 export default function MyCollection() {

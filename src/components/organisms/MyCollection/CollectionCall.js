@@ -5,21 +5,13 @@ import { useState } from "react";
 import { useEffect } from "react";
 import CollectionBox from "./CollectionBox";
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 24px 76px;
-  width: 100%;
-`;
-
 const CollectionGrid = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(5, 240px);
+  grid-template-columns: repeat(auto-fill, minmax(min(20vw, 100%), 1fr));
+  grid-auto-rows: minmax(180px, auto);
   column-gap: 16px;
   row-gap: 48px;
-  grid-template-rows: auto;
 `;
 
 const config = {
@@ -102,13 +94,9 @@ export default function CollectionCall({ address }) {
   return (
     <>
       {state ? (
-        <Container>
-          <CollectionGrid>
-            {state.map((element, index) => {
-              return <CollectionBox address={element} key={index} />;
-            })}
-          </CollectionGrid>
-        </Container>
+        <CollectionGrid>
+          <CollectionBox contracts={state} />;
+        </CollectionGrid>
       ) : null}
     </>
   );

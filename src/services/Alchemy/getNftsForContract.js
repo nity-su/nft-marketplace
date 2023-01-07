@@ -5,7 +5,7 @@ import { Network, Alchemy } from "alchemy-sdk";
 // Optional Config object, but defaults to demo api-key and eth-mainnet.
 const settings = {
   apiKey: "SF8OJ6n9AXQ8ViiDRTnFrv1-rBd_3VY-", // Replace with your Alchemy API Key.
-  network: Network.ETH_MAINNET, // Replace with your network.
+  network: Network.ETH_GOERLI, // Replace with your network.
 };
 /**
  *  @param {string} NFT Contract 주소
