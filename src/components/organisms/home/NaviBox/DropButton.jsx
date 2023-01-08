@@ -74,7 +74,7 @@ const DropDownMenu = styled(Link)`
   color: black;
   background-color: whitesmoke;
   text-decoration: none;
-  padding : 4px; 0px;
+  padding: 4px 0px;
   width: 100%;
 `;
 

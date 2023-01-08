@@ -12,6 +12,7 @@ export default function DisplayAllCollection() {
 
   console.log(address);
   getNftsForContract(address).then((result) => {
+    if(!state)
     setState(result.nfts);
   });
 

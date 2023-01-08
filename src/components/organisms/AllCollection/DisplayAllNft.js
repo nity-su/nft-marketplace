@@ -14,16 +14,25 @@ const CollectionGrid = styled.div`
   row-gap: 48px;
   grid-template-rows: auto;
 `;
-
+// thumbnail,
+//   ERC721CA,
+//   toAddress,
+//   tokenID,
+//   title,
+//   price,
 export default function DisplayAllNft({ array }) {
   return (
     <Container>
       <CollectionGrid>
         {array.map((nft, i) => {
-          console.log(nft.media);
+          console.log(nft);
           return (
             <CollectionBox
               thumbnail={nft.media[0].thumbnail}
+              ERC721CA={nft.contract.address}
+              name={nft.contract.name}
+              tokenID={nft.tokenId}
+              title={nft.title}
               key={i}
             ></CollectionBox>
           );
