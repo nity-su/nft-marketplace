@@ -4,12 +4,27 @@ import { AdvancedImage } from "@cloudinary/react";
 import { Cloudinary } from "@cloudinary/url-gen";
 import { useState } from "react";
 import { useLocation } from "react-router";
+import styled from "styled-components";
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 24px 76px;
+`;
+
+const CollectionGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 240px);
+  column-gap: 16px;
+  row-gap: 48px;
+  grid-template-rows: auto;
+`;
 
 export default function DownLoad() {
   const { state } = useLocation();
   const name = state;
-  console.log(state);
-  const [address, setaddress] = useState();
+
+  const [contractAddr, setcontractAddr] = useState([]);
   useEffect(() => {
     if (!name) {
       return;
@@ -27,7 +42,7 @@ export default function DownLoad() {
         })
         .then((x) => {
           console.log(x);
-          setaddress(x[0].address);
+          setcontractAddr(x);
         });
     }
     fetchGetName();
@@ -35,25 +50,11 @@ export default function DownLoad() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(address);
-
-  const cld = new Cloudinary({
-    cloud: {
-      cloudName: "dzg47jvzj",
-    },
-  });
-
-  let image = cld.image(address + "logo");
-  let image2 = cld.image(address + "feature");
-
   return (
-    <>
-      {address ? (
-        <div>
-          <AdvancedImage cldImg={image}></AdvancedImage>
-          <AdvancedImage cldImg={image2}></AdvancedImage>
-        </div>
-      ) : null}
-    </>
+    <Container>
+      <CollectionGrid>
+        {contractAddr ? contractAddr.map((address) => {}) : null}
+      </CollectionGrid>
+    </Container>
   );
 }

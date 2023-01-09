@@ -5,7 +5,7 @@ import AllCollection from "./pages/AllCollection";
 import NFTList from "./pages/NFTList";
 import NaviBox from "@components/organisms/home/NaviBox";
 import Register from "@components/organisms/RegisterCollection/Register";
-import TEMP from "./pages/TEMP";
+import SerachCollection from "./pages/SerachCollection";
 import MyCollection from "./pages/MyCollection/MyCollection";
 import DisplayAllCollection from "./pages/MyCollection/DisplayAllCollection";
 
@@ -19,7 +19,7 @@ export default function Router() {
           <Route path="/allcollection" element={<AllCollection />}></Route>
           <Route path="/nftlist" element={<NFTList />}></Route>
           <Route path="/register-collection" element={<Register />}></Route>
-          <Route path="/temp" element={<TEMP />} />
+          <Route path="/SerachCollection" element={<SerachCollection />} />
           <Route path="/MyCollection" element={<MyCollection />}></Route>
           <Route
             path="/DisplayAllCollection"
