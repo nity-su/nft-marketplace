@@ -3,7 +3,12 @@ import styled from "styled-components";
 import { AdvancedImage } from "@cloudinary/react";
 import { Cloudinary } from "@cloudinary/url-gen";
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName: "dzg47jvzj",
+    },
+  });
 
 export default function CollectionBox({ contracts }) {
   console.log("CollectionBox", contracts);
@@ -27,12 +32,6 @@ export default function CollectionBox({ contracts }) {
   `;
 
   const LinkComponent = styled(Link)``;
-
-  const cld = new Cloudinary({
-    cloud: {
-      cloudName: "dzg47jvzj",
-    },
-  });
 
   // let logo = cld.image(address + "logo");
   // let feature = cld.image(address + "feature");

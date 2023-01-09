@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CollectionBox from "@components/organisms/AllCollection/CollectionBox";
+import CollectionBox from "@components/organisms/AllCollection/CollectionBoxForProductRegister";
 
 const Container = styled.div`
   display: flex;
@@ -14,12 +14,6 @@ const CollectionGrid = styled.div`
   row-gap: 48px;
   grid-template-rows: auto;
 `;
-// thumbnail,
-//   ERC721CA,
-//   toAddress,
-//   tokenID,
-//   title,
-//   price,
 export default function DisplayAllNft({ array }) {
   return (
     <Container>

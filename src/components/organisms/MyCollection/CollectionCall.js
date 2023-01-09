@@ -73,6 +73,7 @@ export default function CollectionCall({ address }) {
         console.log(all);
         setState(all);
       });
+    // eslint-disable-next-line
   }, []);
 
   function fetchCall(contractAD) {

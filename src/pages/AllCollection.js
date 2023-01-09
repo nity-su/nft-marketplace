@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CollectionBox from "@components/organisms/AllCollection/CollectionBox";
+// import CollectionBox from "@components/organisms/AllCollection/CollectionBoxForProductRegister";
 
 const Container = styled.div`
   display: flex;
@@ -23,10 +23,10 @@ export default function AllCollection() {
   return (
     <Container>
       <CollectionGrid>
-        {array.map((v, i) => {
+        {/* {array.map((v, i) => {
           console.log(i);
           return <CollectionBox key={i}></CollectionBox>;
-        })}
+        })} */}
       </CollectionGrid>
     </Container>
   );
