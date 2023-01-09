@@ -6,7 +6,8 @@
       "@assets/*": ["./src/components/*"],
       "@pages/*": ["./src/components/*"],
       "@useCoustom/": ["./src/useCoustom/*"],
-      "@contracts/": ["./src/contracts/*"]
+      "@contracts/": ["./src/contracts/*"],
+      "@services/": ["./src/services/*"]
     }
   },
   "exclude": ["node_modules", "build"]
