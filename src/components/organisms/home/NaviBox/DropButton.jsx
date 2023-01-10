@@ -6,6 +6,7 @@ import swapButton from "../swap/swapButton";
 import PopupSwapNode from "../swap/PopupSwapNode";
 import { useCallback } from "react";
 import { useRef } from "react";
+import Web3 from "web3";
 
 const Container = styled.div``;
 
@@ -18,15 +19,23 @@ const SwapContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 100px;
+  top: 37%;
   height: 200px;
   width: 100%;
 `;
 
+const SwapTitle = styled.div`
+  font-size: 24px;
+  width: 100%;
+  text-align: center;
+  margin-top: 6%;
+`;
+
 const SwapWindow = styled.div`
-  width: 200px;
-  height: 100px;
+  width: 510px;
+  height: 720px;
   border-radius: 12px;
+  padding: 0px 24px;
   background-color: rgba(178, 155, 214, 0.8);
 `;
 
@@ -60,14 +69,36 @@ const InputTextBox = styled.div`
   align-items: center;
   margin-top: 8px;
   width: 100%;
+  box-sizing: content-box;
 `;
+
+const SubTitleForInput = styled.span`
+  padding-left: 0px 0px 0px 4px;
+  width: 15%;
+  height: 32px;
+  background-color: #ccd4cde2;
+  border-top-right-radius: 9px;
+  border-bottom-right-radius: 9px;
+  border: solid 1px black;
+`;
+
+const ETHbalance = styled.span``;
 
 /**
  * @todo 나중에 텍스트 숫자 제한 할 것.
  */
 const Input = styled.input`
-  margin-left: 8px;
-  width: 60px;
+  width: 85%;
+  height: 32px;
+  border: 1px solid black;
+  padding: 0px;
+  border-top-left-radius: 9px;
+  border-bottom-left-radius: 9px;
+`;
+
+const BreakLineOne = styled.hr`
+  margin-top: 32px;
+  margin-bottom: 23px;
 `;
 
 const DropDownMenu = styled(Link)`
@@ -83,12 +114,17 @@ export default function DropButton({ address }) {
   const [popUpOn, setPopUpOn] = useState();
   const currentSwapProcess = useRef();
   const [count, setCount] = useState();
+  const [balance, setBalance] = useState();
 
-  useEffect(() => {
-    if (!currentSwapProcess.current) {
-      // currentSwapProcess.current=true
-    }
-  }, []);
+  async function getBalance() {
+    const web3 = new Web3(window.ethereum);
+    const accounts = await web3.eth.getAccounts();
+    await web3.eth
+      .getBalance(accounts[0])
+      .then((result) => setBalance(web3.utils.fromWei(result, "ether")));
+  }
+
+  useEffect(() => {}, []);
 
   const refCallback = useCallback((node) => {
     if (node !== null) {
@@ -102,7 +138,7 @@ export default function DropButton({ address }) {
   }, []);
 
   function onHandler() {
-    setPopUpOn((swap) => {
+    setPopUpOn(() => {
       if (state === true) return false;
     });
     setState(!state);
@@ -141,6 +177,10 @@ export default function DropButton({ address }) {
               onClick={() => {
                 // swapButton();
                 setPopUpOn((swap) => {
+                  if (swap) {
+                    getBalance();
+                  }
+
                   return !swap;
                 });
               }}
@@ -156,8 +196,8 @@ export default function DropButton({ address }) {
                     }}
                   >
                     <SwapWindow>
+                      <SwapTitle>SWAP</SwapTitle>
                       <InputTextBox>
-                        <label htmlFor="SwapValue">코인 수</label>
                         <Input
                           id="SwapValue"
                           type="number"
@@ -168,6 +208,26 @@ export default function DropButton({ address }) {
                             setCount(e.target.value);
                           }}
                         />
+                        <SubTitleForInput htmlFor="SwapValue">
+                          ETH
+                        </SubTitleForInput>
+                      </InputTextBox>
+                      <ETHbalance>Balance: {balance}</ETHbalance>
+                      <BreakLineOne />
+                      <InputTextBox>
+                        <Input
+                          id="SwapValue"
+                          type="number"
+                          onChange={(e) => {
+                            if (e.target.value < 0) {
+                              e.target.value = 0;
+                            }
+                            setCount(e.target.value);
+                          }}
+                        />
+                        <SubTitleForInput htmlFor="SwapValue">
+                          CSW
+                        </SubTitleForInput>
                       </InputTextBox>
                       <ButtonBox>
                         <ConfirmBtn

@@ -11,9 +11,9 @@ export async function allowBuy({ fromAddress, REC721AD, price, tokenID }) {
     .send({ from: fromAddress });
 }
 //ERC721AD, 0, 25
-export async function buy({ fromAddress, REC721AD, tokenID, price }) {
+export async function buy({ fromAddress, REC721CA, tokenID, price, web3 }) {
   console.log(fromAddress);
-  const web3 = new Web3(window.ethereum);
+  // const web3 = new Web3(window.ethereum);
   const contract = new web3.eth.Contract(BuyAbi, CA);
 
   // const estimateGas = await contract.methods
@@ -21,7 +21,12 @@ export async function buy({ fromAddress, REC721AD, tokenID, price }) {
   //   .estimateGas({ from: fromAddress });
   // console.log(estimateGas);
 
-  await contract.methods
-    .buy(REC721AD, tokenID, price)
-    .send({ from: fromAddress });
+  // await contract.methods
+  //   .buy(REC721AD, tokenID, price)
+  //   .send({ from: fromAddress });
+  return contract.methods
+    .buy(REC721CA, tokenID, price)
+    .send.request({ from: fromAddress }, (error, data) => {
+      console.log(error);
+    });
 }

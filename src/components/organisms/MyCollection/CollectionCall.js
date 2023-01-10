@@ -42,37 +42,80 @@ export default function CollectionCall({ address }) {
     if (state) {
       return;
     }
+    async function call() {
+      const contracts = await main(address).then((result) => result.contracts);
+      const settleResult = await Promise.allSettled(
+        contracts.map((contract) => {
+          return fetchCall(contract.address);
+        })
+      );
 
-    main(address)
-      .then((result) => result.contracts)
-      .then((contracts) => {
-        return Promise.allSettled(
-          contracts.map((contract) => {
-            return fetchCall(contract.address);
-          })
-        ).then(async (results) => {
-          const all = [];
+      console.log("settleResult", settleResult);
 
-          results.map(async (result, num) => {
-            if (result.status === "fulfilled") {
-              const promise = result.value.json();
-              const Address = await promise
-                .then((x) => (x[0] ? x[0].address : null))
-                .catch((err) => console.log(err));
-              if (Address !== null) {
-                all.push(Address);
-              }
+      const allCorretContract = await Promise.all(
+        settleResult.map((result) => {
+          if (result.status === "fulfilled") {
+            const promise = result.value.json();
+            console.log(result);
+            console.log(promise);
+            if (promise) {
+              return promise;
+            } else {
+              //eslint-disable-next-line
+              return; //undefined
             }
-            if (result.status === "rejected") {
-            }
-          });
-          return all;
-        });
-      })
-      .then((all) => {
-        console.log(all);
-        setState(all);
-      });
+          } else {
+            //eslint-disable-next-line
+            return; //undefined
+          }
+        })
+      );
+
+      const all = allCorretContract
+        .filter((element) => element.length !== 0)
+        .map((result) => result[0].address);
+
+      setState(all);
+      // await Promise.all(allCorretContract.filter(result=>{
+      //   if(result[0]){
+      //     if(result[0].address)
+      //   }else{
+      //     return false;
+      //   }
+      // }));
+
+      // const contracts =await main(address)
+      //  .then(async (contracts) => {
+      //  return await Promise.allSettled(
+      //    contracts.map((contract) => {
+      //      return fetchCall(contract.address);
+      //    })
+      //  ).then(async (results) => {
+      //    const all = [];
+
+      //  results.map(async (result, num) => {
+      //    if (result.status === "fulfilled") {
+      //      const promise = result.value.json();
+
+      //      const Address = await promise
+      //        .then((x) => (x[0] ? x[0].address : null))
+      //        .catch((err) => console.log(err));
+      //      if (Address !== null) {
+      //        return;
+      //      }
+      //    }
+      //    if (result.status === "rejected") {
+      //    }
+      //      });
+      //      return all;
+      //    });
+      //  })
+      //  .then((all) => {
+      //    console.log(all);
+      //    setState(all);
+      //  });
+    }
+    call();
     // eslint-disable-next-line
   }, []);
 
