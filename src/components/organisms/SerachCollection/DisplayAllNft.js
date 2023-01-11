@@ -19,7 +19,7 @@ export default function DisplayAllNft({ array }) {
     <Container>
       <CollectionGrid>
         {array.map((nft, i) => {
-          console.log(nft);
+          console.log("nft", nft);
           return (
             <CollectionBox
               thumbnail={nft.media[0].thumbnail}
@@ -27,6 +27,8 @@ export default function DisplayAllNft({ array }) {
               name={nft.contract.name}
               tokenID={nft.tokenId}
               title={nft.title}
+              description={nft.description}
+              format={nft.media[0].format}
               key={i}
             ></CollectionBox>
           );
