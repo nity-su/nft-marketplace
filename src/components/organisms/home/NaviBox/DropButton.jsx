@@ -28,41 +28,92 @@ const SwapTitle = styled.div`
   font-size: 24px;
   width: 100%;
   text-align: center;
-  margin-top: 6%;
+  font-weight: 700;
+  font-family: "Lora", cursive;
 `;
 
 const SwapWindow = styled.div`
   width: 510px;
-  height: 720px;
   border-radius: 12px;
-  padding: 0px 24px;
-  background-color: rgba(178, 155, 214, 0.8);
+  padding: 28px 24px;
+  background-color: #f3e2e2;
+  box-shadow: 0 2px 7px #dfdfdf;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const ButtonBox = styled.div`
   margin-top: 16px;
   width: 100%;
   display: flex;
+  padding: 0px 12px;
   justify-content: space-evenly;
 `;
 
-const CancelBtn = styled.div`
-  border: purple 1px solid;
-  border-radius: 12px;
-  color: #fff;
-  padding: 8px;
-`;
-
 const ConfirmBtn = styled.div`
-  border: purple 1px solid;
-  color: #fff;
-  border-radius: 12px;
-  padding: 8px;
-  &:hover {
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-      0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  background: #fff;
+  backface-visibility: hidden;
+  border-radius: 0.375rem;
+  border-style: solid;
+  border-width: 0.125rem;
+  box-sizing: border-box;
+  color: #212121;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular, Helvetica, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  padding: 0.875rem 1.125rem;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transform: translateZ(0) scale(1);
+  transition: transform 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 40%;
+
+  &:not(:disabled):hover {
+    transform: scale(1.05);
+  }
+
+  &:not(:disabled):hover:active {
+    transform: scale(1.05) translateY(0.125rem);
+  }
+
+  &:focus {
+    outline: 0 solid transparent;
+  }
+
+  &:focus:before {
+    content: "";
+    left: calc(-1 * 0.375rem);
+    pointer-events: none;
+    position: absolute;
+    top: calc(-1 * 0.375rem);
+    transition: border-radius;
+    user-select: none;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: 0 solid transparent;
+  }
+
+  &:focus:not(:focus-visible):before {
+    border-width: 0;
+  }
+
+  &:not(:disabled):active {
+    transform: translateY(0.125rem);
   }
 `;
+
+const CancelBtn = styled(ConfirmBtn)``;
 const InputTextBox = styled.div`
   display: flex;
   justify-content: center;
@@ -70,19 +121,40 @@ const InputTextBox = styled.div`
   margin-top: 8px;
   width: 100%;
   box-sizing: content-box;
+  margin-top: 24px;
 `;
 
 const SubTitleForInput = styled.span`
-  padding-left: 0px 0px 0px 4px;
+  padding-right: 0px 0px 0px 8px;
   width: 15%;
   height: 32px;
   background-color: #ccd4cde2;
   border-top-right-radius: 9px;
   border-bottom-right-radius: 9px;
   border: solid 1px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-const ETHbalance = styled.span``;
+const ExchangeCoin = styled.div`
+  width: 85%;
+  height: 32px;
+  border: 1px solid black;
+  padding: 0px;
+  border-top-left-radius: 9px;
+  border-bottom-left-radius: 9px;
+`;
+
+const TextRate = styled.div`
+  margin-top: 8px;
+  align-self: start;
+`;
+
+const ETHbalance = styled.span`
+  margin-top: 8px;
+  align-self: start;
+`;
 
 /**
  * @todo 나중에 텍스트 숫자 제한 할 것.
@@ -98,7 +170,7 @@ const Input = styled.input`
 
 const BreakLineOne = styled.hr`
   margin-top: 32px;
-  margin-bottom: 23px;
+  width: 100%;
 `;
 
 const DropDownMenu = styled(Link)`
@@ -205,6 +277,11 @@ export default function DropButton({ address }) {
                             if (e.target.value < 0) {
                               e.target.value = 0;
                             }
+
+                            if (Number(e.target.value) * 10 ** 9 < 1) {
+                              return;
+                            }
+
                             setCount(e.target.value);
                           }}
                         />
@@ -215,20 +292,10 @@ export default function DropButton({ address }) {
                       <ETHbalance>Balance: {balance}</ETHbalance>
                       <BreakLineOne />
                       <InputTextBox>
-                        <Input
-                          id="SwapValue"
-                          type="number"
-                          onChange={(e) => {
-                            if (e.target.value < 0) {
-                              e.target.value = 0;
-                            }
-                            setCount(e.target.value);
-                          }}
-                        />
-                        <SubTitleForInput htmlFor="SwapValue">
-                          CSW
-                        </SubTitleForInput>
+                        <ExchangeCoin>{count * 10 ** 9}</ExchangeCoin>
+                        <SubTitleForInput>CSW</SubTitleForInput>
                       </InputTextBox>
+                      <TextRate>1 csw = 1 microether</TextRate>
                       <ButtonBox>
                         <ConfirmBtn
                           onClick={() => {
