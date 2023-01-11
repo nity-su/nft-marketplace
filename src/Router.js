@@ -5,9 +5,10 @@ import AllCollection from "./pages/AllCollection";
 import NFTList from "./pages/NFTList";
 import NaviBox from "@components/organisms/home/NaviBox";
 import Register from "@components/organisms/RegisterCollection/Register";
-import SerachCollection from "./pages/SerachCollection";
+import SerachCollection from "@pages/SerachCollection/SerachCollection";
 import MyCollection from "./pages/MyCollection/MyCollection";
 import DisplayAllCollection from "./pages/MyCollection/DisplayAllCollection";
+import DisplayCollection from "@pages/SerachCollection/DisplayCollection";
 
 export default function Router() {
   return (
@@ -25,6 +26,7 @@ export default function Router() {
             path="/DisplayAllCollection"
             element={<DisplayAllCollection />}
           />
+          <Route path="/DisplayCollection" element={<DisplayCollection />} />
         </Route>
       </Routes>
     </BrowserRouter>

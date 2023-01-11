@@ -1,11 +1,16 @@
 import React from "react";
 import { useEffect } from "react";
-import { AdvancedImage } from "@cloudinary/react";
-import { Cloudinary } from "@cloudinary/url-gen";
 import { useState } from "react";
 import { useLocation } from "react-router";
 import styled from "styled-components";
+import { Cloudinary } from "@cloudinary/url-gen";
+import CollectionBox from "@components/organisms/SerachCollection/CollectionBox";
 
+const cld = new Cloudinary({
+  cloud: {
+    cloudName: "dzg47jvzj",
+  },
+});
 const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -23,7 +28,7 @@ const CollectionGrid = styled.div`
 export default function DownLoad() {
   const { state } = useLocation();
   const name = state;
-
+  console.log(name);
   const [contractAddr, setcontractAddr] = useState([]);
   useEffect(() => {
     if (!name) {
@@ -53,7 +58,16 @@ export default function DownLoad() {
   return (
     <Container>
       <CollectionGrid>
-        {contractAddr ? contractAddr.map((address) => {}) : null}
+        {contractAddr
+          ? contractAddr.map((result) => {
+              return (
+                <CollectionBox
+                  address={result.address.toLowerCase()}
+                  cloudinary={cld}
+                />
+              );
+            })
+          : null}
       </CollectionGrid>
     </Container>
   );

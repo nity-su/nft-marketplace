@@ -4,11 +4,11 @@ import { AdvancedImage } from "@cloudinary/react";
 import { Cloudinary } from "@cloudinary/url-gen";
 import { Link } from "react-router-dom";
 
-  const cld = new Cloudinary({
-    cloud: {
-      cloudName: "dzg47jvzj",
-    },
-  });
+const cld = new Cloudinary({
+  cloud: {
+    cloudName: "dzg47jvzj",
+  },
+});
 
 export default function CollectionBox({ contracts }) {
   console.log("CollectionBox", contracts);

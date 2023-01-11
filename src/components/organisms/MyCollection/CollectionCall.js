@@ -37,42 +37,86 @@ const main = async (address) => {
 
 export default function CollectionCall({ address }) {
   const [state, setState] = useState();
+  // const [MyListNft,setMyListNft] = useState();
 
   useEffect(() => {
     if (state) {
       return;
     }
+    async function call() {
+      const contracts = await main(address).then((result) => result.contracts);
+      const settleResult = await Promise.allSettled(
+        contracts.map((contract) => {
+          return fetchCall(contract.address);
+        })
+      );
 
-    main(address)
-      .then((result) => result.contracts)
-      .then((contracts) => {
-        return Promise.allSettled(
-          contracts.map((contract) => {
-            return fetchCall(contract.address);
-          })
-        ).then(async (results) => {
-          const all = [];
+      console.log("settleResult", settleResult);
 
-          results.map(async (result, num) => {
-            if (result.status === "fulfilled") {
-              const promise = result.value.json();
-              const Address = await promise
-                .then((x) => (x[0] ? x[0].address : null))
-                .catch((err) => console.log(err));
-              if (Address !== null) {
-                all.push(Address);
-              }
+      const allCorretContract = await Promise.all(
+        settleResult.map((result) => {
+          if (result.status === "fulfilled") {
+            const promise = result.value.json();
+            console.log(result);
+            console.log(promise);
+            if (promise) {
+              return promise;
+            } else {
+              //eslint-disable-next-line
+              return; //undefined
             }
-            if (result.status === "rejected") {
-            }
-          });
-          return all;
-        });
-      })
-      .then((all) => {
-        console.log(all);
-        setState(all);
-      });
+          } else {
+            //eslint-disable-next-line
+            return; //undefined
+          }
+        })
+      );
+
+      const all = allCorretContract
+        .filter((element) => element.length !== 0)
+        .map((result) => result[0].address);
+
+      setState(all);
+      // await Promise.all(allCorretContract.filter(result=>{
+      //   if(result[0]){
+      //     if(result[0].address)
+      //   }else{
+      //     return false;
+      //   }
+      // }));
+
+      // const contracts =await main(address)
+      //  .then(async (contracts) => {
+      //  return await Promise.allSettled(
+      //    contracts.map((contract) => {
+      //      return fetchCall(contract.address);
+      //    })
+      //  ).then(async (results) => {
+      //    const all = [];
+
+      //  results.map(async (result, num) => {
+      //    if (result.status === "fulfilled") {
+      //      const promise = result.value.json();
+
+      //      const Address = await promise
+      //        .then((x) => (x[0] ? x[0].address : null))
+      //        .catch((err) => console.log(err));
+      //      if (Address !== null) {
+      //        return;
+      //      }
+      //    }
+      //    if (result.status === "rejected") {
+      //    }
+      //      });
+      //      return all;
+      //    });
+      //  })
+      //  .then((all) => {
+      //    console.log(all);
+      //    setState(all);
+      //  });
+    }
+    call();
     // eslint-disable-next-line
   }, []);
 
@@ -94,6 +138,12 @@ export default function CollectionCall({ address }) {
 
   return (
     <>
+      <Nav>
+        <ul>
+          <li>Collection</li>
+          <li>NFTS</li>
+        </ul>
+      </Nav>
       {state ? (
         <CollectionGrid>
           <CollectionBox contracts={state} />;
@@ -102,3 +152,45 @@ export default function CollectionCall({ address }) {
     </>
   );
 }
+
+const Nav = styled.nav`
+  margin: 25px;
+  background: #f9f9f9;
+  padding: 16px;
+  ul {
+    list-style: none;
+    display: flex;
+
+    li {
+      margin: 50px;
+
+      text-decoration: none;
+      color: #8f8f8f;
+      font-size: 24px;
+      font-weight: 400;
+      transition: all 0s ease-in-out;
+      position: relative;
+      text-transform: uppercase;
+
+      &::before {
+        content: attr(data-item);
+        transition: 0s;
+        color: #8254ff;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 0;
+        overflow: hidden;
+      }
+
+      &:hover {
+        &::before {
+          width: 100%;
+          transition: all 0s ease-in-out;
+        }
+      }
+    }
+  }
+`;

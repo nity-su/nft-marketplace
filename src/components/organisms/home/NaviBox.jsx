@@ -7,6 +7,7 @@ import DropButton from "@components/organisms/home/NaviBox/DropButton";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Lens from "../../assets/images/searchlens.png";
+import { useRef } from "react";
 
 const Navibox = styled.div`
   opacity: 0.9;
@@ -113,7 +114,7 @@ function NaviBox() {
     // let path = `newPath`;
     navigate("/SerachCollection", { state: name });
   };
-  let serachInfo;
+  const serachInfo = useRef();
   const [address, setAddr] = useState();
 
   return (
@@ -127,14 +128,14 @@ function NaviBox() {
             placeholder="Search"
             className="searchbox"
             onChange={(e) => {
-              serachInfo = e.target.value;
+              serachInfo.current = e.target.value;
             }}
           />
           <LabelContainer>
             <Label
               className="searchbutton"
               htmlFor="searchbox"
-              onClick={() => routeChange(serachInfo)}
+              onClick={() => routeChange(serachInfo.current)}
             ></Label>
           </LabelContainer>
         </SearchBoxContainer>
