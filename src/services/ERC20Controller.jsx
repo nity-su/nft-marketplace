@@ -1,4 +1,3 @@
-import Web3 from "web3";
 import ERC20ABI from "@contracts/ERC20Interface";
 
 export default async function ApproveRequest({
