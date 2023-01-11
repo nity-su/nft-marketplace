@@ -37,6 +37,7 @@ const main = async (address) => {
 
 export default function CollectionCall({ address }) {
   const [state, setState] = useState();
+  // const [MyListNft,setMyListNft] = useState();
 
   useEffect(() => {
     if (state) {
@@ -137,6 +138,12 @@ export default function CollectionCall({ address }) {
 
   return (
     <>
+      <Nav>
+        <ul>
+          <li>Collection</li>
+          <li>NFTS</li>
+        </ul>
+      </Nav>
       {state ? (
         <CollectionGrid>
           <CollectionBox contracts={state} />;
@@ -145,3 +152,45 @@ export default function CollectionCall({ address }) {
     </>
   );
 }
+
+const Nav = styled.nav`
+  margin: 25px;
+  background: #f9f9f9;
+  padding: 16px;
+  ul {
+    list-style: none;
+    display: flex;
+
+    li {
+      margin: 50px;
+
+      text-decoration: none;
+      color: #8f8f8f;
+      font-size: 24px;
+      font-weight: 400;
+      transition: all 0s ease-in-out;
+      position: relative;
+      text-transform: uppercase;
+
+      &::before {
+        content: attr(data-item);
+        transition: 0s;
+        color: #8254ff;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 0;
+        overflow: hidden;
+      }
+
+      &:hover {
+        &::before {
+          width: 100%;
+          transition: all 0s ease-in-out;
+        }
+      }
+    }
+  }
+`;

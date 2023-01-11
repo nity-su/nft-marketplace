@@ -69,7 +69,7 @@ const ConfirmBtn = styled.div`
   line-height: 1.3;
   padding: 0.875rem 1.125rem;
   position: relative;
-  text-align: left;
+  text-align: center;
   text-decoration: none;
   transform: translateZ(0) scale(1);
   transition: transform 0.2s;
@@ -278,8 +278,8 @@ export default function DropButton({ address }) {
                               e.target.value = 0;
                             }
 
-                            if (Number(e.target.value) * 10 ** 9 < 1) {
-                              return;
+                            if (e.target.value.length > 11) {
+                              e.target.value = e.target.value.slice(0, 11);
                             }
 
                             setCount(e.target.value);
