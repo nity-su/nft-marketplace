@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import PopupImgNode from "./PopupImgNode";
-// import ERC20Controll from "@services/ERC20Controller";
-// import { buy } from "@services/BuyController";
+import ERC20Controll from "@services/ERC20Controller";
+import { buy } from "@services/BuyController";
 import Web3 from "web3";
 import abi from "@contracts/BuyController.json";
 
 const CA = "0x135b5e858a2f72ff77a2d0d10e5260a687e3b213";
-// const ERC20CA = "0x01a0d7c9aa51c1196a283ccca870b0e6cb1f47ba";
+const ERC20CA = "0x01a0d7c9aa51c1196a283ccca870b0e6cb1f47ba";
 
 const Container = styled.div`
   width: 240px;
@@ -57,7 +57,36 @@ export default function CollectionBox({ thumbnail, ERC721CA, tokenID, title }) {
         <PopupImgNode>
           <button
             onClick={() => {
-              //  temp();
+              async function temp() {
+                const accounts = await window.ethereum.request({
+                  method: "eth_requestAccounts",
+                });
+
+                const web3 = new Web3(window.ethereum);
+                const batch = new web3.BatchRequest();
+                console.log(accounts[0]);
+                batch.add(
+                  await ERC20Controll({
+                    fromAddress: accounts[0],
+                    toAddress: CA,
+                    ERC20CA: ERC20CA,
+                    amount: price,
+                    web3: web3,
+                  })
+                );
+                batch.add(
+                  await buy({
+                    REC721CA: ERC721CA,
+                    tokenID: tokenID,
+                    fromAddress: accounts[0],
+                    price,
+                    web3: web3,
+                  })
+                );
+                await batch.execute();
+                // setState(!state);
+              }
+              temp();
             }}
           >
             구매하기
@@ -67,36 +96,6 @@ export default function CollectionBox({ thumbnail, ERC721CA, tokenID, title }) {
     </Container>
   );
 }
-
-// async function temp() {
-//   const accounts = await window.ethereum.request({
-//     method: "eth_requestAccounts",
-//   });
-
-//   const web3 = new Web3(window.ethereum);
-//   const batch = new web3.BatchRequest();
-//   console.log(accounts[0]);
-//   batch.add(
-//     await ERC20Controll({
-//       fromAddress: accounts[0],
-//       toAddress: CA,
-//       ERC20CA: ERC20CA,
-//       amount: price,
-//       web3: web3,
-//     })
-//   );
-//   batch.add(
-//     await buy({
-//       REC721CA: ERC721CA,
-//       tokenID: tokenID,
-//       fromAddress: accounts[0],
-//       price,
-//       web3: web3,
-//     })
-//   );
-//   await batch.execute();
-//   // setState(!state);
-// }
 
 // const PopupContainer = styled.div`
 //   .modal-close {

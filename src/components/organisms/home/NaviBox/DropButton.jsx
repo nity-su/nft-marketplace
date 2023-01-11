@@ -122,38 +122,48 @@ const InputTextBox = styled.div`
   width: 100%;
   box-sizing: content-box;
   margin-top: 24px;
+  padding-left: 4px;
 `;
 
 const SubTitleForInput = styled.span`
   padding-right: 0px 0px 0px 8px;
   width: 15%;
   height: 32px;
-  background-color: #ccd4cde2;
+  background-color: #8349a0;
+  color: #f3e2e2;
+  font-weight: 560;
   border-top-right-radius: 9px;
   border-bottom-right-radius: 9px;
   border: solid 1px black;
   display: flex;
   justify-content: center;
   align-items: center;
+  letter-spacing: 1.8px;
 `;
 
 const ExchangeCoin = styled.div`
   width: 85%;
   height: 32px;
   border: 1px solid black;
-  padding: 0px;
+  padding: 0px 0px 0px 4px;
   border-top-left-radius: 9px;
   border-bottom-left-radius: 9px;
+  display: flex;
+  align-items: center;
 `;
 
 const TextRate = styled.div`
   margin-top: 8px;
   align-self: start;
+  font-family: "Lora", cursive;
+  padding-left: 8px;
 `;
 
 const ETHbalance = styled.span`
   margin-top: 8px;
   align-self: start;
+  font-family: "Lora", cursive;
+  padding-left: 6px;
 `;
 
 /**
@@ -163,7 +173,7 @@ const Input = styled.input`
   width: 85%;
   height: 32px;
   border: 1px solid black;
-  padding: 0px;
+  padding: 0px 0px 0px 4px;
   border-top-left-radius: 9px;
   border-bottom-left-radius: 9px;
 `;
@@ -185,7 +195,7 @@ export default function DropButton({ address }) {
   const [state, setState] = useState();
   const [popUpOn, setPopUpOn] = useState();
   const currentSwapProcess = useRef();
-  const [count, setCount] = useState();
+  const [count, setCount] = useState(0);
   const [balance, setBalance] = useState();
 
   async function getBalance() {
@@ -218,6 +228,10 @@ export default function DropButton({ address }) {
 
   function openHandlerForProfile() {
     setState(false);
+  }
+
+  function exchange(num) {
+    return Web3.utils.fromWei(Web3.utils.toBN(num * 10 ** 9), "szabo");
   }
 
   return (
@@ -286,16 +300,16 @@ export default function DropButton({ address }) {
                           }}
                         />
                         <SubTitleForInput htmlFor="SwapValue">
-                          ETH
+                          CSW
                         </SubTitleForInput>
                       </InputTextBox>
-                      <ETHbalance>Balance: {balance}</ETHbalance>
+                      <TextRate>1 csw = 1 microether</TextRate>
                       <BreakLineOne />
                       <InputTextBox>
-                        <ExchangeCoin>{count * 10 ** 9}</ExchangeCoin>
-                        <SubTitleForInput>CSW</SubTitleForInput>
+                        <ExchangeCoin>{exchange(count)}</ExchangeCoin>
+                        <SubTitleForInput>ETH</SubTitleForInput>
                       </InputTextBox>
-                      <TextRate>1 csw = 1 microether</TextRate>
+                      <ETHbalance>Balance: {balance}</ETHbalance>
                       <ButtonBox>
                         <ConfirmBtn
                           onClick={() => {
@@ -304,7 +318,13 @@ export default function DropButton({ address }) {
                         >
                           확인
                         </ConfirmBtn>
-                        <CancelBtn>취소</CancelBtn>
+                        <CancelBtn
+                          onClick={() => {
+                            setState(!state);
+                          }}
+                        >
+                          취소
+                        </CancelBtn>
                       </ButtonBox>
                     </SwapWindow>
                   </SwapContainer>
@@ -349,8 +369,11 @@ const Section = styled.section`
     position: fixed;
     margin-top: 10px;
     display: flex;
+    gap: 4px;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    border-radius: 8px;
+    background-color: #f7f7f7;
   }
 `;
