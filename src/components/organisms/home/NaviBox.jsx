@@ -140,7 +140,12 @@ function NaviBox() {
           </LabelContainer>
         </SearchBoxContainer>
         <TempBox>
-          <MarketAllBoxLink className="MarketAllBox" to="/allcollection">
+          <MarketAllBoxLink
+            className="MarketAllBox"
+            onClick={() => {
+              alert("정식 서비스 기간이 아닙니다.");
+            }}
+          >
             Market All
           </MarketAllBoxLink>
           <QnABox onClick={clickhi}>FAQ</QnABox>
