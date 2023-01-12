@@ -16,6 +16,11 @@ const Img = styled.img`
 `;
 const TitleText = styled.span``;
 
+const FlexContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+`;
+
 export default function CollectionBox({
   thumbnail,
   ERC721CA,
@@ -71,29 +76,31 @@ export default function CollectionBox({
                 <SaleLine />
                 <Proceeds>coin_To_Eth:</Proceeds>
                 <SaleLine />
-                <CancelBtn
-                  onClick={() => {
-                    setState(!state);
-                  }}
-                >
-                  취소
-                </CancelBtn>
-                <ConfirmBtn
-                  onClick={() => {
-                    window.ethereum
-                      .request({ method: "eth_requestAccounts" })
-                      .then((accounts) => {
-                        allowBuy({
-                          REC721AD: ERC721CA,
-                          tokenID,
-                          fromAddress: accounts[0],
-                          price: price,
+                <FlexContainer>
+                  <CancelBtn
+                    onClick={() => {
+                      setState(!state);
+                    }}
+                  >
+                    취소
+                  </CancelBtn>
+                  <ConfirmBtn
+                    onClick={() => {
+                      window.ethereum
+                        .request({ method: "eth_requestAccounts" })
+                        .then((accounts) => {
+                          allowBuy({
+                            REC721AD: ERC721CA,
+                            tokenID,
+                            fromAddress: accounts[0],
+                            price: price,
+                          });
                         });
-                      });
-                  }}
-                >
-                  등록
-                </ConfirmBtn>
+                    }}
+                  >
+                    등록
+                  </ConfirmBtn>
+                </FlexContainer>
               </div>
             </div>
           </ModalWindow>
