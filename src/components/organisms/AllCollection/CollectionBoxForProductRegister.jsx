@@ -28,15 +28,17 @@ export default function CollectionBox({
   const [price, setPrice] = useState();
   // const [coin, setPriceCoin] = useState();
   return (
-    <Container
-      onClick={() => {
-        console.log(ERC721CA, tokenID);
-        ERC721Controller({ ERC721CA, tokenID });
-        setState(!state);
-      }}
-    >
+    <Container>
       {format ? <Img src={thumbnail} /> : <Mp4FileFormat url={thumbnail} />}
-      <TitleText>{name}</TitleText>
+      <TitleText
+        onClick={() => {
+          console.log(ERC721CA, tokenID);
+          ERC721Controller({ ERC721CA, tokenID });
+          setState(!state);
+        }}
+      >
+        {name}
+      </TitleText>
       {state ? (
         <PopupImgNode>
           <ModalWindow onClick={() => {}}>
