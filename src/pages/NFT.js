@@ -37,7 +37,7 @@ const BoldText = styled.p`
 
 function NFT() {
   return (
-    <LinkBox to="/tradeplace">
+    <LinkBox to="/tradeplaceEX">
       <NFTWrapper>
         <ColorBox />
         <DetailBox>

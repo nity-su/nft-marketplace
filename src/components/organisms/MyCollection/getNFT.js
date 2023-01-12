@@ -10,11 +10,11 @@ const alchemy = new Alchemy(config);
 const main = async (address) => {
   // Get all NFTs
   console.log("main", address);
-  let result = await alchemy.nft.getNftsForOwner(address);
-  console.log(address);
+  let result = await alchemy.nft.getNftsForContract(address);
   return result;
   // Print NFTs
 };
+//getNFTsForCollection
 
 // Execute the code
 async function runMain(address) {

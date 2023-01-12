@@ -2,6 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import TestImg2 from "src/components/assets/images/newjeans.png";
 import TxBoxTab from "./TxDetail/TxBoxTab";
+import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
+import Web3 from "web3";
+import abi from "@contracts/BuyController.json";
+import Mp4FileFormat from "@components/organisms/Mp4FileFormatComponent";
+import ERC20Controll from "@services/ERC20Controller";
+import { buy } from "@services/BuyController";
+
+const CA = "0x135b5e858a2f72ff77a2d0d10e5260a687e3b213";
+const ERC20CA = "0x01a0d7c9aa51c1196a283ccca870b0e6cb1f47ba";
 
 const BackGroundContainer = styled.div`
   display: flex;
@@ -32,13 +43,12 @@ const LeftBox = styled.div`
   justify-content: flex-start;
 `;
 
-const NftImg = styled.div`
+const NftImg = styled.img`
   margin-top: 50px;
   margin-left: 35px;
   width: 399px;
   height: 381px;
   border-radius: 20px;
-  background-image: url(${TestImg2});
   background-repeat: no-repeat;
   background-size: cover;
 `;
@@ -196,21 +206,79 @@ function clickMe() {
   alert("페이지 링크 예정");
 }
 
-function TradeplaceEX() {
+function Tradeplace() {
+  const location = useLocation();
+  console.log(location.state);
+  const { url, description, ERC721CA, tokenID, title, format } = location.state;
+  console.log(format);
+
+  const [price, setprice] = useState(0);
+  console.log("url", url);
+  // const web3
+  useEffect(() => {
+    // if (!price) {
+    //   return;
+    // }
+
+    const web3 = new Web3(window.ethereum);
+    const contract = new web3.eth.Contract(abi, CA);
+    contract.methods
+      .tokenIdToPrice(ERC721CA, tokenID)
+      .call()
+      .then((p) => setprice(Number(p)));
+    //eslint-disable-next-line
+  }, []);
   return (
     <Section>
       <BackGroundContainer className="TradeplaceDefaultFont">
         <TradeplaceBackGroundContainer>
           <Container>
             <LeftBox>
-              <NftImg></NftImg>
+              {format === "png" ? (
+                <NftImg src={url}></NftImg>
+              ) : (
+                <Mp4FileFormat url={url} />
+              )}
               <PriceBox>
                 <PriceTextBox1>Price</PriceTextBox1>
                 <PriceTextBox2>
-                  <PriceTextBoxDetail>1,000 Klay</PriceTextBoxDetail>
+                  <PriceTextBoxDetail>{price} scw</PriceTextBoxDetail>
                 </PriceTextBox2>
                 <ButtonContainer>
-                  <BuySuggestButton onClick={clickMe}>
+                  <BuySuggestButton
+                    onClick={() => {
+                      async function temp() {
+                        const accounts = await window.ethereum.request({
+                          method: "eth_requestAccounts",
+                        });
+
+                        const web3 = new Web3(window.ethereum);
+                        const batch = new web3.BatchRequest();
+                        console.log(accounts[0]);
+                        batch.add(
+                          await ERC20Controll({
+                            fromAddress: accounts[0],
+                            toAddress: CA,
+                            ERC20CA: ERC20CA,
+                            amount: price,
+                            web3: web3,
+                          })
+                        );
+                        batch.add(
+                          await buy({
+                            REC721CA: ERC721CA,
+                            tokenID: tokenID,
+                            fromAddress: accounts[0],
+                            price,
+                            web3: web3,
+                          })
+                        );
+                        await batch.execute();
+                        // setState(!state);
+                      }
+                      temp();
+                    }}
+                  >
                     <ButtonBuy className="buybutton">구매</ButtonBuy>
                   </BuySuggestButton>
                   <BuySuggestButton onClick={clickMe}>
@@ -222,9 +290,7 @@ function TradeplaceEX() {
               </PriceBox>
             </LeftBox>
             <RightBox>
-              <NFTTitle className="TradeplaceAlbumTitle">
-                NEW JEANS 블루 북 어텐션 하이프보이 쿠키 굿즈 Attention
-              </NFTTitle>
+              <NFTTitle className="TradeplaceAlbumTitle">{title}</NFTTitle>
               <UserInfoBox>
                 <SupplierBox>
                   <SupplierImgBox></SupplierImgBox>
@@ -239,11 +305,7 @@ function TradeplaceEX() {
                   상세 정보
                 </NFTInfoBoxTitle>
                 <NFTInfoBoxDetail className="TradeplaceAlbumDetail">
-                  어디서든 편하게 들을 수 있는 세련된 이지리스닝 팝을 추구하는
-                  동시에 과장 없는 자연스러운 사운드 엔지니어링으로 NewJeans
-                  맴버들 본연의 목소리를 살리는 프로듀싱을 진행했다.앨범의
-                  수록돈 4곡은 NewJeans 멤버들의 순수하고 자연스러운 매력과 10대
-                  고유의 에너지를 오롯이 담아내고 있다.
+                  {description}
                 </NFTInfoBoxDetail>
               </NFTDetailBox>
               <TxBoxTab></TxBoxTab>
@@ -255,7 +317,7 @@ function TradeplaceEX() {
   );
 }
 
-export default TradeplaceEX;
+export default Tradeplace;
 
 const Section = styled.section`
   .TradeplaceDefaultFont {

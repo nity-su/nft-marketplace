@@ -1,13 +1,15 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import PopupImgNode from "./PopupImgNode";
-import ERC20Controll from "@services/ERC20Controller";
-import { buy } from "@services/BuyController";
+// import PopupImgNode from "./PopupImgNode";
+// import ERC20Controll from "@services/ERC20Controller";
+// import { buy } from "@services/BuyController";
 import Web3 from "web3";
 import abi from "@contracts/BuyController.json";
+import { Link } from "react-router-dom";
+import Mp4FileFormat from "../Mp4FileFormatComponent";
 
 const CA = "0x135b5e858a2f72ff77a2d0d10e5260a687e3b213";
-const ERC20CA = "0x01a0d7c9aa51c1196a283ccca870b0e6cb1f47ba";
+// const ERC20CA = "0x01a0d7c9aa51c1196a283ccca870b0e6cb1f47ba";
 
 const Container = styled.div`
   width: 240px;
@@ -21,7 +23,24 @@ const Img = styled.img`
 const TitleText = styled.div``;
 const PriceText = styled.div``;
 
-export default function CollectionBox({ thumbnail, ERC721CA, tokenID, title }) {
+export default function CollectionBox({
+  thumbnail,
+  ERC721CA,
+  tokenID,
+  title,
+  description,
+  format,
+}) {
+  console.log(description);
+  const InfoForBuy = {
+    url: thumbnail,
+    ERC721CA,
+    tokenID,
+    title,
+    description,
+    format,
+  };
+
   const [state, setState] = useState();
   const [price, setprice] = useState(0);
   // const web3
@@ -41,19 +60,25 @@ export default function CollectionBox({ thumbnail, ERC721CA, tokenID, title }) {
 
   return (
     <Container>
-      <Img
-        src={thumbnail}
-        onClick={() => {
-          console.log(ERC721CA, tokenID, price);
-          if (price === 0) {
-            return;
-          }
-          setState(!state);
-        }}
-      />
+      <Link to="/tradeplace" state={InfoForBuy}>
+        {format === "png" ? (
+          <Img
+            src={thumbnail}
+            onClick={() => {
+              console.log(ERC721CA, tokenID, price);
+              if (price === 0) {
+                return;
+              }
+              setState(!state);
+            }}
+          />
+        ) : (
+          <Mp4FileFormat url={thumbnail} />
+        )}
+      </Link>
       <TitleText>{title}</TitleText>
       <PriceText>{price}</PriceText>
-      {state ? (
+      {/* {state ? (
         <PopupImgNode>
           <button
             onClick={() => {
@@ -92,7 +117,7 @@ export default function CollectionBox({ thumbnail, ERC721CA, tokenID, title }) {
             구매하기
           </button>
         </PopupImgNode>
-      ) : null}
+      ) : null} */}
     </Container>
   );
 }

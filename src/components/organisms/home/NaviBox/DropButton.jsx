@@ -157,6 +157,7 @@ const TextRate = styled.div`
   align-self: start;
   font-family: "Lora", cursive;
   padding-left: 8px;
+  margin-bottom: 16px;
 `;
 
 const ETHbalance = styled.span`
@@ -179,7 +180,6 @@ const Input = styled.input`
 `;
 
 const BreakLineOne = styled.hr`
-  margin-top: 32px;
   width: 100%;
 `;
 
@@ -189,6 +189,13 @@ const DropDownMenu = styled(Link)`
   text-decoration: none;
   padding: 4px 0px;
   width: 100%;
+`;
+
+const FromDiv = styled.div`
+  margin-top: 32px;
+`;
+const ToDiv = styled.div`
+  margin-bottom: 4px;
 `;
 
 export default function DropButton({ address }) {
@@ -263,7 +270,7 @@ export default function DropButton({ address }) {
               onClick={() => {
                 // swapButton();
                 setPopUpOn((swap) => {
-                  if (swap) {
+                  if (!swap) {
                     getBalance();
                   }
 
@@ -284,6 +291,15 @@ export default function DropButton({ address }) {
                     <SwapWindow>
                       <SwapTitle>SWAP</SwapTitle>
                       <InputTextBox>
+                        <ExchangeCoin>{exchange(count)}</ExchangeCoin>
+                        <SubTitleForInput>ETH</SubTitleForInput>
+                      </InputTextBox>
+                      <ETHbalance>Balance: {balance}</ETHbalance>
+                      <FromDiv>From</FromDiv>
+                      <BreakLineOne />
+                      <ToDiv>To</ToDiv>
+                      <div></div>
+                      <InputTextBox>
                         <Input
                           id="SwapValue"
                           type="number"
@@ -291,25 +307,17 @@ export default function DropButton({ address }) {
                             if (e.target.value < 0) {
                               e.target.value = 0;
                             }
-
                             if (e.target.value.length > 11) {
                               e.target.value = e.target.value.slice(0, 11);
                             }
-
                             setCount(e.target.value);
                           }}
                         />
                         <SubTitleForInput htmlFor="SwapValue">
-                          CSW
+                          SCW
                         </SubTitleForInput>
                       </InputTextBox>
-                      <TextRate>1 csw = 1 microether</TextRate>
-                      <BreakLineOne />
-                      <InputTextBox>
-                        <ExchangeCoin>{exchange(count)}</ExchangeCoin>
-                        <SubTitleForInput>ETH</SubTitleForInput>
-                      </InputTextBox>
-                      <ETHbalance>Balance: {balance}</ETHbalance>
+                      <TextRate>1 scw = 1 microether</TextRate>
                       <ButtonBox>
                         <ConfirmBtn
                           onClick={() => {

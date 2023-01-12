@@ -19,14 +19,18 @@ export default function DisplayAllNft({ array }) {
     <Container>
       <CollectionGrid>
         {array.map((nft, i) => {
-          console.log(nft);
+          console.log("nft", nft);
+          const raw =
+            "https://gateway.ipfs.io/" + nft.media[0].raw.replace("://", "/");
           return (
             <CollectionBox
-              thumbnail={nft.media[0].thumbnail}
+              thumbnail={raw}
               ERC721CA={nft.contract.address}
               name={nft.contract.name}
               tokenID={nft.tokenId}
               title={nft.title}
+              description={nft.description}
+              format={nft.media[0].format}
               key={i}
             ></CollectionBox>
           );
