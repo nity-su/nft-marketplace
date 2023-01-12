@@ -1,6 +1,12 @@
 import React from "react";
 import runMain from "./getNFT";
 import { useEffect, useState } from "react";
+import styled from "styled-components";
+
+const Ul = styled.ul`
+  width: 80vw;
+  margin-top: 64px;
+`;
 
 export default function SelectContract({ address, setContractAddress }) {
   const [contractAddressArray, setState] = useState([]);
@@ -61,7 +67,7 @@ export default function SelectContract({ address, setContractAddress }) {
   }
 
   return (
-    <form>
+    <Ul>
       {contractAddressArray.map((element, index) => {
         const id = `cotract_address_${index}`;
         return (
@@ -86,6 +92,6 @@ export default function SelectContract({ address, setContractAddress }) {
           </li>
         );
       })}
-    </form>
+    </Ul>
   );
 }

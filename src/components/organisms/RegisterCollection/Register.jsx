@@ -6,6 +6,7 @@ import SelectContract from "./SelectContract";
 
 const Container = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
@@ -14,7 +15,7 @@ const RegisterImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 540px;
+  height: 450px;
 `;
 
 const Form = styled.form``;
@@ -34,9 +35,15 @@ const Input = styled.input`
 `;
 
 const InputButton = styled.input`
-  margin-top: 48px;
-  width: 100px;
-  height: 80px;
+  position: absolute;
+  margin-top: 32px;
+  background-color: #0a0a23;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  min-height: 30px;
+  min-width: 120px;
 `;
 
 const FeatureBox = styled.div`
@@ -53,6 +60,12 @@ const LableFeature = styled.label`
   border-radius: 8%;
   background-image: url(${(props) => props.imgUrl});
   background-size: cover;
+`;
+
+const TitleText = styled.div`
+  font-size: 48px;
+  font-weight: 500;
+  margin-top: 32px;
 `;
 
 async function onHandleChange(files, address) {
@@ -142,6 +155,7 @@ export default function Register() {
 
   return (
     <Container>
+      <TitleText>Register Collection</TitleText>
       <RegisterImageWrapper>
         {address ? (
           <Form>
@@ -164,26 +178,32 @@ export default function Register() {
                 required
                 onChange={fileOnChanged}
               />
+
+              {address ? (
+                <SelectContract
+                  address={address}
+                  setContractAddress={setConAddrDB}
+                />
+              ) : null}
+
               <InputButton
                 id="submit"
                 type="button"
                 onClick={() => {
                   if (!conAddrDB.address && !conAddrDB.name) {
+                    alert("주소와 이름을 선택주세요.");
                     return;
                   }
                   onHandleChange(files, conAddrDB.address).then(() => {
                     register();
                   });
                 }}
-                value="누르세요"
+                value="  등록  "
               />
             </FeatureBox>
           </Form>
         ) : null}
       </RegisterImageWrapper>
-      {address ? (
-        <SelectContract address={address} setContractAddress={setConAddrDB} />
-      ) : null}
     </Container>
   );
 }

@@ -4,6 +4,7 @@ import { Alchemy, Network } from "alchemy-sdk";
 import { useState } from "react";
 import { useEffect } from "react";
 import CollectionBox from "./CollectionBox";
+import DisplayAllNFT from "@pages/MyCollection/DisplayAllNFT";
 
 const CollectionGrid = styled.div`
   width: 100%;
@@ -37,6 +38,7 @@ const main = async (address) => {
 
 export default function CollectionCall({ address }) {
   const [state, setState] = useState();
+  const [switchPageAllNft, setSwitchToPage] = useState(true);
   // const [MyListNft,setMyListNft] = useState();
 
   useEffect(() => {
@@ -140,14 +142,31 @@ export default function CollectionCall({ address }) {
     <>
       <Nav>
         <ul>
-          <li>Collection</li>
-          <li>NFTS</li>
+          <li
+            onClick={() => {
+              setSwitchToPage(true);
+            }}
+          >
+            Collection
+          </li>
+
+          <li
+            onClick={() => {
+              setSwitchToPage(false);
+            }}
+          >
+            NFTS
+          </li>
         </ul>
       </Nav>
       {state ? (
-        <CollectionGrid>
-          <CollectionBox contracts={state} />;
-        </CollectionGrid>
+        switchPageAllNft ? (
+          <CollectionGrid>
+            <CollectionBox contracts={state} />;
+          </CollectionGrid>
+        ) : (
+          <DisplayAllNFT array={state}></DisplayAllNFT>
+        )
       ) : null}
     </>
   );

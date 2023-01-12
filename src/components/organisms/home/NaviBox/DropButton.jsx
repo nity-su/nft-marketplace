@@ -270,7 +270,7 @@ export default function DropButton({ address }) {
               onClick={() => {
                 // swapButton();
                 setPopUpOn((swap) => {
-                  if (swap) {
+                  if (!swap) {
                     getBalance();
                   }
 
@@ -290,7 +290,6 @@ export default function DropButton({ address }) {
                   >
                     <SwapWindow>
                       <SwapTitle>SWAP</SwapTitle>
-
                       <InputTextBox>
                         <ExchangeCoin>{exchange(count)}</ExchangeCoin>
                         <SubTitleForInput>ETH</SubTitleForInput>

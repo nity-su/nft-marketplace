@@ -1,14 +1,15 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import PopupImgNode from "./PopupImgNode";
-import ERC20Controll from "@services/ERC20Controller";
-import { buy } from "@services/BuyController";
+// import PopupImgNode from "./PopupImgNode";
+// import ERC20Controll from "@services/ERC20Controller";
+// import { buy } from "@services/BuyController";
 import Web3 from "web3";
 import abi from "@contracts/BuyController.json";
 import { Link } from "react-router-dom";
+import Mp4FileFormat from "../Mp4FileFormatComponent";
 
 const CA = "0x135b5e858a2f72ff77a2d0d10e5260a687e3b213";
-const ERC20CA = "0x01a0d7c9aa51c1196a283ccca870b0e6cb1f47ba";
+// const ERC20CA = "0x01a0d7c9aa51c1196a283ccca870b0e6cb1f47ba";
 
 const Container = styled.div`
   width: 240px;
@@ -31,7 +32,14 @@ export default function CollectionBox({
   format,
 }) {
   console.log(description);
-  const InfoForBuy = { url: thumbnail, ERC721CA, tokenID, title, description };
+  const InfoForBuy = {
+    url: thumbnail,
+    ERC721CA,
+    tokenID,
+    title,
+    description,
+    format,
+  };
 
   const [state, setState] = useState();
   const [price, setprice] = useState(0);
@@ -64,11 +72,13 @@ export default function CollectionBox({
               setState(!state);
             }}
           />
-        ) : null}
+        ) : (
+          <Mp4FileFormat url={thumbnail} />
+        )}
       </Link>
       <TitleText>{title}</TitleText>
       <PriceText>{price}</PriceText>
-      {state ? (
+      {/* {state ? (
         <PopupImgNode>
           <button
             onClick={() => {
@@ -107,7 +117,7 @@ export default function CollectionBox({
             구매하기
           </button>
         </PopupImgNode>
-      ) : null}
+      ) : null} */}
     </Container>
   );
 }

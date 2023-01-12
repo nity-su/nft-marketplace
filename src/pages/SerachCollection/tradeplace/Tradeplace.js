@@ -7,6 +7,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Web3 from "web3";
 import abi from "@contracts/BuyController.json";
+import Mp4FileFormat from "@components/organisms/Mp4FileFormatComponent";
+import ERC20Controll from "@services/ERC20Controller";
+import { buy } from "@services/BuyController";
 
 const CA = "0x135b5e858a2f72ff77a2d0d10e5260a687e3b213";
 const ERC20CA = "0x01a0d7c9aa51c1196a283ccca870b0e6cb1f47ba";
@@ -40,13 +43,12 @@ const LeftBox = styled.div`
   justify-content: flex-start;
 `;
 
-const NftImg = styled.div`
+const NftImg = styled.img`
   margin-top: 50px;
   margin-left: 35px;
   width: 399px;
   height: 381px;
   border-radius: 20px;
-  background-image: url(${TestImg2});
   background-repeat: no-repeat;
   background-size: cover;
 `;
@@ -208,9 +210,10 @@ function Tradeplace() {
   const location = useLocation();
   console.log(location.state);
   const { url, description, ERC721CA, tokenID, title, format } = location.state;
+  console.log(format);
 
-  const [state, setState] = useState();
   const [price, setprice] = useState(0);
+  console.log("url", url);
   // const web3
   useEffect(() => {
     // if (!price) {
@@ -231,14 +234,51 @@ function Tradeplace() {
         <TradeplaceBackGroundContainer>
           <Container>
             <LeftBox>
-              {format === "png" ? <NftImg></NftImg> : null}
+              {format === "png" ? (
+                <NftImg src={url}></NftImg>
+              ) : (
+                <Mp4FileFormat url={url} />
+              )}
               <PriceBox>
                 <PriceTextBox1>Price</PriceTextBox1>
                 <PriceTextBox2>
                   <PriceTextBoxDetail>{price} scw</PriceTextBoxDetail>
                 </PriceTextBox2>
                 <ButtonContainer>
-                  <BuySuggestButton onClick={clickMe}>
+                  <BuySuggestButton
+                    onClick={() => {
+                      async function temp() {
+                        const accounts = await window.ethereum.request({
+                          method: "eth_requestAccounts",
+                        });
+
+                        const web3 = new Web3(window.ethereum);
+                        const batch = new web3.BatchRequest();
+                        console.log(accounts[0]);
+                        batch.add(
+                          await ERC20Controll({
+                            fromAddress: accounts[0],
+                            toAddress: CA,
+                            ERC20CA: ERC20CA,
+                            amount: price,
+                            web3: web3,
+                          })
+                        );
+                        batch.add(
+                          await buy({
+                            REC721CA: ERC721CA,
+                            tokenID: tokenID,
+                            fromAddress: accounts[0],
+                            price,
+                            web3: web3,
+                          })
+                        );
+                        await batch.execute();
+                        // setState(!state);
+                      }
+                      temp();
+                    }}
+                  >
                     <ButtonBuy className="buybutton">구매</ButtonBuy>
                   </BuySuggestButton>
                   <BuySuggestButton onClick={clickMe}>
