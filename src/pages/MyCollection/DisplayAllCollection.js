@@ -10,10 +10,9 @@ export default function DisplayAllCollection() {
   const location = useLocation();
   const { address } = location.state;
 
-  console.log(address);
+  console.log("DisplayAllCollection");
   getNftsForContract(address).then((result) => {
-    if(!state)
-    setState(result.nfts);
+    if (!state) setState(result.nfts);
   });
 
   return <div>{state ? <DisplayAllNft array={state} /> : null}</div>;

@@ -32,7 +32,7 @@ export default function CollectionBox({ contracts }) {
   `;
 
   const LinkComponent = styled(Link)``;
-
+  console.log(contracts.length);
   // let logo = cld.image(address + "logo");
   // let feature = cld.image(address + "feature");
 
@@ -47,7 +47,7 @@ export default function CollectionBox({ contracts }) {
               >
                 <CloudImg cldImg={cld.image(address + "feature")} />
               </LinkComponent>
-              <Title>나중에 불러올 것임</Title>
+              <Title></Title>
             </Container>
           ))
         : null}
