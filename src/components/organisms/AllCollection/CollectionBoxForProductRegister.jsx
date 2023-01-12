@@ -3,6 +3,7 @@ import { useState } from "react";
 import PopupImgNode from "./PopupImgNode";
 import ERC721Controller from "@services/ERC721Controller";
 import { allowBuy } from "@services/BuyController";
+import Mp4FileFormat from "../Mp4FileFormatComponent";
 
 const Container = styled.div`
   width: 240px;
@@ -14,31 +15,28 @@ const Img = styled.img`
   background-color: gray;
 `;
 const TitleText = styled.span``;
-const PriceText = styled.span``;
 
 export default function CollectionBox({
   thumbnail,
   ERC721CA,
   tokenID,
   name,
-  fromAddress,
+  format,
   title,
 }) {
   const [state, setState] = useState();
   const [price, setPrice] = useState();
   // const [coin, setPriceCoin] = useState();
   return (
-    <Container>
-      <Img
-        src={thumbnail}
-        onClick={() => {
-          console.log(ERC721CA, tokenID);
-          ERC721Controller({ ERC721CA, tokenID });
-          setState(!state);
-        }}
-      />
-      <TitleText>title</TitleText>
-      <PriceText>price</PriceText>
+    <Container
+      onClick={() => {
+        console.log(ERC721CA, tokenID);
+        ERC721Controller({ ERC721CA, tokenID });
+        setState(!state);
+      }}
+    >
+      {format ? <Img src={thumbnail} /> : <Mp4FileFormat url={thumbnail} />}
+      <TitleText>{name}</TitleText>
       {state ? (
         <PopupImgNode>
           <ModalWindow onClick={() => {}}>
