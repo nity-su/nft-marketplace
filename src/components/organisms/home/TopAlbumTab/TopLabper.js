@@ -3,14 +3,14 @@ import { FaEthereum } from "react-icons/fa";
 
 import styled from "styled-components";
 
-import marketplace1 from "@components/assets/images/Labper/l1.png";
-import marketplace2 from "@components/assets/images/Labper/l2.png";
-import marketplace4 from "@components/assets/images/Labper/l3.png";
-import marketplace3 from "@components/assets/images/Labper/l4.png";
-import marketplace5 from "@components/assets/images/Labper/l5.png";
-import marketplace6 from "@components/assets/images/Labper/l6.png";
-import marketplace7 from "@components/assets/images/Labper/l7.png";
-import marketplace8 from "@components/assets/images/Labper/l8.png";
+import marketplace1 from "@assets/images/Labper/l1.png";
+import marketplace2 from "@assets/images/Labper/l2.png";
+import marketplace4 from "@assets/images/Labper/l3.png";
+import marketplace3 from "@assets/images/Labper/l4.png";
+import marketplace5 from "@assets/images/Labper/l5.png";
+import marketplace6 from "@assets/images/Labper/l6.png";
+import marketplace7 from "@assets/images/Labper/l7.png";
+import marketplace8 from "@assets/images/Labper/l8.png";
 
 export default function TopLabper() {
   const marketPlaceData = [
@@ -80,7 +80,7 @@ const Section = styled.section`
   gap: 5rem;
   margin: 0 6rem;
   margin-bottom: 5rem;
-  
+
   .marketPlaceTypes {
     display: flex;
     justify-content: center;

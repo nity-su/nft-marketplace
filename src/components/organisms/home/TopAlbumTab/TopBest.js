@@ -3,14 +3,14 @@ import { FaEthereum } from "react-icons/fa";
 
 import styled from "styled-components";
 
-import marketplace1 from "@components/assets/images/marketplace1.png";
-import marketplace2 from "@components/assets/images/marketplace2.png";
-import marketplace4 from "@components/assets/images/marketplace3.png";
-import marketplace3 from "@components/assets/images/marketplace4.png";
-import marketplace5 from "@components/assets/images/marketplace5.png";
-import marketplace6 from "@components/assets/images/marketplace6.png";
-import marketplace7 from "@components/assets/images/marketplace7.png";
-import marketplace8 from "@components/assets/images/marketplace8.png";
+import marketplace1 from "@assets/images/marketplace1.png";
+import marketplace2 from "@assets/images/marketplace2.png";
+import marketplace4 from "@assets/images/marketplace3.png";
+import marketplace3 from "@assets/images/marketplace4.png";
+import marketplace5 from "@assets/images/marketplace5.png";
+import marketplace6 from "@assets/images/marketplace6.png";
+import marketplace7 from "@assets/images/marketplace7.png";
+import marketplace8 from "@assets/images/marketplace8.png";
 
 export default function TopBest() {
   const marketPlaceData = [

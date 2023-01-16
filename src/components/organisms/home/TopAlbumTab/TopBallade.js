@@ -3,14 +3,14 @@ import { FaEthereum } from "react-icons/fa";
 
 import styled from "styled-components";
 
-import marketplace1 from "@components/assets/images/Ballade/b1.png";
-import marketplace2 from "@components/assets/images/Ballade/b2.png";
-import marketplace3 from "@components/assets/images/Ballade/b3.png";
-import marketplace4 from "@components/assets/images/Ballade/b4.png";
-import marketplace5 from "@components/assets/images/Ballade/b5.png";
-import marketplace6 from "@components/assets/images/Ballade/b6.png";
-import marketplace7 from "@components/assets/images/Ballade/b7.png";
-import marketplace8 from "@components/assets/images/Ballade/b8.png";
+import marketplace1 from "@assets/images/Ballade/b1.png";
+import marketplace2 from "@assets/images/Ballade/b2.png";
+import marketplace3 from "@assets/images/Ballade/b3.png";
+import marketplace4 from "@assets/images/Ballade/b4.png";
+import marketplace5 from "@assets/images/Ballade/b5.png";
+import marketplace6 from "@assets/images/Ballade/b6.png";
+import marketplace7 from "@assets/images/Ballade/b7.png";
+import marketplace8 from "@assets/images/Ballade/b8.png";
 
 export default function MarketPlace() {
   const marketPlaceData = [

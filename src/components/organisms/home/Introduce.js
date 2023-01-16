@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Mainpick from "../../assets/images/Mainpick2.png";
+import Mainpick from "@assets/images/Mainpick2.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Carousel from "./Introduce_page/Carousel";

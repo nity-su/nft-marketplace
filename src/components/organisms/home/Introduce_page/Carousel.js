@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import TestImg1 from "src/components/assets/images/IDLE.png";
-import TestImg2 from "src/components/assets/images/BTS.png";
-import TestImg3 from "src/components/assets/images/newjeans.png";
-import TestImg4 from "src/components/assets/images/Idol/i5.png";
-import TestImg5 from "src/components/assets/images/LoveImage.png";
-import TestImg6 from "src/components/assets/images/Idol/i1.png";
+import TestImg1 from "@assets/images/IDLE.png";
+import TestImg2 from "@assets/images/BTS.png";
+import TestImg3 from "@assets/images/newjeans.png";
+import TestImg4 from "@assets/images/Idol/i5.png";
+import TestImg5 from "@assets/images/LoveImage.png";
+import TestImg6 from "@assets/images/Idol/i1.png";
 
 const LinkBox = styled(Link)``;
 

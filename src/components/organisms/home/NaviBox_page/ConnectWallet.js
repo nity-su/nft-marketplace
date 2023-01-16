@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Wallet from "../../../assets/images/wallet.png";
+import Wallet from "@assets/images/wallet.png";
 
 const Button = styled.div`
   width: 100%;

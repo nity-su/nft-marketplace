@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import LogoImg from "../../assets/images/MetaMusic_Logo_02.png";
+import LogoImg from "@assets/images/MetaMusic_Logo_02.png";
 import { Link, Outlet } from "react-router-dom";
 import ConnectWallet from "./NaviBox_page/ConnectWallet";
 import DropButton from "@components/organisms/home/NaviBox/DropButton";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Lens from "../../assets/images/searchlens.png";
+import Lens from "@assets/images/searchlens.png";
 import { useRef } from "react";
 
 const Navibox = styled.div`

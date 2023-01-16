@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import TestImg2 from "src/components/assets/images/newjeans.png";
+import TestImg2 from "@assets/images/newjeans.png";
 import TxBoxTab from "./TxDetail/TxBoxTab";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";

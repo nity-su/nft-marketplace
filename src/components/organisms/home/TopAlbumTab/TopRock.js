@@ -3,14 +3,14 @@ import { FaEthereum } from "react-icons/fa";
 
 import styled from "styled-components";
 
-import marketplace1 from "@components/assets/images/Rock/r1.png";
-import marketplace2 from "@components/assets/images/Rock/r2.png";
-import marketplace4 from "@components/assets/images/Rock/r3.png";
-import marketplace3 from "@components/assets/images/Rock/r4.png";
-import marketplace5 from "@components/assets/images/Rock/r5.png";
-import marketplace6 from "@components/assets/images/Rock/r6.png";
-import marketplace7 from "@components/assets/images/Rock/r7.png";
-import marketplace8 from "@components/assets/images/Rock/r8.png";
+import marketplace1 from "@assets/images/Rock/r1.png";
+import marketplace2 from "@assets/images/Rock/r2.png";
+import marketplace4 from "@assets/images/Rock/r3.png";
+import marketplace3 from "@assets/images/Rock/r4.png";
+import marketplace5 from "@assets/images/Rock/r5.png";
+import marketplace6 from "@assets/images/Rock/r6.png";
+import marketplace7 from "@assets/images/Rock/r7.png";
+import marketplace8 from "@assets/images/Rock/r8.png";
 
 export default function TopRock() {
   const marketPlaceData = [
