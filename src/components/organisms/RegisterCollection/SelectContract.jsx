@@ -39,15 +39,19 @@ export default function SelectContract({ address, setContractAddress }) {
         })
         .catch(console.log);
 
-      await Promise.all(
+      const promiseAll = await Promise.all(
         array.map(async (element) => {
-          const result = await isAuthenticated(
+          const isAuth = await isAuthenticated(
             element.contract.address,
             accounts[0]
-          ).then(console.log);
-          // console.log("result: ", result);
+          );
+          if (isAuth) return element;
         })
       );
+      const result = promiseAll.filter((x) => x !== undefined);
+      console.log(result);
+
+      setState(result);
     }
     getNFTByAddress();
 
@@ -83,30 +87,31 @@ export default function SelectContract({ address, setContractAddress }) {
 
   return (
     <Ul>
-      {contractAddressArray.map((element, index) => {
-        const id = `cotract_address_${index}`;
-        return (
-          <li key={index}>
-            <label htmlFor={id}>
-              {element.contract.address} NFT name: {element.contract.name}
-            </label>
-            <input
-              id={id}
-              type="checkbox"
-              name="cotract_address"
-              value={element.contract.address}
-              onChange={(e) =>
-                checkOnlyOne(e.target).then(() => {
-                  // setContractAddress({
-                  //   name: element.contract.name,
-                  //   address: element.contract.address,
-                  // });
-                })
-              }
-            />
-          </li>
-        );
-      })}
+      {contractAddressArray &&
+        contractAddressArray.map((element, index) => {
+          const id = `cotract_address_${index}`;
+          return (
+            <li key={index}>
+              <label htmlFor={id}>
+                {element.contract.address} NFT name: {element.contract.name}
+              </label>
+              <input
+                id={id}
+                type="checkbox"
+                name="cotract_address"
+                value={element.contract.address}
+                onChange={(e) =>
+                  checkOnlyOne(e.target).then(() => {
+                    setContractAddress({
+                      name: element.contract.name,
+                      address: element.contract.address,
+                    });
+                  })
+                }
+              />
+            </li>
+          );
+        })}
     </Ul>
   );
 }
