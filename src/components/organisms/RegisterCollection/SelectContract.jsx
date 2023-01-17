@@ -1,7 +1,8 @@
 import React from "react";
-import runMain from "./getNFT";
+import runMain from "../../../services/Alchemy/getNFT";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import isAuthenticated from "@services/isAuth";
 
 const Ul = styled.ul`
   width: 80vw;
@@ -14,7 +15,12 @@ export default function SelectContract({ address, setContractAddress }) {
   useEffect(() => {
     async function getNFTByAddress() {
       //   await runMain().then((x) => setState(x.ownedNfts));
-      await runMain(address)
+
+      const accounts = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
+
+      const array = await runMain(address)
         .then((x) => {
           return x.ownedNfts;
         })
@@ -31,8 +37,17 @@ export default function SelectContract({ address, setContractAddress }) {
 
           return array;
         })
-        .then((array) => setState(array))
         .catch(console.log);
+
+      await Promise.all(
+        array.map(async (element) => {
+          const result = await isAuthenticated(
+            element.contract.address,
+            accounts[0]
+          ).then(console.log);
+          // console.log("result: ", result);
+        })
+      );
     }
     getNFTByAddress();
 
@@ -82,10 +97,10 @@ export default function SelectContract({ address, setContractAddress }) {
               value={element.contract.address}
               onChange={(e) =>
                 checkOnlyOne(e.target).then(() => {
-                  setContractAddress({
-                    name: element.contract.name,
-                    address: element.contract.address,
-                  });
+                  // setContractAddress({
+                  //   name: element.contract.name,
+                  //   address: element.contract.address,
+                  // });
                 })
               }
             />

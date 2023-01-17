@@ -3,7 +3,7 @@ import { useState } from "react";
 import PopupImgNode from "./PopupImgNode";
 import ERC721Controller from "@services/ERC721Controller";
 import { allowBuy } from "@services/BuyController";
-import Mp4FileFormat from "../Mp4FileFormatComponent";
+import Mp4FileFormat from "@components/organisms/Mp4FileFormatComponent";
 
 const Container = styled.div`
   width: 240px;
@@ -179,20 +179,3 @@ const ModalWindow = styled.div`
     }
   }
 `;
-
-// const PopupContainer = styled.div`
-//   .modal-close {
-//     color: #aaa;
-//     line-height: 50px;
-//     font-size: 80%;
-//     position: absolute;
-//     right: 0;
-//     text-align: center;
-//     top: 0;
-//     width: 70px;
-//     text-decoration: none;
-//     &:hover {
-//       color: black;
-//     }
-//   }
-// `;

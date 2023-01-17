@@ -31,37 +31,61 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
-export default function Mp4FileFormat({ url }) {
+export default function Mp4FileFormat({ url, index }) {
   const videoRef = useRef();
   const [state, setState] = useState();
+  // const [indexState,setIndex] =useState(index);
+  const [path, setPath] = useState();
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
-    // const vid = document.getElementById("myVideo");
-    // document.getElementById("icon_display").addEventListener(()=>{
-    // });
-  });
+    let share = index / 12;
+
+    if (refresh) {
+      share = 0;
+    }
+
+    setTimeout(
+      () => {
+        setPath(url);
+      },
+      share === 0 ? 0 : share * 1200
+    );
+  }, [refresh]);
 
   return (
-    <Wrapper
-      onClick={(e) => {
-        if (state) {
-          videoRef.current.pause();
+    path && (
+      <Wrapper
+        onClick={(e) => {
+          if (state) {
+            videoRef.current.pause();
+            setState(!state);
+          }
+          videoRef.current.play();
           setState(!state);
-        }
-        videoRef.current.play();
-        setState(!state);
-      }}
-    >
-      <Video id="video" width="100%" height="100%" ref={videoRef} controls>
-        <source src={url} type="video/mp4"></source>
-      </Video>
-      <PlayDisplay
-        displayCondtion={state ? "none" : "flex"}
-        backgroundColor={state ? "none" : "black"}
+        }}
       >
-        <RiPlayCircleLine className="icon" />
-      </PlayDisplay>
-    </Wrapper>
+        <Video
+          id="video"
+          width="100%"
+          height="100%"
+          onError={(e) => {
+            console.log(index, ": " + e);
+            if (refresh) setRefresh(true);
+          }}
+          ref={videoRef}
+          controls
+        >
+          <source src={url} type="video/mp4"></source>
+        </Video>
+        <PlayDisplay
+          displayCondtion={state ? "none" : "flex"}
+          backgroundColor={state ? "none" : "black"}
+        >
+          <RiPlayCircleLine className="icon" />
+        </PlayDisplay>
+      </Wrapper>
+    )
   );
 }
 

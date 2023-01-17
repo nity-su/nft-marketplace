@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Mp4FileFormat from "../Mp4FileFormatComponent";
+import Mp4FileFormat from "@components/organisms/Mp4FileFormatComponent";
 
 const Container = styled.div`
   display: flex;
@@ -21,30 +21,21 @@ const CollectionGrid = styled.div`
   grid-template-rows: auto;
 `;
 export default function DisplayAllNft({ array }) {
+  console.log(array.length);
   return (
     <Container>
       <CollectionGrid>
-        {array.map((nft, i) => {
+        {array.map((nft, index) => {
           const uri =
             "https://gateway.ipfs.io/" + nft.media[0].raw.replace("://", "/");
           console.log(nft.media[0].format);
           return nft.media[0].format === "png" ? (
-            <Img key={i} src={uri} />
+            <Img key={index} src={uri} />
           ) : (
-            <Mp4FileFormat key={i} url={uri} />
+            <Mp4FileFormat key={index} index={index} url={uri} />
           );
         })}
       </CollectionGrid>
     </Container>
   );
 }
-/*
-      <CollectionBox
-              thumbnail={nft.media[0].thumbnail}
-              ERC721CA={nft.contract.address}
-              name={nft.contract.name}
-              tokenID={nft.tokenId}
-              title={nft.title}
-              key={i}
-            ></CollectionBox>
-            */

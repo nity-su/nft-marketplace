@@ -1,8 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import runMain from "@components/organisms/RegisterCollection/getNFT";
+import runMain from "@services/Alchemy/getNFT";
 import styled from "styled-components";
-// import Mp4FileFormat from "@components/organisms/Mp4FileFormatComponent";
 import CollectionBox from "@components/organisms/AllCollection/CollectionBoxForProductRegister";
 
 const Container = styled.div`
@@ -46,12 +45,6 @@ export default function DisplayAllNFT({ array }) {
           name: nft.rawMetadata.name,
         };
       });
-
-      // console.log(list);
-
-      // console.log(listTokenID);
-
-      // console.log(list);
 
       setState(list);
     }

@@ -15,10 +15,11 @@ const CollectionGrid = styled.div`
   grid-template-rows: auto;
 `;
 export default function DisplayAllNft({ array }) {
+  console.log(array.length);
   return (
     <Container>
       <CollectionGrid>
-        {array.map((nft, i) => {
+        {array.map((nft, index) => {
           console.log("nft", nft);
           const raw =
             "https://gateway.ipfs.io/" + nft.media[0].raw.replace("://", "/");
@@ -31,7 +32,8 @@ export default function DisplayAllNft({ array }) {
               title={nft.title}
               description={nft.description}
               format={nft.media[0].format}
-              key={i}
+              index={index}
+              key={index}
             ></CollectionBox>
           );
         })}

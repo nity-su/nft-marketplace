@@ -1,12 +1,9 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-// import PopupImgNode from "./PopupImgNode";
-// import ERC20Controll from "@services/ERC20Controller";
-// import { buy } from "@services/BuyController";
 import Web3 from "web3";
 import abi from "@contracts/BuyController.json";
 import { Link } from "react-router-dom";
-import Mp4FileFormat from "../Mp4FileFormatComponent";
+import Mp4FileFormat from "@components/organisms/Mp4FileFormatComponent";
 
 const CA = "0x135b5e858a2f72ff77a2d0d10e5260a687e3b213";
 // const ERC20CA = "0x01a0d7c9aa51c1196a283ccca870b0e6cb1f47ba";
@@ -30,6 +27,7 @@ export default function CollectionBox({
   title,
   description,
   format,
+  index,
 }) {
   console.log(description);
   const InfoForBuy = {
@@ -73,7 +71,7 @@ export default function CollectionBox({
             }}
           />
         ) : (
-          <Mp4FileFormat url={thumbnail} />
+          <Mp4FileFormat url={thumbnail} index={index} />
         )}
       </Link>
       <TitleText>{title}</TitleText>
