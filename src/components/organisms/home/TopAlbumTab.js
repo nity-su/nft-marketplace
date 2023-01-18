@@ -8,6 +8,8 @@ import TopClassic from "./TopAlbumTab/TopClassic";
 import TopRock from "./TopAlbumTab/TopRock";
 import TopLabper from "./TopAlbumTab/TopLabper";
 
+import { ErrorBoundary } from "react-error-boundary";
+
 const TabAllContainer = styled.div`
   width: 100%;
   align-items: center;
@@ -26,8 +28,19 @@ const TabContainer = styled.div`
   display: flex;
 `;
 
+function ErrorFallback({ error, resetErrorBoundary }) {
+  return (
+    <div role="alert">
+      <p>Something went wrong:</p>
+      <pre>{error.message}</pre>
+      <button onClick={resetErrorBoundary}>Try again</button>
+    </div>
+  );
+}
+
 export default function TopAlbumTab() {
   const [state, setState] = useState(1);
+  const [errorCode, setErrorCode] = useState(true);
 
   const action = (index) => {
     setState(index);
@@ -47,7 +60,9 @@ export default function TopAlbumTab() {
             <TabTextContainer>
               <div className="tabs">
                 <div
-                  onClick={() => action(1)}
+                  onClick={() => {
+                    action(1);
+                  }}
                   className={`${state === 1 ? "tab active-tab" : "tab"}`}
                 >
                   인기
@@ -85,7 +100,6 @@ export default function TopAlbumTab() {
                 </div>
               </div>
             </TabTextContainer>
-
             {/* contents */}
 
             <div className="contents">
@@ -95,18 +109,23 @@ export default function TopAlbumTab() {
                 }`}
               >
                 <TabContainer>
-                  <TopBest />
+                  <ErrorBoundary
+                    FallbackComponent={ErrorFallback}
+                    onReset={() => {
+                      // reset the state of your app so the error doesn't happen again
+                      setErrorCode(false);
+                    }}
+                  >
+                    <TopBest code={errorCode} />
+                  </ErrorBoundary>
                 </TabContainer>
               </div>
-
               <div
                 className={`${
                   state === 2 ? "content active-content" : "content "
                 }`}
               >
-                <TabContainer>
-                  <TopIdol />
-                </TabContainer>
+                <TabContainer>{/* <TopIdol /> */}</TabContainer>
               </div>
 
               <div
@@ -114,18 +133,14 @@ export default function TopAlbumTab() {
                   state === 3 ? "content active-content" : "content "
                 }`}
               >
-                <TabContainer>
-                  <TopBallde />
-                </TabContainer>
+                <TabContainer>{/* <TopBallde /> */}</TabContainer>
               </div>
               <div
                 className={`${
                   state === 4 ? "content active-content" : "content "
                 }`}
               >
-                <TabContainer>
-                  <TopClassic />
-                </TabContainer>
+                <TabContainer>{/* <TopClassic /> */}</TabContainer>
               </div>
 
               <div
@@ -133,9 +148,7 @@ export default function TopAlbumTab() {
                   state === 5 ? "content active-content" : "content "
                 }`}
               >
-                <TabContainer>
-                  <TopRock />
-                </TabContainer>
+                <TabContainer>{/* <TopRock /> */}</TabContainer>
               </div>
 
               <div
@@ -143,9 +156,7 @@ export default function TopAlbumTab() {
                   state === 6 ? "content active-content" : "content "
                 }`}
               >
-                <TabContainer>
-                  <TopLabper />
-                </TabContainer>
+                <TabContainer>{/* <TopLabper /> */}</TabContainer>
               </div>
             </div>
           </div>

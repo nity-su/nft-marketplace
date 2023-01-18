@@ -12,7 +12,7 @@ import marketplace6 from "@assets/images/marketplace6.png";
 import marketplace7 from "@assets/images/marketplace7.png";
 import marketplace8 from "@assets/images/marketplace8.png";
 
-export default function TopBest() {
+export default function TopBest({code}) {
   const marketPlaceData = [
     {
       image: marketplace1,
@@ -47,11 +47,11 @@ export default function TopBest() {
       name: "WSG워너비 - WSG워너비 1집",
     },
   ];
-
+  if (code) throw new Error("This is a forced error");
   return (
     <Section>
       <div className="marketPlaces">
-        {marketPlaceData.map(({ image, name }) => {
+        {marketPlaceData.map(({ image, name }, index) => {
           return (
             <div className="marketplace">
               <div className="image">

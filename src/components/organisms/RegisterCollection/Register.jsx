@@ -88,9 +88,9 @@ async function onHandleChange(files, address) {
 
 export default function Register() {
   const [files, setFile] = useState({ logo: "", feature: "" });
+  const [conAddrDB, setConAddrDB] = useState({ name: "", address: "" });
   const [logoFile, setLogoFile] = useState("");
   const [featureFile, setfeatureFile] = useState("");
-  const [conAddrDB, setConAddrDB] = useState({ name: "", address: "" });
   const location = useLocation();
   try {
     var address = location.state.address;
@@ -191,7 +191,7 @@ export default function Register() {
                 type="button"
                 onClick={() => {
                   if (!conAddrDB.address && !conAddrDB.name) {
-                    alert("주소와 이름을 선택주세요.");
+                    alert("컨트렉트 주소와 이름을 선택주세요.");
                     return;
                   }
                   onHandleChange(files, conAddrDB.address).then(() => {

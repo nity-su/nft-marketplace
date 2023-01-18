@@ -58,19 +58,6 @@ export default function SelectContract({ address, setContractAddress }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  /*
-  const web3 = new Web3(
-    "https://goerli.infura.io/v3/b6b8a50b28304843adddcd4cf34098bd"
-  );
-
-  let contract = new web3.eth.Contract(
-    abi,
-    "0x4f0d0f87a5d6bce5fa517faa69339dd10f31209f"
-  );
-
-  contract.methods.owner().call().then(console.log);
-  소유권 증명
-*/
   function checkOnlyOne(target) {
     const boxs = document.getElementsByName("cotract_address");
     //예외처리하기
