@@ -21,13 +21,15 @@ export default function Router() {
           <Route path="/allcollection" element={<AllCollection />}></Route>
           <Route path="/nftlist" element={<NFTList />}></Route>
           <Route path="/register-collection" element={<Register />}></Route>
-          <Route path="/SerachCollection" element={<SerachCollection />} />
+          <Route path="SerachCollection" element={<SerachCollection />}>
+            <Route path="DisplayCollection" element={<DisplayCollection />} />
+          </Route>
           <Route path="/MyCollection" element={<MyCollection />}></Route>
           <Route
             path="/DisplayAllCollection"
             element={<DisplayAllCollection />}
           />
-          <Route path="/DisplayCollection" element={<DisplayCollection />} />
+
           <Route path="/tradeplace" element={<Tradeplace />} />
         </Route>
       </Routes>

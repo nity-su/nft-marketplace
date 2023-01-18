@@ -76,13 +76,3 @@ export default function DisplayAllNFT({ array }) {
     </FlexContainer>
   );
 }
-
-// const list = await Promise.all(
-// NftsOwned.ownedNfts.filter((result) => {
-//   if (array.includes(result.contract.address)) {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// })
-// );

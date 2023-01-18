@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { AdvancedImage } from "@cloudinary/react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 export default function CollectionBox({ address, cloudinary }) {
   const Container = styled.div`
@@ -15,10 +15,12 @@ export default function CollectionBox({ address, cloudinary }) {
     border-radius: 8px;
   `;
   return (
-    <Container>
-      <Link to={"/DisplayCollection"} state={{ address }}>
-        <CloudImg cldImg={cloudinary.image(address + "feature")} />
-      </Link>
-    </Container>
+    <>
+      <Container>
+        <Link to={"DisplayCollection"} state={{ address }}>
+          <CloudImg cldImg={cloudinary.image(address + "feature")} />
+        </Link>
+      </Container>
+    </>
   );
 }

@@ -112,7 +112,7 @@ function NaviBox() {
   let navigate = useNavigate();
   const routeChange = (name) => {
     // let path = `newPath`;
-    navigate("/SerachCollection", { state: name });
+    navigate("SerachCollection", { state: name });
   };
   const serachInfo = useRef();
   const [address, setAddr] = useState();

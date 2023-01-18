@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useLocation } from "react-router";
+import { Outlet, useLocation } from "react-router";
 import styled from "styled-components";
 import { Cloudinary } from "@cloudinary/url-gen";
 import CollectionBox from "@components/organisms/SerachCollection/CollectionBox";
@@ -26,9 +26,9 @@ const CollectionGrid = styled.div`
 `;
 
 export default function DownLoad() {
-  const { state } = useLocation();
-  const name = state;
-  console.log(name);
+  const location = useLocation();
+  const name = location.state;
+  console.log(location.pathname);
   const [contractAddr, setcontractAddr] = useState([]);
   useEffect(() => {
     if (!name) {
@@ -56,19 +56,24 @@ export default function DownLoad() {
   }, []);
 
   return (
-    <Container>
-      <CollectionGrid>
-        {contractAddr
-          ? contractAddr.map((result) => {
-              return (
-                <CollectionBox
-                  address={result.address.toLowerCase()}
-                  cloudinary={cld}
-                />
-              );
-            })
-          : null}
-      </CollectionGrid>
-    </Container>
+    <>
+      {location.pathname === "/SerachCollection" && (
+        <Container>
+          <CollectionGrid>
+            {contractAddr
+              ? contractAddr.map((result) => {
+                  return (
+                    <CollectionBox
+                      address={result.address.toLowerCase()}
+                      cloudinary={cld}
+                    />
+                  );
+                })
+              : null}
+          </CollectionGrid>
+        </Container>
+      )}
+      <Outlet />
+    </>
   );
 }

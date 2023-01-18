@@ -4,7 +4,7 @@ import { Alchemy, Network } from "alchemy-sdk";
 import { useState } from "react";
 import { useEffect } from "react";
 import CollectionBox from "./CollectionBox";
-import DisplayAllNFT from "@pages/MyCollection/DisplayAllNFT";
+import DisplayAllNFT from "@components/organisms/MyCollection/DisplayAllNFT";
 
 const CollectionGrid = styled.div`
   width: 100%;

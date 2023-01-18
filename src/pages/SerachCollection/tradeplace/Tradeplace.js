@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import TestImg2 from "@assets/images/newjeans.png";
-import TxBoxTab from "./TxDetail/TxBoxTab";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import Web3 from "web3";
+import TxBoxTab from "./TxDetail/TxBoxTab";
+import TestImg2 from "@assets/images/newjeans.png";
 import abi from "@contracts/BuyController.json";
 import Mp4FileFormat from "@components/organisms/Mp4FileFormatComponent";
 import ERC20Controll from "@services/ERC20Controller";
